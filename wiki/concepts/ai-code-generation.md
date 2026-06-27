@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260413235016.md, summaries/Apply-to-Y-Combinator.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/Introducing-FrontierCode.md]
+sources: [summaries/application_20260413205413.md, summaries/README_20260413235016.md, summaries/Apply-to-Y-Combinator.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/Introducing-FrontierCode.md]
 brief: AI code generation uses LLMs and agents to produce and evolve software.
 ---
 
@@ -130,3 +130,5 @@ See [[summaries/Introducing-FrontierCode]] for a full treatment of these princip
 - [[concepts/startup-fundraising]]
 
 See also: [[summaries/README_20260413235016]]
+
+See also: [[summaries/application_20260413205413]]

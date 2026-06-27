@@ -1,12 +1,12 @@
 ---
-sources: [summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md]
-brief: YC application session showing AI-assisted coding and execution judgment.
+sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md]
+brief: Optional YC artifact showing AI-assisted coding execution and judgment.
 ---
 
 # YC Coding Agent Session
 
 ## Overview
-The YC Coding Agent Session is referenced in [[summaries/README_20260413235016]], [[summaries/README_20260413235148]], [[summaries/README_20260413235353]], [[summaries/README_20260413235533]], and [[summaries/README_20260414001057]] as a distinct part of the YC Summer 2026 application that deserves explicit, question-by-question preparation. In the available source context, it is not framed as a generic coding test. Instead, it appears as a separate application surface where a founder can demonstrate execution, technical judgment, and fluency with AI-assisted development in a way that supports the broader application narrative.
+The YC Coding Agent Session is a distinct Summer 2026 application component referenced in [[summaries/README_20260413235016]], [[summaries/README_20260413235148]], [[summaries/README_20260413235353]], [[summaries/README_20260413235533]], [[summaries/README_20260414001057]], and clarified by [[summaries/application_20260413205413]]. In the available source context, it is not framed as a generic coding test. Instead, it appears as an optional upload that lets a founder demonstrate execution, technical judgment, and fluency with AI-assisted development in a way that supports the broader YC application narrative.
 
 ## What this concept means in the source context
 Across the source summaries, the Coding Agent Session appears inside a broader YC preparation effort that includes:
@@ -18,34 +18,36 @@ Across the source summaries, the Coding Agent Session appears inside a broader Y
 - technical viability arguments for local LLM use via Apple MLX
 - tactical guidance for every major application section
 - explicit preparation for founder-background prompts about accomplishments, prior builds, and evidence of unusual effectiveness
+- the formal YC application field asking applicants to attach a coding agent export they are particularly proud of
 
-This places the Coding Agent Session within a larger [[concepts/application-preparation]] and [[concepts/application-strategy]] workflow. The source framing suggests that this session should reinforce a coherent founder and product thesis rather than function as an isolated technical screen.
+The application form adds important specificity: this is an **optional** Summer 2026 question, YC describes it as an experimental opportunity to show off skill with AI coding tools, common examples include Claude Code and Cursor, exported transcripts may be in markdown or text, and the file size limit is 25 MB. This places the Coding Agent Session within a larger [[concepts/application-preparation]] and [[concepts/application-strategy]] workflow. The source framing suggests that this session should reinforce a coherent founder and product thesis rather than function as an isolated technical screen.
 
 ## Role in YC application strategy
-The Coding Agent Session likely serves as evidence for how a founder builds, reasons, and executes using AI-assisted development tools. In the source materials, this makes it relevant to:
+The Coding Agent Session serves as evidence for how a founder builds, reasons, and executes using AI-assisted development tools. In the source materials, this makes it relevant to:
 - [[concepts/founder-evaluation]]
 - [[concepts/founder-track-record]]
 - [[concepts/ai-code-generation]]
 - [[concepts/startup-application-materials]]
 - [[concepts/yc-partner-preferences]]
 
-The newer source strengthens this interpretation by explicitly placing the session alongside competitive differentiation, market sizing, regulatory positioning, local-LLM feasibility through MLX, and question-by-question application tactics. It also links the session more clearly to the surrounding personal prompts about what the founder has built, achieved, and how they have operated effectively in the past. That context suggests the session is one of several coordinated ways YC may assess whether the founder can translate a startup thesis into execution.
+The newer source strengthens this interpretation by explicitly placing the session inside the application’s Progress and Tech Stack section, alongside questions about product progress, user adoption, technical stack, AI models, and AI coding tools. That positioning suggests YC is interested not just in whether a founder can code, but in whether they can build effectively with modern tools in a way that connects to actual startup execution. The session is therefore one of several coordinated ways YC may assess whether the founder can translate a startup thesis into execution.
 
 ## Key ideas implied by the source document
 
 ### 1. It is part of structured application prep
-All of the cited sources emphasize that the YC application was being researched and prepared systematically, including this session. The newest source makes this especially explicit by describing a complete research foundation covering the exact application questions, partner preferences, and tactical guidance for every section, including the Coding Agent Session. That implies the Coding Agent Session should be prepared with the same rigor as written answers, founder narrative, accomplishment prompts, and market analysis.
+All of the cited sources emphasize that the YC application was being researched and prepared systematically, including this session. The newest source makes this especially explicit by showing the Coding Agent Session as a named application prompt with concrete submission rules. That implies the session should be prepared with the same rigor as written answers, founder narrative, accomplishment prompts, and market analysis.
 
 Related pages:
 - [[concepts/application-preparation]]
 - [[concepts/application-strategy]]
 - [[concepts/yc-partner-preferences]]
 - [[concepts/startup-application-materials]]
+- [[concepts/application-question-tracking]]
 
 ### 2. It should align with the founder narrative
 The sources also highlight [[concepts/solo-founder-strategy]] and founder positioning. That suggests the Coding Agent Session is not only about generating working code, but also about reinforcing the founder’s credibility as someone who can build quickly, think clearly, and operate independently.
 
-This is especially consistent with the surrounding YC prompts about accomplishments, prior builds, open-source work, awards, papers, and evidence of unusual effectiveness. In that sense, the session contributes to the same overall founder story as the rest of the application.
+This is especially consistent with the surrounding YC prompts about accomplishments, prior builds, and evidence of unusual effectiveness. In that sense, the session contributes to the same overall founder story as the rest of the application.
 
 Related pages:
 - [[concepts/founder-narrative]]
@@ -53,9 +55,9 @@ Related pages:
 - [[concepts/founder-evaluation]]
 
 ### 3. It should connect to product and technical credibility
-The source set ties the broader application to technical viability claims around local LLM use, with the latest source specifically naming Apple MLX. In practice, this suggests the session is strongest when it reflects actual product constraints, architecture choices, privacy considerations, and implementation judgment rather than abstract algorithmic performance.
+The source set ties the broader application to technical viability claims around local LLM use, with the latest source specifically asking applicants to list their tech stack, including AI models and AI coding tools. In practice, this suggests the session is strongest when it reflects actual product constraints, architecture choices, privacy considerations, and implementation judgment rather than abstract algorithmic performance.
 
-Because the broader startup context is neuropsychological AI with healthcare-related regulatory considerations, technical credibility is not only about shipping code. It is also about showing that implementation choices are compatible with privacy, reliability, and domain-specific constraints.
+Because the broader startup context is healthcare-related AI with regulatory and privacy constraints, technical credibility is not only about shipping code. It is also about showing that implementation choices are compatible with privacy, reliability, and domain-specific constraints.
 
 Related pages:
 - [[concepts/local-llm-inference]]
@@ -65,7 +67,7 @@ Related pages:
 - [[concepts/healthcare-ai-regulation]]
 
 ### 4. It likely reflects product judgment, not just coding fluency
-The newer source places the Coding Agent Session beside startup differentiation claims, healthcare regulatory positioning, competitive analysis, and market sizing. That context implies YC may view the session as another way to assess whether the founder can turn product vision into practical execution.
+The newer source places the Coding Agent Session beside startup differentiation claims, healthcare regulatory positioning, competitive analysis, market sizing, product progress, and user adoption. That context implies YC may view the session as another way to assess whether the founder can turn product vision into practical execution.
 
 In this framing, strong performance would likely demonstrate:
 - fast implementation ability
@@ -82,7 +84,7 @@ Related pages:
 - [[concepts/startup-differentiation]]
 
 ### 5. It sits beside both company and founder evidence
-The latest source expands the surrounding application context by explicitly listing founder-background sections such as non-startup achievements, prior things built, and competitions, awards, or papers. This implies the Coding Agent Session is not isolated from the rest of the application; instead, it complements those sections by showing present-tense building ability.
+The latest source expands the surrounding application context by explicitly locating the session near company-progress evidence: how far along the product is, how long the founder has worked on it, whether users exist, and what tools are used to build it. This implies the Coding Agent Session is not isolated from the rest of the application; instead, it complements both founder-background claims and company-progress claims by showing present-tense building ability.
 
 In that sense, the session can function as a bridge between:
 - narrative claims about founder capability, and
@@ -94,7 +96,7 @@ Related pages:
 - [[concepts/startup-application-materials]]
 
 ### 6. It should reinforce application-wide coherence
-The newest source emphasizes a full-stack application thesis: partner preferences, solo founder positioning, competitive landscape, TAM, regulatory positioning, local-LLM feasibility, and tactical guidance for each question. Within that structure, the Coding Agent Session should not feel disconnected from the rest of the application.
+The newest source emphasizes a full-stack application thesis: partner preferences, solo founder positioning, competitive landscape, TAM, regulatory positioning, local-LLM feasibility, progress, tech stack, and tactical guidance for each question. Within that structure, the Coding Agent Session should not feel disconnected from the rest of the application.
 
 A strong session would likely reinforce the same themes already claimed elsewhere:
 - the founder can execute quickly
@@ -112,14 +114,16 @@ Related pages:
 
 ## Practical interpretation
 Based on the available sources, the best interpretation of the YC Coding Agent Session is:
-- a new YC application component
+- a new optional YC application component for Summer 2026
+- an experimental prompt intended to let applicants show skill with AI coding tools
 - something that merits explicit tactical preparation
 - an opportunity to demonstrate founder speed, clarity, and product-minded technical judgment
 - a place where AI-assisted development skill can reinforce the broader founder story
 - a session where technical choices should support the overall application narrative, including feasibility, differentiation, and execution credibility
 - a practical counterpart to the written application’s claims about what the founder has built and can build
 - a setting where product, market, and regulatory awareness may matter alongside pure coding fluency
-- a component best prepared in coordination with founder-background answers, competitive claims, and technical viability arguments rather than in isolation
+- a component best prepared in coordination with founder-background answers, competitive claims, progress evidence, and technical viability arguments rather than in isolation
+- an upload artifact, typically an exported transcript from a coding agent, constrained to .md or .txt and a maximum size of 25 MB
 
 ## What the source does and does not provide
 
@@ -132,18 +136,22 @@ Based on the available sources, the best interpretation of the YC Coding Agent S
 - Context suggesting it complements founder-background prompts about accomplishments and prior builds
 - Added evidence that the session sits inside a complete research foundation that also covers partner preferences, competitive claims, regulatory frameworks, and local-LLM viability
 - Added evidence that the session is part of a preparation package with a concrete deadline and tightly integrated founder, product, market, and compliance storytelling
+- Direct application-form details that the prompt is optional, experimental, export-based, and explicitly about AI coding tools
+- Direct submission constraints: markdown or text export, maximum file size 25 MB
+- Examples of the type of tools YC has in mind, such as Claude Code and Cursor
 
 ### Not provided
-- The exact format of the session
-- The prompts or evaluation rubric
+- The exact evaluation rubric
 - Specific recommended answers or workflows
-- Any direct examples of session performance
-- Official YC documentation explaining how the session is scored
+- Any direct examples of session performance from the applicant
+- Official YC guidance explaining how the session is scored in relation to the rest of the application
 - Direct evidence confirming which technical behaviors YC values most within the session
+- Any indication that the session is a live interview rather than an uploaded transcript artifact
 
 ## Related concepts
 - [[concepts/application-preparation]]
 - [[concepts/application-strategy]]
+- [[concepts/application-question-tracking]]
 - [[concepts/startup-application-materials]]
 - [[concepts/yc-partner-preferences]]
 - [[concepts/founder-evaluation]]
@@ -167,5 +175,6 @@ Based on the available sources, the best interpretation of the YC Coding Agent S
 - [[summaries/README_20260413235353]]
 - [[summaries/README_20260413235533]]
 - [[summaries/README_20260414001057]]
+- [[summaries/application_20260413205413]]
 
 See also: [[summaries/YC Application Questions_20260413233900]]

@@ -1,6 +1,10 @@
 # Knowledge Base Index
 
 ## Documents
+- [[summaries/application_20260413205413]] (short) — YC application form template outlining founder, product, market, and logistics questions.
+- [[summaries/YC Application Questions_20260416091345]] (short) — Counts remaining YC application questions: 11 required plus 2 optional.
+- [[summaries/YC Application Questions_20260413233900]] (short) — Counts unanswered YC application questions and groups them by section.
+- [[summaries/README_20260414001057]] (short) — Summary of YC S26 application research scope and linked application prompts.
 - [[summaries/README_20260413235533]] (short) — YC S26 application prep README outlining research scope and application prompts.
 - [[summaries/README_20260413235353]] (short) — Summary of YC S26 application research and tactical submission guidance.
 - [[summaries/README_20260413235148]] (short) — Notes for a YC S26 application with positioning, market, and application guidance.
@@ -207,17 +211,21 @@
 - [[summaries/The-Complete-Guide-to-AI-Architectures-From-Neural-Networks-to-Foundation-Models]] (short) — Comprehensive guide to AI architectures from perceptrons to 2025 foundation models and reasoning systems
 
 ## Concepts
+- [[concepts/yc-application-planning]] — YC application planning turns YC prompts into a structured completion plan.
+- [[concepts/application-question-tracking]] — Tracking application prompts as a structured checklist for submission readiness.
+- [[concepts/competitive-landscape-analysis]] — Assessing rivals and overlap to sharpen startup positioning for YC.
+- [[concepts/solo-founder-strategy]] — How a solo founder should frame strength, credibility, and execution in a YC app.
 - [[concepts/startup-differentiation]] — How a startup proves it is uniquely valuable, credible, and hard to replace.
 - [[concepts/regulatory-positioning]] — How a healthcare AI product is framed within legal and clinical boundaries.
-- [[concepts/market-sizing]] — Estimating a startup’s current and future market to support focus and scale claims.
-- [[concepts/yc-partner-preferences]] — Inferred YC signals around founder quality, clarity, execution, and market promise.
-- [[concepts/coding-agent-session]] — A YC application component showcasing AI-assisted technical execution and judgment.
-- [[concepts/application-strategy]] — How startup applications are framed to maximize founder and company signal.
-- [[concepts/founder-narrative]] — Founder narrative is the evidence-backed story that makes a founder credible.
-- [[concepts/startup-application-materials]] — Application prompts, evidence, and framing used to present a startup to evaluators.
-- [[concepts/founder-track-record]] — Founder track record is curated evidence of a founder’s ability to execute.
+- [[concepts/market-sizing]] — Estimating a startup’s current and future market to support strategy and scale.
+- [[concepts/yc-partner-preferences]] — Inferred YC evaluation signals from application prompts and preparation materials.
+- [[concepts/coding-agent-session]] — Optional YC artifact showing AI-assisted coding execution and judgment.
+- [[concepts/application-strategy]] — Strategic framing of startup applications to maximize founder and company signal.
+- [[concepts/founder-narrative]] — Founder narrative is the evidence-backed story of why a founder will win.
+- [[concepts/startup-application-materials]] — Documents and trackers used to prepare and position a startup application.
+- [[concepts/founder-track-record]] — Founder track record is curated evidence that a founder can execute credibly.
 - [[concepts/personal-writing-workflows]] — Structured systems for drafting, revising, and preserving personal writing.
-- [[concepts/application-preparation]] — Application preparation is the reflective and organizational work before applying.
+- [[concepts/application-preparation]] — Preparing high-stakes applications through reflection, prompt staging, and tracking.
 - [[concepts/healthcare-workforce-automation]] — Using software and AI to expand clinical capacity amid workforce shortages.
 - [[concepts/healthcare-ai-regulation]] — Healthcare AI regulation is the compliance framework for deploying AI in clinical care.
 - [[concepts/semantic-cohesion]] — Semantic cohesion is the degree to which all parts of an output support one core meaning.
@@ -438,7 +446,7 @@
 - [[concepts/pai-assessment]] — Comprehensive reference for the PAI instrument, corpus protocols, scoring, validity, and RAG system.
 - [[concepts/late-interaction-retrieval]] — A multi-vector retrieval paradigm where token-level embeddings are matched via MaxSim scoring.
 - [[concepts/multimodal-embeddings]] — Multimodal embeddings map text and images into a shared vector space for unified retrieval and comparison.
-- [[concepts/mlx-framework]] — Apple’s ML framework enabling practical local AI on Apple Silicon.
+- [[concepts/mlx-framework]] — Apple’s local ML framework enabling practical on-device AI on Apple Silicon.
 - [[concepts/style-profile-extraction]] — Extracting a reusable JSON style profile from a report corpus to constrain LLM-generated clinical text.
 - [[concepts/sqlite-as-vector-store]] — Using SQLite to persist and query vector embeddings locally, avoiding dedicated vector database infrastructure.
 - [[concepts/fallback-strategy]] — Resilience pattern routing AI calls through a preferred backend with automatic degradation to a secondary option.

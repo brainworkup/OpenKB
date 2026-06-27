@@ -1,5 +1,5 @@
 ---
-sources: [summaries/cognition.instructions.md, summaries/brand-and-skills.md, summaries/POSITRON_DATABOT_TROUBLESHOOTING.md]
+sources: [summaries/application_20260413205413.md, summaries/cognition.instructions.md, summaries/brand-and-skills.md, summaries/POSITRON_DATABOT_TROUBLESHOOTING.md]
 brief: Configuring AI coding assistants in IDEs via settings files, provider selection, model choice, and instruction files.
 ---
 
@@ -118,3 +118,5 @@ Some AI features have strict IDE version requirements. For example, Positron Dat
 - [[concepts/documentation-as-code]] — The broader practice of encoding policy and context in plain text files
 
 See also: [[summaries/cognition.instructions]], [[summaries/brand-and-skills]]
+
+See also: [[summaries/application_20260413205413]]

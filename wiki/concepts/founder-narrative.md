@@ -1,5 +1,5 @@
 ---
-sources: [summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md]
+sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md]
 brief: Founder narrative is the evidence-backed story of why a founder will win.
 ---
 
@@ -105,3 +105,5 @@ See also: [[summaries/README_20260413235148]]
 See also: [[summaries/YC Application Questions_20260413233900]]
 
 See also: [[summaries/YC Application Questions_20260416091345]]
+
+See also: [[summaries/application_20260413205413]]

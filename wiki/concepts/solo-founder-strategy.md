@@ -1,5 +1,5 @@
 ---
-sources: [summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md]
+sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md]
 brief: How a solo founder should frame strength, credibility, and execution in a YC app.
 ---
 
@@ -171,3 +171,5 @@ Solo founder strategy is the discipline of presenting one-person company buildin
 See also: [[summaries/YC Application Questions_20260413233900]]
 
 See also: [[summaries/YC Application Questions_20260416091345]]
+
+See also: [[summaries/application_20260413205413]]
