@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/NP-20240415-001_report.md]
+sources: [summaries/attention-problems.md, summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/NP-20240415-001_report.md]
 brief: The Working Memory Index (WMI) is a WAIS-IV composite score measuring the ability to hold and manipulate information in mind.
 ---
 
@@ -74,3 +74,5 @@ In automated and narrative report systems, the WMI is a key structured output ta
 
 
 See also: [[summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies]]
+
+See also: [[summaries/attention-problems]]

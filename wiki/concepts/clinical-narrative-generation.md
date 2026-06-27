@@ -1,5 +1,5 @@
 ---
-sources: [summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/NP-20240415-001_report.md, summaries/sirf_synthesis.md, summaries/nt_interpretation.md]
+sources: [summaries/cerner-autotext.md, summaries/agentic-workflows.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/NP-20240415-001_report.md, summaries/sirf_synthesis.md, summaries/nt_interpretation.md]
 brief: Automated generation of structured clinical narrative text from quantitative scores using LLM prompting.
 ---
 
@@ -63,3 +63,7 @@ See also: [[summaries/NP-20240415-001_report]]
 See also: [[summaries/LLM Benchmark Comparison]]
 
 See also: [[summaries/Luria_AI_Q4_Investor_Memo_2026]]
+
+See also: [[summaries/agentic-workflows]]
+
+See also: [[summaries/cerner-autotext]]

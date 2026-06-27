@@ -1,11 +1,11 @@
 ---
-sources: [summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/bwu.neuro.reports.recs.building-verbal-skills.md, summaries/bwu.neuro.reports.recs.build-math-skills.md, summaries/CARS2-Manual_extracted.md, summaries/sirf_synthesis.md, summaries/nt_interpretation.md, summaries/neurocog.prompt.md, summaries/neurobehav.prompt.md, summaries/LLM_INTEGRATION.md, summaries/LLM_AGENT_MAP.md, summaries/CLAUDE.md, summaries/multi_patient_transcript.md, summaries/report_body.md, summaries/NP-20240415-001_report.md, summaries/README.md, summaries/neuropsych-narrative-writer.md, summaries/neuropsych-data-extractor.md, summaries/brainworkup-brand-voice-guide.md, summaries/template-system.md, summaries/SKILL.md, summaries/AGENTS_luria.md]
-brief: Standardized categories of mental function evaluated in neuropsychological assessment, from taxonomy to clinical profiling.
+sources: [summaries/clinical-assessment.md, summaries/attention-problems.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/bwu.neuro.reports.recs.building-verbal-skills.md, summaries/bwu.neuro.reports.recs.build-math-skills.md, summaries/CARS2-Manual_extracted.md, summaries/sirf_synthesis.md, summaries/nt_interpretation.md, summaries/neurocog.prompt.md, summaries/neurobehav.prompt.md, summaries/LLM_INTEGRATION.md, summaries/LLM_AGENT_MAP.md, summaries/CLAUDE.md, summaries/multi_patient_transcript.md, summaries/report_body.md, summaries/NP-20240415-001_report.md, summaries/README.md, summaries/neuropsych-narrative-writer.md, summaries/neuropsych-data-extractor.md, summaries/brainworkup-brand-voice-guide.md, summaries/template-system.md, summaries/SKILL.md, summaries/AGENTS_luria.md]
+brief: How neuropsychology organizes and interprets major areas of cognition.
 ---
 
 # Cognitive Domains in Neuropsychological Assessment
 
-Cognitive domains are the standardized categories of mental function evaluated during neuropsychological assessments. Each domain maps to distinct neural systems and behavioral capacities. Identifying which domains are affected — and to what degree — is the core interpretive task of clinical neuropsychology.
+Cognitive domains are the standardized categories of mental function evaluated during neuropsychological assessments. Each domain maps to distinct neural systems and behavioral capacities. Identifying which domains are affected — and to what degree — is the core interpretive task of clinical neuropsychology. Domain-based interpretation is not only descriptive; it is also developmental and causal. In practice, clinicians must determine whether weakness in a given domain reflects a longstanding neurodevelopmental pattern, a newly acquired change, or both. This distinction is especially important for attention-related findings, where apparent impairment may represent either lifelong vulnerability or decline after neurological illness or injury.
 
 ## Canonical Domain Taxonomy
 
@@ -21,7 +21,7 @@ The [[summaries/AGENTS_luria]] extraction schema enumerates seven primary cognit
 | **Visuospatial** | Construction, perception, spatial reasoning |
 | **Social Cognition** | Emotion recognition, theory of mind, social judgment |
 
-This taxonomy aligns broadly with DSM-5 neurocognitive domain classifications and is widely used in both clinical and research contexts. The **Luria toolkit** (see [[summaries/README_luria]] and [[summaries/README]]) operationalizes this taxonomy directly in its analysis layer: the `luria analyze` command accepts domain names (e.g., `memory`, `attention`) as arguments, and the `compute_descriptive_stats` API takes a `domains` list drawn from these canonical labels.
+This taxonomy aligns broadly with DSM-5 neurocognitive domain classifications and is widely used in both clinical and research contexts. The Luria toolkit (see [[summaries/README_luria]] and [[summaries/README]]) operationalizes this taxonomy directly in its analysis layer: the `luria analyze` command accepts domain names (e.g., `memory`, `attention`) as arguments, and the `compute_descriptive_stats` API takes a `domains` list drawn from these canonical labels.
 
 ## Extended Domain Taxonomy for Report Generation
 
@@ -60,17 +60,17 @@ The [[summaries/neurocog.prompt]] prompt configuration documents the ten-domain 
 9. **Social Cognition** — Emotion recognition, perspective-taking, pragmatic understanding, theory of mind
 10. **Emotional, Behavioral, and Personality Functioning** — Mood, anxiety, conduct, personality traits, and psychopathology
 
-This ten-domain structure is particularly important for evaluations targeting neurodevelopmental conditions such as ADHD and autism spectrum disorder. The [[summaries/neurocog.prompt]] configuration pairs this domain framework with model parameters calibrated for clinical precision: low temperature (0.4) for consistent technical language, high token ceiling (8192) for comprehensive multi-domain narratives, and presence/frequency penalties to reduce redundancy across domain sections. The output register blends technical and lay language — accessible to both professionals and non-professional stakeholders — as described in [[concepts/clinical-communication-register]] and [[concepts/dual-audience-design]].
+This ten-domain structure is particularly important for evaluations targeting neurodevelopmental conditions such as ADHD and autism spectrum disorder. It is also useful when a clinician must separate pre-existing developmental weaknesses from acquired dysfunction, especially within attention and executive systems. The [[summaries/neurocog.prompt]] configuration pairs this domain framework with model parameters calibrated for clinical precision: low temperature (0.4) for consistent technical language, high token ceiling (8192) for comprehensive multi-domain narratives, and presence/frequency penalties to reduce redundancy across domain sections. The output register blends technical and lay language — accessible to both professionals and non-professional stakeholders — as described in [[concepts/clinical-communication-register]] and [[concepts/dual-audience-design]].
 
 The companion [[summaries/neurobehav.prompt]] extends coverage into behavioral and emotional domains with dedicated prompting for behavioral rating scale interpretation.
 
 ## Domain Profiles in Clinical Practice: The Luria Redesign
 
-The Luria.app redesign (see [[summaries/redesign_20260623110910]]) provides a concrete illustration of how cognitive domains are surfaced in a modern clinical interface. The **Report Workspace** and **Cognitive Map** modules organize all findings by domain, displaying scores, severity indicators, and AI-generated pattern narratives in real time.
+The Luria.app redesign (see [[summaries/redesign_20260623110910]]) provides a concrete illustration of how cognitive domains are surfaced in a modern clinical interface. The Report Workspace and Cognitive Map modules organize all findings by domain, displaying scores, severity indicators, and AI-generated pattern narratives in real time.
 
 ### Neurocognitive Scores Panel (Report Workspace)
 
-In the redesigned interface, the **Neurocognitive** panel presents evaluated domains in a structured table with standard scores, percentile ranks, and status classifications:
+In the redesigned interface, the Neurocognitive panel presents evaluated domains in a structured table with standard scores, percentile ranks, and status classifications:
 
 | Domain | Score | Status | Instrument |
 |---|---|---|---|
@@ -79,7 +79,7 @@ In the redesigned interface, the **Neurocognitive** panel presents evaluated dom
 | Memory | 88 | BORDERLINE | WRAML-3 · 21st %ile |
 | Attention / Executive | 76 | CLINICAL CONCERN | NEPSY-II · 5th %ile |
 
-The **Neurobehavioral** panel adds a separate tier for multi-rater behavioral domains:
+The Neurobehavioral panel adds a separate tier for multi-rater behavioral domains:
 - **ADHD / Executive Function:** T72 (ELEVATED) — Conners-4 · Inattention · Very Elevated
 - **Social Cognition:** PENDING — Awaiting administration
 
@@ -87,7 +87,7 @@ This two-tier organization — Neurocognitive and Neurobehavioral — mirrors th
 
 ### Cognitive Map: The Constellation View (Amber Theme)
 
-The **Cognitive Map** module (accessible via `⌘6`) renders all 13 domains as a visual constellation in which node size reflects test breadth and color encodes severity. For the example case (Biggie Smalls, age 7), the map surfaces:
+The Cognitive Map module (accessible via `⌘6`) renders all 13 domains as a visual constellation in which node size reflects test breadth and color encodes severity. For the example case (Biggie Smalls, age 7), the map surfaces:
 
 | Domain | Score |
 |---|---|
@@ -105,7 +105,7 @@ The Amber theme presents this as a "dark, single-purpose room for reading the wh
 
 ### Live Synthesis Panel
 
-The **Synthesis Panel** in the Report Workspace narrates domain findings in clinical language:
+The Synthesis Panel in the Report Workspace narrates domain findings in clinical language:
 
 > *"Two findings converge on the referral question. Attention/Executive (SS 76) and graphomotor output are both depressed, while verbal reasoning is intact — a profile consistent with ADHD-Inattentive with co-occurring dysgraphia rather than a global delay."*
 
@@ -113,7 +113,7 @@ This live synthesis is produced by the [[concepts/clinical-ai-copilot]] (Luria) 
 
 ### Console & Synthesis: Domain-Level Differential Diagnosis
 
-The **Console** module (`⌘4`) exposes domain-based reasoning most explicitly. In the redesign example, the clinician asks: *"Is the inattention primary ADHD, or secondary to the dysgraphia and academic frustration?"* Luria responds by invoking three domain-level lines of evidence:
+The Console module (`⌘4`) exposes domain-based reasoning most explicitly. In the redesign example, the clinician asks: *"Is the inattention primary ADHD, or secondary to the dysgraphia and academic frustration?"* Luria responds by invoking three domain-level lines of evidence:
 
 1. **Cross-setting convergence** — Conners-4 inattention elevated on both parent and teacher forms (T=72/70); secondary inattention typically localizes to a single demanding setting
 2. **Domain dissociation** — Attention/Executive (SS 76) depressed independently of graphomotor speed
@@ -125,7 +125,7 @@ Each line of evidence is cited to a specific source (Conners-4, NEPSY-II, Clinic
 
 The [[summaries/NP-20240415-001_report]] illustrates an important edge case in domain-organized reporting: when only a single subtest is administered, the same result is applied across all domain sections of the report template. In that case, the WAIS-IV Digit Span (Raw Score: 16, Scaled Score: 9, 37th percentile, classified as Average) was entered under all six domain headings — Intelligence/General Cognitive Ability, Memory & Learning, Attention & Processing Speed, Executive Function, Language, and Visuospatial Ability — because the single instrument was the only available data source.
 
-This scenario exposes a key limitation of domain-structured templates: when assessment scope is narrow, the domain scaffold can give a misleading impression of breadth. Best practice requires explicit disclosure of the limited evaluation scope and a caveat that most domains were not independently assessed. The Digit Span, as a measure of [[concepts/working-memory]], most naturally belongs to the **Attention & Working Memory** and **Memory & Learning** domains; its appearance in Language and Visuospatial sections in this report reflects template constraint rather than clinical inference.
+This scenario exposes a key limitation of domain-structured templates: when assessment scope is narrow, the domain scaffold can give a misleading impression of breadth. Best practice requires explicit disclosure of the limited evaluation scope and a caveat that most domains were not independently assessed. The Digit Span, as a measure of [[concepts/working-memory]], most naturally belongs to the Attention & Working Memory and Memory & Learning domains; its appearance in Language and Visuospatial sections in this report reflects template constraint rather than clinical inference.
 
 The case also highlights the relationship between Digit Span performance and the Working Memory Index in the WAIS-IV: a scaled score of 9 (37th percentile, Average range) can nonetheless be flagged as clinically significant when contextual factors suggest a decline from estimated premorbid ability — a pattern consistent with [[concepts/mild-cognitive-impairment]], amnestic type.
 
@@ -140,7 +140,7 @@ The most prominent and longstanding impairment. The patient was non-verbal until
 The intake highlights several features consistent with [[concepts/executive-function-deficits]]: impaired judgment (driving while exhausted), poor planning and foresight, cognitive inflexibility (difficulty adapting to changed workplace procedures), and impaired inhibition (compelled to address perceived disorder in colleagues' work). The father's analogy is apt: the patient knows the correct strategy but cannot execute it under real-world conditions — a dissociation between knowing and doing characteristic of executive dysfunction.
 
 ### Attention and Processing Speed
-A consistent need for significantly greater intentional effort to perform routine cognitive tasks. This effort depletion accumulates across the day, leaving less cognitive reserve for safety-critical tasks such as driving.
+A consistent need for significantly greater intentional effort to perform routine cognitive tasks. This effort depletion accumulates across the day, leaving less cognitive reserve for safety-critical tasks such as driving. This domain is especially important clinically because attention weaknesses may be longstanding and developmental rather than newly acquired. As synthesized in [[summaries/attention-problems]], neuropsychological evaluation often becomes the point at which chronic but previously untreated attentional difficulties are first formally documented.
 
 ### Social Cognition
 Mild impairment in reading subtle nonverbal cues, difficulty tracking complex social motives, preference for procedural over emotionally complex narratives, compulsive apologizing, and flat affect — consistent with autism spectrum features evaluated via a semi-structured rating instrument.
@@ -175,6 +175,8 @@ This structured tagging enables:
 - **Cross-report comparison** (e.g., tracking domain-specific decline over time)
 - **Differential diagnosis support** (e.g., distinguishing amnestic MCI from dysexecutive presentations)
 - **Research aggregation** across multiple assessments stored in tabular form
+
+For attention findings specifically, structured extraction should ideally preserve whether the difficulty appears longstanding or acquired. The distinction summarized in [[summaries/attention-problems]] is clinically central and aligns with the broader framework of [[concepts/developmental-vs-acquired-cognitive-symptoms]].
 
 ## Role in Narrative Report Generation
 
@@ -230,8 +232,18 @@ The pattern of preserved versus impaired domains is diagnostically meaningful:
 - **Frontal/Executive Syndrome**: Executive Function + Attention + Processing Speed
 - **Posterior Cortical Atrophy**: Visuospatial + Language with relative memory sparing
 - **Autism Spectrum Disorder (High-Functioning)**: Social Cognition impairment alongside relative preservation of other domains; may co-occur with language, executive, and adaptive functioning difficulties — as illustrated in [[summaries/multi_patient_transcript]] and contextualized by [[concepts/autism-spectrum-disorder-clinical-features]]
-- **ADHD-Inattentive with co-occurring dysgraphia**: Attention, executive control, and graphomotor output co-depressed; verbal reasoning and general cognitive ability intact — the "frontal-graphomotor cluster" pattern identified by the Luria Cognitive Map in [[summaries/redesign_20260623110910]]
+- **ADHD-Inattentive with co-occurring dysgraphia**: Attention, executive control, and graphomotor output co-depressed; verbal reasoning and general cognitive ability intact — the frontal-graphomotor cluster pattern identified by the Luria Cognitive Map in [[summaries/redesign_20260623110910]]
 - **Neurodevelopmental Language Disorder**: Primary Language domain impairment with cascading effects on attention, processing speed, and adaptive functioning
+
+Attention-domain findings deserve special caution. Weakness in sustained, selective, divided, or working-memory-linked attention does not by itself establish whether the problem is developmental or acquired. As emphasized in [[summaries/attention-problems]], some neuropsychological reports document attentional weaknesses as longstanding across the lifespan but only first treated after a later clinical event. This makes developmental history essential to domain interpretation.
+
+### Premorbid vs. Acquired Attention Difficulty Within Domain Analysis
+Attention is one of the clearest examples of why domain scoring alone is insufficient. Similar test performance can arise from very different etiologies:
+- **Longstanding attentional weakness** associated with ADHD, dyslexia, or other neurodevelopmental conditions
+- **Acquired attentional decline** following traumatic brain injury, stroke, or other CNS conditions
+- **Secondary attentional inefficiency** due to psychiatric symptoms, fatigue, pain, or academic frustration
+
+Accordingly, domain-based neuropsychological interpretation should integrate test data with developmental history, collateral report, timing of onset, and functional trajectory. This logic aligns directly with [[concepts/premorbid-vs-acquired-attention-difficulties]] and the broader framework of [[concepts/developmental-vs-acquired-cognitive-symptoms]].
 
 ### The Knowing–Doing Dissociation
 A clinically important pattern highlighted in the [[summaries/multi_patient_transcript]] intake is the dissociation between domain-level knowledge and domain-level action. The patient can articulate correct strategies (tennis tactics, driving safety, workplace procedures) but cannot reliably implement them under real-world conditions. This gap between knowing and doing is a hallmark of [[concepts/executive-function-deficits]] and is distinct from deficits in declarative memory or language comprehension.
@@ -252,6 +264,8 @@ When reports are collected over time, domain-level scores can be compared across
 
 Automated extraction of domain classifications from clinical text is a key challenge in [[concepts/clinical-nlp-pipelines]]. Domain labels must often be inferred from test names and qualitative descriptions rather than stated explicitly, requiring contextual reasoning about which constructs each instrument measures. Clinical intake transcripts such as [[summaries/multi_patient_transcript]] present additional challenges: domain-relevant information is embedded in natural conversation, across multiple informants, without formal test scores — requiring inference from behavioral descriptions to likely domain impairment.
 
+Attention findings create an additional NLP challenge: systems must not only identify that the attention domain is affected, but also preserve whether the narrative frames the problem as longstanding, newly emerged, or worsened after a triggering event. The recurring pattern described in [[summaries/attention-problems]] shows why this distinction matters for downstream synthesis and recommendation generation.
+
 The document ingestion pipeline described in the Luria redesign ([[summaries/redesign_20260623110910]]) uses RAG (24 embedded chunks) to extract grounded facts from clinical records, linking each extracted fact to its source page. These facts — including domain-relevant findings such as "Expressive speech delay treated age 3-4" — pre-fill the report background and inform the AI synthesis layer, embodying the [[concepts/retrieval-augmented-generation]] approach to [[concepts/clinical-data-management]].
 
 ## Related Pages
@@ -265,6 +279,7 @@ The document ingestion pipeline described in the Luria redesign ([[summaries/red
 - [[summaries/neurocog.prompt]] — Prompt configuration for cognitive domain narrative generation
 - [[summaries/neurobehav.prompt]] — Companion prompt for behavioral and emotional domain interpretation
 - [[summaries/redesign_20260623110910]] — Luria.app redesign illustrating domain visualization in the Cognitive Map and Synthesis panel
+- [[summaries/attention-problems]] — Distinguishing longstanding from acquired attention-domain difficulties
 - [[concepts/neuropsychological-test-scores]] — How individual test results map to domains
 - [[concepts/neuropsychological-reporting]] — Broader context of clinical reporting
 - [[concepts/luria-neuropsych-pipeline]] — The multi-stage pipeline in which domain taxonomy is used
@@ -287,6 +302,8 @@ The document ingestion pipeline described in the Luria redesign ([[summaries/red
 - [[concepts/retrieval-augmented-generation]] — Document ingestion and grounded fact extraction in the clinical pipeline
 - [[concepts/local-llm-inference]] — PHI-safe inference supporting domain-level narrative generation
 - [[concepts/dysgraphia]] — Motor/graphomotor domain impairment co-occurring with ADHD-Inattentive
+- [[concepts/premorbid-vs-acquired-attention-difficulties]] — Attention-domain interpretation across developmental vs acquired causes
+- [[concepts/developmental-vs-acquired-cognitive-symptoms]] — Broader framework for distinguishing lifelong from newly emergent weakness
 
 See also: [[summaries/SKILL]] | [[summaries/template-system]] | [[summaries/brainworkup-brand-voice-guide]] | [[summaries/report_body]]
 
@@ -303,3 +320,5 @@ See also: [[summaries/bwu.neuro.reports.recs.build-math-skills]]
 See also: [[summaries/bwu.neuro.reports.recs.building-verbal-skills]]
 
 See also: [[summaries/redesign_20260623110817]]
+
+See also: [[summaries/clinical-assessment]]

@@ -1,5 +1,5 @@
 ---
-sources: [summaries/Apply-to-Y-Combinator-JWT.md, summaries/pai_316.md, summaries/pai_23.md, summaries/pai_13.md, summaries/pai_102.md, summaries/pai_10.md, summaries/pai_07.md, summaries/pai_06.md, summaries/pai_01.md, summaries/pai_00.md, summaries/README.md, summaries/style-extensions.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md, summaries/multi_patient_transcript.md, summaries/SKILL.md]
+sources: [summaries/attention-problems.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/pai_316.md, summaries/pai_23.md, summaries/pai_13.md, summaries/pai_102.md, summaries/pai_10.md, summaries/pai_07.md, summaries/pai_06.md, summaries/pai_01.md, summaries/pai_00.md, summaries/README.md, summaries/style-extensions.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md, summaries/multi_patient_transcript.md, summaries/SKILL.md]
 brief: Specialized neuropsychological assessment for medicolegal purposes, integrating cognitive testing with forensic standards.
 ---
 
@@ -137,3 +137,5 @@ The most legally consequential section is the **Forensic Opinion**, rendered in 
 See also: [[summaries/pai_316]], [[summaries/pai_00]], [[summaries/pai_01]], [[summaries/pai_06]], [[summaries/pai_07]], [[summaries/pai_10]], [[summaries/pai_102]], [[summaries/pai_13]], [[summaries/pai_23]], [[summaries/multi_patient_transcript]], [[summaries/README]]
 
 See also: [[summaries/Apply-to-Y-Combinator-JWT]]
+
+See also: [[summaries/attention-problems]]

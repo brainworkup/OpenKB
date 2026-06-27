@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.attention-problems.md, summaries/neuropsych-data-extractor.md]
+sources: [summaries/attention.md, summaries/bwu.neuro.reports.recs.attention-problems.md, summaries/neuropsych-data-extractor.md]
 brief: PASS Theory organizes cognition into Planning, Attention, Simultaneous, and Successive processes for assessment tagging.
 ---
 
@@ -57,3 +57,5 @@ The pipeline itself is named after Luria, whose three functional brain units dir
 
 
 See also: [[summaries/bwu.neuro.reports.recs.attention-problems]]
+
+See also: [[summaries/attention]]

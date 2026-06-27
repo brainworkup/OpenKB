@@ -1,5 +1,5 @@
 ---
-sources: [summaries/top_level.md]
+sources: [summaries/cli-httpie.md, summaries/cli-ftp.md, summaries/cli-command-management.md, summaries/top_level.md]
 brief: Python libraries and tools for making HTTP requests and managing secure network connections.
 ---
 
@@ -50,3 +50,10 @@ Related: [[concepts/ssl-tls-verification]]
 - [[concepts/asyncio]] — Async runtime used by httpx and aiohttp
 - [[concepts/python-environment-management]] — Managing dependencies like certifi
 - [[concepts/python-project-structure]] — How networking libraries fit into project layout
+
+
+See also: [[summaries/cli-command-management]]
+
+See also: [[summaries/cli-ftp]]
+
+See also: [[summaries/cli-httpie]]

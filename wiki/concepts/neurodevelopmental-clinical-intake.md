@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.adhd.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/autism_recommendations_for_adults_summary.md, summaries/CARS2-Manual_extracted.md, summaries/README.md, summaries/multi_patient_transcript.md]
+sources: [summaries/attention-problems.md, summaries/bwu.neuro.reports.recs.adhd.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/autism_recommendations_for_adults_summary.md, summaries/CARS2-Manual_extracted.md, summaries/README.md, summaries/multi_patient_transcript.md]
 brief: Structured multi-informant interview process for neurodevelopmental differential diagnosis across ASD and related profiles.
 ---
 
@@ -204,3 +204,5 @@ See also: [[summaries/autism_recommendations_for_adults_summary]]
 See also: [[summaries/bwu.neuro.reports.recs.adhd.books]]
 
 See also: [[summaries/bwu.neuro.reports.recs.adhd]]
+
+See also: [[summaries/attention-problems]]

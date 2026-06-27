@@ -1,5 +1,5 @@
 ---
-sources: [summaries/top_level.md]
+sources: [summaries/certificate-rotation.md, summaries/top_level.md]
 brief: SSL/TLS verification ensures secure HTTPS connections by validating server certificates against trusted CAs.
 ---
 
@@ -48,3 +48,6 @@ In the context of this knowledge base, SSL/TLS verification underpins secure com
 - [[concepts/vulnerability-disclosure]] — Responsible disclosure of security issues
 - [[concepts/local-llm-inference]] — Local inference may bypass external TLS but still requires verification for API calls
 - [[summaries/top_level]] — Source document referencing the certifi package
+
+
+See also: [[summaries/certificate-rotation]]

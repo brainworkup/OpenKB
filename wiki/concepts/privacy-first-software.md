@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/LICENSE.md, summaries/README.md, summaries/TECHNICAL_DOCS.md, summaries/OCR_PDF_GUIDE.md, summaries/local_models.md, summaries/index.md, summaries/0001‑choose‑local‑llm.md, summaries/mcp-integration.md, summaries/002-mcp-llm-integration.md, summaries/SETUP_SUMMARY.md, summaries/RECOVERY_NOTES.md, summaries/DEMO_GUIDE.md, summaries/A-Mac-Studio-for-Local-AI-6-Months-Later.md, summaries/GitHub-Automattic-harper-Offline-privacy-first-grammar-checker.-Fast-open-source.md]
+sources: [summaries/clinical-assessment.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/LICENSE.md, summaries/README.md, summaries/TECHNICAL_DOCS.md, summaries/OCR_PDF_GUIDE.md, summaries/local_models.md, summaries/index.md, summaries/0001‑choose‑local‑llm.md, summaries/mcp-integration.md, summaries/002-mcp-llm-integration.md, summaries/SETUP_SUMMARY.md, summaries/RECOVERY_NOTES.md, summaries/DEMO_GUIDE.md, summaries/A-Mac-Studio-for-Local-AI-6-Months-Later.md, summaries/GitHub-Automattic-harper-Offline-privacy-first-grammar-checker.-Fast-open-source.md]
 brief: Architectural philosophy prioritizing local data processing and user control over sensitive information.
 ---
 
@@ -123,3 +123,5 @@ See also: [[summaries/README_20260413235353]]
 See also: [[summaries/README_20260413235533]]
 
 See also: [[summaries/README_20260414001057]]
+
+See also: [[summaries/clinical-assessment]]

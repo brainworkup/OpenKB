@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260413235016.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md]
+sources: [summaries/clinical-assessment.md, summaries/README_20260413235016.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md]
 brief: Stable local LLM behavior under real resource and concurrency constraints.
 ---
 
@@ -154,3 +154,5 @@ That heuristic captures the core of local inference reliability: stability of ou
 See also: [[summaries/Luria_AI_Q4_Investor_Memo_2026]]
 
 See also: [[summaries/README_20260413235016]]
+
+See also: [[summaries/clinical-assessment]]

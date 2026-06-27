@@ -1,28 +1,31 @@
 ---
-sources: [summaries/copilot-instructions.md, summaries/LLM_AGENT_MAP.md, summaries/README.md, summaries/CLAUDE.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/0007-voice-modular-report-sections-via-quarto-includes.md, summaries/customization.md, summaries/style-training-to-report-drafting.md, summaries/report-rendering-pipeline.md, summaries/style-extensions.md, summaries/report-template.md, summaries/0010-voice-quarto-typst-reporting.md, summaries/0007-style-modular-report-sections-via-quarto-includes.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md, summaries/neuropsych-narrative-writer.md, summaries/SKILL.md, summaries/issue_branding_typst.md, summaries/report-generation.md, summaries/template-system.md, summaries/quarto-extensions.md, summaries/overview.md, summaries/003-modular-template-structure.md]
-brief: Design pattern decomposing complex report templates into discrete, independently maintained section files assembled at render time.
+sources: [summaries/cerner-autotext.md, summaries/copilot-instructions.md, summaries/LLM_AGENT_MAP.md, summaries/README.md, summaries/CLAUDE.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/0007-voice-modular-report-sections-via-quarto-includes.md, summaries/customization.md, summaries/style-training-to-report-drafting.md, summaries/report-rendering-pipeline.md, summaries/style-extensions.md, summaries/report-template.md, summaries/0010-voice-quarto-typst-reporting.md, summaries/0007-style-modular-report-sections-via-quarto-includes.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md, summaries/neuropsych-narrative-writer.md, summaries/SKILL.md, summaries/issue_branding_typst.md, summaries/report-generation.md, summaries/template-system.md, summaries/quarto-extensions.md, summaries/overview.md, summaries/003-modular-template-structure.md]
+brief: Modular report architecture assembles reports from reusable section files.
 ---
 
 # Modular Report Architecture
 
-Modular report architecture is a design pattern that decomposes complex document templates into discrete, independently maintained section files assembled at render time. Rather than a single monolithic template, each section of a report lives in its own file and is composed together by an orchestrator. This pattern is the foundation of the neuropsychological report generation pipeline described in [[summaries/report-generation]] and [[summaries/overview]].
+Modular report architecture is a design pattern that decomposes complex document templates into discrete, independently maintained section files assembled at render time. Rather than a single monolithic template, each section of a report lives in its own file and is composed together by an orchestrator. This pattern is foundational to the neuropsychological report generation pipeline described in [[summaries/report-generation]] and [[summaries/overview]]. It also generalizes to clinical documentation systems where structured templates are populated from reusable components or dynamic tokens, such as Cerner Autotext workflows for patient-specific note assembly.
 
 ## Core Principles
 
-- **Separation of concerns**: Each file handles one report section only
+- **Separation of concerns**: Each file or reusable unit handles one report section only
 - **Reusability**: Sections can be shared across multiple report variants
 - **Composability**: An orchestrator assembles sections dynamically at render time
 - **Isolated maintainability**: Changes to one section don't affect others
 - **Independent testability**: Sections can be validated in isolation
 - **Parallel editing**: Multiple contributors can work on different sections simultaneously with minimal merge conflicts
+- **Structured variable injection**: Patient- or case-specific details are inserted through controlled variables, includes, or token systems rather than repeated manual editing
 
 ## Implementation in Neuropsychological Reporting
 
 The canonical examples in this wiki are the [[summaries/003-modular-template-structure]] ADR, the [[summaries/0007-style-modular-report-sections-via-quarto-includes]] ADR, the [[summaries/0007-voice-modular-report-sections-via-quarto-includes]] ADR, the [[summaries/overview]] component overview, and the [[summaries/template-system]] reference implementation, all of which define a modular template system for neuropsychological reports using [[concepts/quarto]].
 
-The decision to use Quarto's `{{< include >}}` shortcode mechanism (formalized in ADR-0007, independently adopted across both the `style` and `voice` repository tracks) reflects a deliberate architectural choice: the `{{< include >}}` shortcode composes the final report from modular `.qmd` section files, with a main `template.qmd` orchestrating inclusion order and a `_domains_to_include.qmd` dispatcher enabling data-driven conditional assembly. The full reference implementation is documented in [[summaries/report-template]].
+The decision to use Quarto's `{{< include >}}` shortcode mechanism reflects a deliberate architectural choice: the `{{< include >}}` shortcode composes the final report from modular `.qmd` section files, with a main `template.qmd` orchestrating inclusion order and a `_domains_to_include.qmd` dispatcher enabling data-driven conditional assembly. The full reference implementation is documented in [[summaries/report-template]].
 
-The ADR-0007 decision was accepted on 2025-01-20 and applies to section files under `inst/quarto/templates/typst-report/`. Each section file is explicitly self-contained with its own R setup chunks and Typst formatting — this self-containment is the key property that enables both section reuse and parallel editing without merge conflicts.
+The ADR-0007 decision was accepted on 2025-01-20 and applies to section files under `inst/quarto/templates/typst-report/`. Each section file is explicitly self-contained with its own R setup chunks and Typst formatting. This self-containment is the key property that enables both section reuse and parallel editing without merge conflicts.
+
+This same architectural logic appears in EHR documentation contexts: a note can be treated as an assembled artifact built from reusable text scaffolds plus dynamic patient fields. In Cerner Autotext, bracketed tokens resolve at render time to patient names, pronouns, demographics, dates, provider identities, medication lists, allergies, and problem-list content. While not file-based like Quarto includes, these tokens serve a parallel role as modular placeholders within larger clinical templates.
 
 ### The `cingulate` Package Implementation
 
@@ -37,25 +40,25 @@ Domain QMD generation follows a two-step pattern:
 1. **Text first**: `generate_domain_text_qmd()` writes `_02-XX_domain_text.qmd` (the narrative prose)
 2. **QMD shell second**: the `_02-XX_domain.qmd` file `{{< include >}}`s the text file and adds tables/plots
 
-This mirrors the broader architecture's separation between prose generation and data rendering, but automates it end-to-end via the `DomainProcessorR6` + `DomainProcessorFactoryR6` class pair. The factory dynamically detects which cognitive domains exist in the input data and instantiates only those processors — so the assembled report always reflects the actual assessment battery administered, never a fixed template.
+This mirrors the broader architecture's separation between prose generation and data rendering, but automates it end-to-end via the `DomainProcessorR6` + `DomainProcessorFactoryR6` class pair. The factory dynamically detects which cognitive domains exist in the input data and instantiates only those processors, so the assembled report always reflects the actual assessment battery administered, never a fixed template.
 
 **Stable domain numbering** is a hard constraint in `cingulate`: `01_iq`, `02_academics`, `03_verbal`, etc. Casual renumbering breaks the pipeline because both `_quarto.yml` and `template.qmd` depend on this ordering. This mirrors the two-part `XX-YY_sectionname.qmd` convention used throughout the broader modular architecture.
 
 **Multi-rater domains** (ADHD `_02-09`, emotion/behavior `_02-10`) require special handling: `cingulate` produces separate per-rater files (self/parent/teacher). The `check_rater_data_exists()` / `check_domain_raters()` helpers must always be called before generating these files; child vs adult reports diverge in which raters are expected.
 
-**Edit protection** is built in: `cingulate` checks whether a target QMD file has been hand-edited before regenerating it. This is the same [[concepts/edit-protection-pattern]] used by the narrative writer stage — preventing silent overwrite of manual clinical revisions.
+**Edit protection** is built in: `cingulate` checks whether a target QMD file has been hand-edited before regenerating it. This is the same [[concepts/edit-protection-pattern]] used by the narrative writer stage, preventing silent overwrite of manual clinical revisions.
 
 ### Structure
 
 All templates reside under `style/templates/typst-report/` (or `inst/quarto/templates/typst-report/` depending on the package track). A main `template.qmd` acts as the orchestrator, pulling in numbered section files via Quarto's `{{< include >}}` mechanism:
 
-```
+```text
 template.qmd                        ← orchestrator
 _quarto.yml                         ← template-specific Quarto configuration
 _variables.yml                      ← shared patient/case variables
 config.yml                          ← global project configuration
 _00-00_tests.qmd                    ← assessment battery and test list
-_01-00_nse.qmd                      ← neuropsychological status exam
+_01-00_nse.qmd                      ← neurobehavioral status exam
 _01-01_behav_obs.qmd                ← behavioral observations
 _02-05_memory.qmd                   ← memory domain
 _02-06_executive.qmd                ← executive function domain
@@ -72,7 +75,9 @@ _03-03b_examiner_qualifications.qmd ← examiner qualifications
 _domains_to_include.qmd             ← dynamic domain inclusion controller
 ```
 
-Each section file is **self-contained** with its own R setup chunks and Typst formatting — a key property established by ADR-0007. Each domain section file corresponds to a cognitive subdomain; the **narrative text** for those sections is produced separately by a dedicated prose-writing stage and injected as `_NN-XX_<domain>_text.qmd` includes. Score tables, plots, and other computed content are rendered by the R layer — the text files contain prose only.
+Each section file is **self-contained** with its own R setup chunks and Typst formatting. Each domain section file corresponds to a cognitive subdomain; the **narrative text** for those sections is produced separately by a dedicated prose-writing stage and injected as `_NN-XX_<domain>_text.qmd` includes. Score tables, plots, and other computed content are rendered by the R layer; the text files contain prose only.
+
+A useful contrast is Cerner Autotext: instead of physically separated section files, documentation may use a single note template containing reusable placeholders such as patient name, pronouns, MRN, DOB, current date, provider fields, medication list, allergies, social history, and medical problems. In both architectures, the authoring surface is standardized while individualized data are injected at render time.
 
 ### Master Document Flow
 
@@ -95,7 +100,7 @@ Each section file is **self-contained** with its own R setup chunks and Typst fo
 | Prefix | Section | Description |
 |---|---|---|
 | 00-00 | Tests | Assessment battery and test list |
-| 01-00 | NSE | Neuropsychological Status Exam |
+| 01-00 | NSE | Neurobehavioral status exam |
 | 01-01 | Behav Obs | Behavioral observations |
 | 02-XX | Domains | Cognitive domain assessments |
 | 03-00 | Diagnoses | DSM-5/ICD-10 diagnoses |
@@ -110,11 +115,13 @@ Section files use a two-part numbering scheme `XX-YY_sectionname.qmd`:
 - **First two digits (XX)**: Major section (00=header, 01=interview, 02=domains, 03=conclusions)
 - **Last two digits (YY)**: Subsection ordering within the major section
 
-This naming convention, enforced across the file system, serves two purposes: it makes the section hierarchy explicit and allows new sections to be inserted without renumbering the entire system. The prefix table is **stable** — `_quarto.yml` and `template.qmd` depend on the ordering and casual renumbering breaks the pipeline.
+This naming convention, enforced across the file system, serves two purposes: it makes the section hierarchy explicit and allows new sections to be inserted without renumbering the entire system. The prefix table is **stable**; `_quarto.yml` and `template.qmd` depend on the ordering and casual renumbering breaks the pipeline.
 
 ### Dynamic Inclusion
 
-Sections can be conditionally included based on data availability via `_domains_to_include.qmd`, enabling the same template infrastructure to produce different report variants (pediatric, adult, forensic) by simply changing which sections are assembled. The dispatcher includes domain sections based on available data, supporting the `--to neurotyp-pediatric-typst`, `--to neurotyp-adult-typst`, and `--to neurotyp-forensic-typst` render targets exposed at the command line.
+Sections can be conditionally included based on data availability via `_domains_to_include.qmd`, enabling the same template infrastructure to produce different report variants by simply changing which sections are assembled. The dispatcher includes domain sections based on available data, supporting the `--to neurotyp-pediatric-typst`, `--to neurotyp-adult-typst`, and `--to neurotyp-forensic-typst` render targets exposed at the command line.
+
+A conceptually similar pattern appears in EHR note building, where dynamic tokens may be present or absent depending on what structured data exist in the chart. Cerner examples include pulling medication lists, allergies, social history, diagnosis/problem lists, and provider data. In that environment, conditional completeness depends on source chart data and token functionality rather than on file-inclusion logic.
 
 ## End-to-End Rendering Pipeline
 
@@ -143,15 +150,19 @@ Output artifacts:
 
 In the `cingulate` package, the render is invoked via `quarto render` from the project root, driven by `_quarto.yml` and the `neurotyp-pediatric-typst` format from the project-local extension at `inst/quarto/_extensions/brainworkup/`. Adult and forensic variants live alongside under `inst/quarto/`.
 
+In an EHR context, the analogous render step occurs when the note is generated and bracketed placeholders are resolved to current patient data. Cerner Autotext demonstrates this with name, pronoun, demographic, date, and care-team tokens, as well as structured content inserts like medications and allergies.
+
 ## Configuration Layer
 
 Three configuration files drive the pipeline:
 
-- **`_quarto.yml`**: Project config defining format targets (pediatric, adult, forensic, vanilla Typst) with per-format font and paper settings
+- **`_quarto.yml`**: Project config defining format targets with per-format font and paper settings
 - **`_variables.yml`**: Patient demographics, clinician info, pronouns, diagnoses — injected via `{{< var key >}}` shortcodes throughout the document. See also [[concepts/neuropsychological-report-variables]]
 - **`config.yml`**: Pipeline config for data I/O, processing flags, report format selection, and MCP/LLM endpoint settings
 
-This three-file split separates rendering configuration ([[concepts/yaml-configuration]]) from patient-specific variable injection from runtime pipeline flags — each concern is isolated and independently editable.
+This three-file split separates rendering configuration ([[concepts/yaml-configuration]]) from patient-specific variable injection from runtime pipeline flags; each concern is isolated and independently editable.
+
+The same general principle applies in EHR templating: template structure, available token vocabulary, and patient-specific values are distinct layers. Cerner Autotext effectively uses a controlled token namespace as a variable-injection system for note text.
 
 ### Variable Injection Details
 
@@ -161,6 +172,8 @@ This three-file split separates rendering configuration ([[concepts/yaml-configu
 | `_variables.yml` | `{{< var key >}}` inside `` ```{=typst} `` | Typst header block |
 | `_quarto.yml` format opts | Quarto extension system | `typst-show.typ` `$if$` conditionals |
 | `config.yml` | R `yaml::read_yaml()` | R setup chunk (LLM backend, data paths) |
+
+Comparable EHR token examples include patient full name, first/last name, salutation, pronoun set, MRN, DOB, current date, admission date, attending/referring physician, medication list, allergies, social history, and medical problems. One documented implementation detail from Cerner is that an age token may be non-functional, with DOB-based insertion preferred instead; this illustrates that modular placeholder systems need token-level validation just as section-based systems need include-level validation.
 
 ## R Runtime Dependencies
 
@@ -172,7 +185,7 @@ The setup chunk in `template.qmd` requires:
 | `dplyr`, `readr`, `here`, `yaml` | Data wrangling |
 | `ggplot2`, `svglite` | Figure rendering with document-matched fonts via `pick_font()` |
 
-The `cingulate` package specifically depends on 40+ heavy imports including DuckDB, Arrow, gt, and quarto. This has an important operational implication: `library(cingulate)` must **never** be auto-loaded at R startup (e.g., via `.Rprofile`) because the IDE R handshake will time out. Instead, use `devtools::load_all('.')` from the console after R has finished startup. Similarly, R6 generators register on package load, so `source()` of individual files will not work — `devtools::load_all('.')` is always required.
+The `cingulate` package specifically depends on many heavy imports including DuckDB, Arrow, gt, and quarto. This has an important operational implication: `library(cingulate)` must **never** be auto-loaded at R startup (e.g., via `.Rprofile`) because the IDE R handshake will time out. Instead, use `devtools::load_all('.')` from the console after R has finished startup. Similarly, R6 generators register on package load, so `source()` of individual files will not work; `devtools::load_all('.')` is always required.
 
 The `pick_font()` function detects available system fonts and configures `svglite` + `ggplot2` to match document fonts, ensuring SVG figures use the same typeface as the Typst body text. The LLM backend is configured for Ollama, reflecting the [[concepts/local-llm-inference]] approach used throughout the pipeline.
 
@@ -197,7 +210,7 @@ format:
 | `neurotyp-adult` | Adults | Libertinus Serif/Sans | US Letter |
 | `neurotyp-forensic` | Forensic | Libertinus Serif/Sans | US Letter |
 
-Each extension provides a `typst-template.typ` and `typst-show.typ` for consistent [[concepts/typst-typesetting]] rendering. Adding a new report type means creating a new extension directory, defining `_extension.yml`, creating the Typst files, and registering the format in `_quarto.yml`. See also: [[summaries/0005-style-quarto-custom-format-extensions-for-report-variants]].
+Each extension provides a `typst-template.typ` and `typst-show.typ` for consistent [[concepts/typst-typesetting]] rendering. Adding a new report type means creating a new extension directory, defining `_extension.yml`, creating the Typst files, and registering the format in `_quarto.yml`. See also [[summaries/0005-style-quarto-custom-format-extensions-for-report-variants]].
 
 ## Prerequisites
 
@@ -212,9 +225,11 @@ Each extension provides a `typst-template.typ` and `typst-show.typ` for consiste
 The modular architecture formally separates prose generation from data rendering. Stage 3 of the Luria neuropsych pipeline — documented in [[summaries/neuropsych-narrative-writer]] — is dedicated entirely to writing the **per-domain narrative text** that populates `_NN-XX_<domain>_text.qmd` files. This is a strict division of responsibility:
 
 - **Stage 3 (narrative writer)**: Produces hedged, APA-style clinical prose for each cognitive domain — no raw scores, no tables, no plots.
-- **R layer / `cingulate`**: Renders score tables, figures via `TableGTR6`, `DotplotR6`, `DrilldownR6`, and assembles the final Typst PDF.
+- **R layer / `cingulate`**: Renders score tables, figures and assembles the final Typst PDF.
 
-In `cingulate`, narrative generation is handled by the `NeuropsychResultsR6` class (converting processed scores to clinical narrative text) and the LLM routing layer (`OllamaModelRouterR6`, `ReportLLMBridgeR6`, `DomainPrompterR6`). Models are selected per task (`domain_summary`, `rating_scales`, `overall_summary`, `recommendations`, `differential_dx`, `quick_interpret`) and per performance mode (`development` / `balanced` / `production`) from `inst/config/ollama_models.yml`. Before running any LLM-dependent workflow, model availability must be verified with `check_available_models()`.
+In `cingulate`, narrative generation is handled by the `NeuropsychResultsR6` class and the LLM routing layer. Models are selected per task (`domain_summary`, `rating_scales`, `overall_summary`, `recommendations`, `differential_dx`, `quick_interpret`) and per performance mode (`development` / `balanced` / `production`) from `inst/config/ollama_models.yml`. Before running any LLM-dependent workflow, model availability must be verified with `check_available_models()`.
+
+This separation between generated prose and injected structured data has a close analogue in clinical note templates. Cerner Autotext lets clinicians combine standard report language with dynamically inserted chart data, supporting efficient structured note writing while preserving individualized content.
 
 ### Narrative Include File Naming
 
@@ -247,11 +262,13 @@ For each subdomain, the narrative writer drafts 2–4 short paragraphs covering:
 2. **Pattern interpretation** — relative strengths/weaknesses, intra-test scatter, score-type discrepancies
 3. **Functional implication** — one hedged sentence linking performance to everyday, academic, or occupational impact
 
-Raw scores and percentiles are **never included in prose** — those are rendered by the R table layer.
+Raw scores and percentiles are **never included in prose**; those are rendered by the R table layer.
 
 ### Edit-Protection Pattern
 
-Before overwriting any existing `_text.qmd`, the writer reads the file first. If it contains content not derivable from the current data (i.e., clinician hand-edits), the new draft is appended as a `<!-- DRAFT: ... -->` comment block rather than overwriting. This [[concepts/edit-protection-pattern]] ensures that manual clinical revisions are never silently lost. The same protection applies in `cingulate`'s QMD regeneration workflow.
+Before overwriting any existing `_text.qmd`, the writer reads the file first. If it contains content not derivable from the current data, the new draft is appended as a `<!-- DRAFT: ... -->` comment block rather than overwriting. This [[concepts/edit-protection-pattern]] ensures that manual clinical revisions are never silently lost. The same protection applies in `cingulate`'s QMD regeneration workflow.
+
+An analogous issue exists in EHR token systems: a placeholder may be available but unreliable. The Cerner Autotext source notes that the age token is non-functional and DOB-based insertion should be preferred. In modular report architecture terms, this is a token-level quality constraint: placeholders should be validated, and known-bad dynamic fields should be replaced with more reliable alternatives.
 
 ### Voice and Style Rules
 
@@ -263,14 +280,14 @@ Before overwriting any existing `_text.qmd`, the writer reads the file first. If
 
 ## Typst Output as a Parallel Artifact
 
-Beyond the Quarto-driven pipeline, the architecture also supports generating **standalone Typst (`.typ`) source files** as print-ready parallel artifacts — documented in [[summaries/SKILL]]. This is distinct from the Quarto-rendered pipeline: rather than being assembled by the Quarto orchestrator, a standalone `.typ` file is produced by a dedicated `typst-report-formatter` skill invoked when the user explicitly requests a `.typ` file, Typst output, or a formatted forensic report.
+Beyond the Quarto-driven pipeline, the architecture also supports generating **standalone Typst (`.typ`) source files** as print-ready parallel artifacts — documented in [[summaries/SKILL]]. This is distinct from the Quarto-rendered pipeline: rather than being assembled by the Quarto orchestrator, a standalone `.typ` file is produced by a dedicated formatter skill invoked when the user explicitly requests a `.typ` file, Typst output, or a formatted forensic report.
 
 The standalone Typst template (`forensic_report.typ`) defines a `#let report(...)` function encapsulating all page setup, typography, and header/footer logic. A fully-populated `.typ` file includes:
 
 - **Page setup**: US Letter paper, 1.25in margins, right-aligned header (patient ID, case number, page number), centered confidential footer
 - **Typography**: Equity B body font at 11.5pt, Inter for headings
 - **Required sections**: Introduction and Purpose, Records Reviewed, Background Information, Tests Administered, domain-specific Neuropsychological Findings subsections, Cognitive Profile Summary, Clinical Impressions and Diagnostic Formulation, Recommendations, Limitations and Caveats, and a shaded Forensic Opinion block
-- **Score tables**: Structured five-column tables (Test/Subtest, Score, Score Type, Percentile, Classification) using Typst's `#table` function
+- **Score tables**: Structured five-column tables using Typst's `#table` function
 
 This standalone output is saved to `/tmp/reports/[doc_id]_report.typ` and requires local compilation via the Typst CLI (`typst compile [file].typ`) or the Typst web app.
 
@@ -288,6 +305,8 @@ This aligns with the [[concepts/redaction-tokens]] and [[concepts/pii-redaction-
 
 The modular template is the rendering stage within a broader multi-stage pipeline. The full pipeline, as described in [[summaries/report-generation]] and [[summaries/overview]], integrates data extraction, narrative generation, and final Typst PDF assembly. The [[concepts/architecture-decision-records]] formalizing this system include ADR-0003 (modular template structure), ADR-0005 (custom Quarto format extensions), and ADR-0007 (Quarto includes for section composition).
 
+The Cerner Autotext example broadens this concept beyond Quarto and neuropsychology: modular report architecture can be understood more generally as the controlled assembly of documentation from reusable structural units plus dynamic patient variables. In one implementation, those units are section files and includes; in another, they are note scaffolds and render-time tokens. The common architectural goal is the same: standardized clinical writing with efficient personalization and fewer transcription errors.
+
 See also: [[summaries/0005-style-quarto-custom-format-extensions-for-report-variants]], [[summaries/0007-style-modular-report-sections-via-quarto-includes]], [[summaries/0007-voice-modular-report-sections-via-quarto-includes]], [[concepts/quarto-extensions]], [[concepts/neuropsychological-reporting]], [[summaries/0010-voice-quarto-typst-reporting]], [[summaries/report-template]], [[summaries/report-rendering-pipeline]], [[summaries/style-extensions]]
 
 See also: [[summaries/style-training-to-report-drafting]]
@@ -303,3 +322,6 @@ See also: [[summaries/README]]
 See also: [[summaries/LLM_AGENT_MAP]]
 
 See also: [[summaries/copilot-instructions]]
+
+## Related Documents
+- [[summaries/cerner-autotext]]

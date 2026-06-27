@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260414001057.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/File Folder Structure Rebuild.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/top_level.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/requirements.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/2026-02-11-this-session-is-being-continued-from-a-previous-co.md, summaries/README.md, summaries/DEPENDENCIES.md, summaries/installation.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/full-pipeline.md, summaries/customization.md, summaries/style-training-to-report-drafting.md, summaries/vector-store.md, summaries/text-extraction.md, summaries/soul-style-agent.md, summaries/embedding-client.md, summaries/0009-soul-local-llm-inference-with-omlx.md, summaries/0008-soul-single-file-style-agent-architecture.md]
+sources: [summaries/autonomous-execution.md, summaries/agentic-workflows.md, summaries/README_20260414001057.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/File Folder Structure Rebuild.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/top_level.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/requirements.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/2026-02-11-this-session-is-being-continued-from-a-previous-co.md, summaries/README.md, summaries/DEPENDENCIES.md, summaries/installation.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/full-pipeline.md, summaries/customization.md, summaries/style-training-to-report-drafting.md, summaries/vector-store.md, summaries/text-extraction.md, summaries/soul-style-agent.md, summaries/embedding-client.md, summaries/0009-soul-local-llm-inference-with-omlx.md, summaries/0008-soul-single-file-style-agent-architecture.md]
 brief: Architecture that keeps sensitive data and core workflows on the local machine.
 ---
 
@@ -275,3 +275,7 @@ See also: [[summaries/README_20260413235148]]
 See also: [[summaries/README_20260413235353]]
 
 See also: [[summaries/README_20260414001057]]
+
+See also: [[summaries/agentic-workflows]]
+
+See also: [[summaries/autonomous-execution]]

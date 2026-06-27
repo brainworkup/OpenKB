@@ -1,5 +1,5 @@
 ---
-sources: [summaries/File Folder Structure Rebuild.md, summaries/DEPENDENCIES.md, summaries/README.md, summaries/RECOVERY_NOTES.md, summaries/README_luria.md, summaries/deepagents_merged_mem_notes.md, summaries/SESSION_SUMMARY_2025-04-28.md]
+sources: [summaries/agentic-workflows.md, summaries/File Folder Structure Rebuild.md, summaries/DEPENDENCIES.md, summaries/README.md, summaries/RECOVERY_NOTES.md, summaries/README_luria.md, summaries/deepagents_merged_mem_notes.md, summaries/SESSION_SUMMARY_2025-04-28.md]
 brief: LangGraph-based stateful multi-step agent workflows for orchestrating neuropsychological data pipelines.
 ---
 
@@ -336,3 +336,5 @@ The combination of LangGraph's explicit graph structure with domain-specific R p
 See also: [[summaries/RECOVERY_NOTES]], [[summaries/SESSION_SUMMARY_2025-04-28]], [[summaries/SKILL]], [[summaries/README]], [[summaries/DEPENDENCIES]]
 
 See also: [[summaries/File Folder Structure Rebuild]]
+
+See also: [[summaries/agentic-workflows]]

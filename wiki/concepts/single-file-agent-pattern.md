@@ -1,5 +1,5 @@
 ---
-sources: [summaries/full-pipeline.md, summaries/customization.md, summaries/style-training-to-report-drafting.md, summaries/vector-store.md, summaries/style-trainer.md, summaries/soul-style-agent.md, summaries/report-generator.md, summaries/embedding-client.md, summaries/0009-soul-local-llm-inference-with-omlx.md, summaries/0008-soul-single-file-style-agent-architecture.md]
+sources: [summaries/autonomous-execution.md, summaries/full-pipeline.md, summaries/customization.md, summaries/style-training-to-report-drafting.md, summaries/vector-store.md, summaries/style-trainer.md, summaries/soul-style-agent.md, summaries/report-generator.md, summaries/embedding-client.md, summaries/0009-soul-local-llm-inference-with-omlx.md, summaries/0008-soul-single-file-style-agent-architecture.md]
 brief: A design pattern placing an entire agent workflow in one script for auditability, portability, and low overhead.
 ---
 
@@ -106,3 +106,5 @@ See also: [[summaries/style-training-to-report-drafting]]
 See also: [[summaries/customization]]
 
 See also: [[summaries/full-pipeline]]
+
+See also: [[summaries/autonomous-execution]]

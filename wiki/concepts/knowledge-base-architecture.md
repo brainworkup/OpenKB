@@ -1,5 +1,5 @@
 ---
-sources: [summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/SESSION_SUMMARY.md, summaries/DIAGNOSIS_FIX_SUMMARY.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/2026-02-11-this-session-is-being-continued-from-a-previous-co.md, summaries/README.md]
+sources: [summaries/clinical-assessment.md, summaries/archive-ia-automation.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/SESSION_SUMMARY.md, summaries/DIAGNOSIS_FIX_SUMMARY.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/2026-02-11-this-session-is-being-continued-from-a-previous-co.md, summaries/README.md]
 brief: Tiered architecture separating curated reference wikis from shared auto-ingested clinical resources for clinical AI.
 ---
 
@@ -163,3 +163,7 @@ See also: [[summaries/redesign_20260623110817]]
 See also: [[summaries/redesign_20260623110910]]
 
 See also: [[summaries/Luria_AI_Q4_Investor_Memo_2026]]
+
+See also: [[summaries/archive-ia-automation]]
+
+See also: [[summaries/clinical-assessment]]

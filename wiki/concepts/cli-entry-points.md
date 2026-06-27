@@ -1,5 +1,5 @@
 ---
-sources: [summaries/top_level.md, summaries/entry_points.md]
+sources: [summaries/cli-commands.md, summaries/cli-command-usage.md, summaries/bash-prompts.md, summaries/arc-clients.md, summaries/top_level.md, summaries/entry_points.md]
 brief: Console script entry points map shell commands to Python functions, registered during package installation.
 ---
 
@@ -114,3 +114,11 @@ The `fontTools` library registers four console scripts for font manipulation and
 - [[summaries/entry_points]]
 
 See also: [[summaries/top_level]]
+
+See also: [[summaries/arc-clients]]
+
+See also: [[summaries/bash-prompts]]
+
+See also: [[summaries/cli-command-usage]]
+
+See also: [[summaries/cli-commands]]

@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/CARS2-Manual_extracted.md, summaries/pai_02.md, summaries/pai_01.md, summaries/pai_00.md, summaries/NP-20240415-001_report.md, summaries/sirf_synthesis.md, summaries/nt_interpretation.md]
+sources: [summaries/clinical-assessment.md, summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/CARS2-Manual_extracted.md, summaries/pai_02.md, summaries/pai_01.md, summaries/pai_00.md, summaries/NP-20240415-001_report.md, summaries/sirf_synthesis.md, summaries/nt_interpretation.md]
 brief: Translating neuropsychological test scores into clinically meaningful cognitive statements via normative and pattern analysis.
 ---
 
@@ -102,3 +102,5 @@ See also: [[summaries/pai_02]]
 See also: [[summaries/CARS2-Manual_extracted]]
 
 See also: [[summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies]]
+
+See also: [[summaries/clinical-assessment]]

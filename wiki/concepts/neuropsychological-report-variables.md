@@ -1,5 +1,5 @@
 ---
-sources: [summaries/nt_interpretation.md, summaries/0007-voice-modular-report-sections-via-quarto-includes.md, summaries/customization.md, summaries/report-rendering-pipeline.md, summaries/style-extensions.md, summaries/report-template.md, summaries/0007-style-modular-report-sections-via-quarto-includes.md, summaries/SKILL.md, summaries/template-system.md]
+sources: [summaries/cerner-autotext.md, summaries/nt_interpretation.md, summaries/0007-voice-modular-report-sections-via-quarto-includes.md, summaries/customization.md, summaries/report-rendering-pipeline.md, summaries/style-extensions.md, summaries/report-template.md, summaries/0007-style-modular-report-sections-via-quarto-includes.md, summaries/SKILL.md, summaries/template-system.md]
 brief: Centralized YAML-driven system for injecting patient-specific data across all layers of neuropsychological report generation.
 ---
 
@@ -158,3 +158,5 @@ See also: [[summaries/customization]]
 See also: [[summaries/0007-voice-modular-report-sections-via-quarto-includes]]
 
 See also: [[summaries/nt_interpretation]]
+
+See also: [[summaries/cerner-autotext]]

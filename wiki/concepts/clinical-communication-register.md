@@ -1,5 +1,5 @@
 ---
-sources: [summaries/LLM Benchmark Comparison.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/bwu.neuro.reports.recs.books.md, summaries/nse_narrative.md, summaries/neurocog.prompt.md, summaries/neurobehav.prompt.md, summaries/customization.md, summaries/multi_patient_transcript.md, summaries/clinical-validity-reviewer.md, summaries/brainworkup-branding-concepts.md, summaries/brainworkup-brand-voice-guide.md]
+sources: [summaries/cerner-autotext.md, summaries/attention-problems.md, summaries/LLM Benchmark Comparison.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/bwu.neuro.reports.recs.books.md, summaries/nse_narrative.md, summaries/neurocog.prompt.md, summaries/neurobehav.prompt.md, summaries/customization.md, summaries/multi_patient_transcript.md, summaries/clinical-validity-reviewer.md, summaries/brainworkup-branding-concepts.md, summaries/brainworkup-brand-voice-guide.md]
 brief: How neuropsychology practitioners vary language formality, tone, and terminology across clinical audiences and contexts.
 ---
 
@@ -52,3 +52,7 @@ See also: [[summaries/bwu.neuro.reports.recs.books]]
 See also: [[summaries/Apply-to-Y-Combinator-JWT]]
 
 See also: [[summaries/LLM Benchmark Comparison]]
+
+See also: [[summaries/attention-problems]]
+
+See also: [[summaries/cerner-autotext]]

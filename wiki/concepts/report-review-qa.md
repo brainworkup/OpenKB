@@ -1,5 +1,5 @@
 ---
-sources: [summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/agent-team.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/customization.md, summaries/report-generator.md, summaries/report_body.md, summaries/clinical-validity-reviewer.md]
+sources: [summaries/agentic-workflows.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/agent-team.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/customization.md, summaries/report-generator.md, summaries/report_body.md, summaries/clinical-validity-reviewer.md]
 brief: Systematic, structured verification of clinical neuropsychological reports before human sign-off in automated pipelines.
 ---
 
@@ -98,3 +98,5 @@ See also: [[summaries/customization]]
 See also: [[summaries/2026-04-26-cingulate-agent-team-design]]
 
 See also: [[summaries/Luria_AI_Q4_Investor_Memo_2026]]
+
+See also: [[summaries/agentic-workflows]]

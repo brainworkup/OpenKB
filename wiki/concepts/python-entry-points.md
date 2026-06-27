@@ -1,5 +1,5 @@
 ---
-sources: [summaries/top_level.md, summaries/entry_points.md]
+sources: [summaries/cli-commands.md, summaries/cli-command-usage.md, summaries/bash-prompts.md, summaries/arc-clients.md, summaries/top_level.md, summaries/entry_points.md]
 brief: Standard Python packaging mechanism for advertising CLI commands, plugins, and hooks across packages.
 ---
 
@@ -123,3 +123,11 @@ This pattern relates directly to [[concepts/pytest-plugins]], which covers the b
 - [[concepts/charset-normalizer]] — Encoding detection library exposing a `normalizer` CLI command
 
 See also: [[summaries/top_level]]
+
+See also: [[summaries/arc-clients]]
+
+See also: [[summaries/bash-prompts]]
+
+See also: [[summaries/cli-command-usage]]
+
+See also: [[summaries/cli-commands]]

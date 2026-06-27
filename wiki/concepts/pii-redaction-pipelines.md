@@ -1,11 +1,13 @@
 ---
-sources: [summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/nse_narrative.md, summaries/README.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/neuropsych-pdf-parser.md, summaries/neuropsych-data-extractor.md, summaries/clinical-validity-reviewer.md, summaries/local_models.md, summaries/mcp-integration.md, summaries/002-mcp-llm-integration.md, summaries/SKILL.md, summaries/AGENTS_luria.md, summaries/deepagents_merged_mem_notes.md]
-brief: Layered PHI/PII redaction as a structural pipeline gate in clinical AI neuropsychological workflows.
+sources: [summaries/agentic-workflows.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/nse_narrative.md, summaries/README.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/neuropsych-pdf-parser.md, summaries/neuropsych-data-extractor.md, summaries/clinical-validity-reviewer.md, summaries/local_models.md, summaries/mcp-integration.md, summaries/002-mcp-llm-integration.md, summaries/SKILL.md, summaries/AGENTS_luria.md, summaries/deepagents_merged_mem_notes.md]
+brief: Hard-gated PHI removal before agentic clinical pipeline processing.
 ---
 
 # PII Redaction in Clinical AI Pipelines
 
 PII (Personally Identifiable Information) and PHI (Protected Health Information) redaction is a critical gatekeeping step in any clinical AI pipeline that processes patient data. In neuropsychological and clinical reporting workflows, raw intake documents — transcripts, referral forms, audio recordings, prior records — contain highly sensitive identifiers that must be masked before any LLM subagent can process or reason over the content.
+
+In agentic workflows, this requirement becomes even more important. A top-level orchestrator may delegate tasks across ingestion, processing, retrieval, summarization, table generation, figure generation, and report drafting. If PHI is not removed before that delegation begins, sensitive data can propagate through many tools, intermediate artifacts, and subagents. Redaction therefore functions not just as a preprocessing convenience but as a hard boundary within [[concepts/multi-agent-orchestration]] and [[concepts/subagent-architecture]].
 
 ## Why Redaction Must Be a Hard Gate
 
@@ -19,26 +21,28 @@ Raw documents (contains PHI)
 Redacted content (safe for LLM subagents)
 ```
 
-All downstream agents receive only the redacted version. The raw data is never passed forward in the pipeline. This principle applies whether the pipeline is a sophisticated multi-agent system like the Luria neuropsychological pipeline or a streamlined local-first application like the Luria Streamlit app.
+All downstream agents receive only the redacted version. The raw data is never passed forward in the pipeline. This principle applies whether the pipeline is a sophisticated agentic system like the Luria neuropsychological pipeline or a streamlined local-first application.
+
+The summary in [[summaries/agentic-workflows]] reinforces this architecture: an orchestrating agent may break a high-level goal such as report generation into many subtasks, but high-stakes decisions like PII handling should be surfaced structurally rather than left to silent model behavior. In practice, this means PHI removal must occur before autonomous downstream execution, while final review can include a second explicit privacy check.
 
 ## Redaction in Local-First Desktop Applications
 
 The Luria Streamlit App (see [[summaries/README]]) demonstrates that the [[concepts/local-first-architecture]] pattern is itself a powerful complement to software-level redaction. Key design decisions include:
 
-- **PHI redaction happens locally** — the Docling parse stage strips identifiers on the user's own machine before any text is sent to the Anthropic API (Claude Sonnet).
+- **PHI redaction happens locally** — the Docling parse stage strips identifiers on the user's own machine before any text is sent to the Anthropic API.
 - **No cloud vector store** — [[concepts/lancedb-vector-store]] and SQLite are entirely local, so redacted and structured data never leaves the device.
 - **Only extraction crosses the network boundary** — and only after the local PHI redaction step has completed.
-- **Audio is also handled locally** — MacWhisper transcription and [[concepts/omlx-server]] summarization run on-device, eliminating a common PHI leakage vector.
+- **Audio is also handled locally** — local transcription and [[concepts/omlx-server]] summarization run on-device, eliminating a common PHI leakage vector.
 
-This architecture means that even if the software-level redaction missed an identifier, the data would still be contained on the clinician's own machine rather than transmitted to a cloud provider. The Streamlit app's pipeline order is: Parse (local, PHI redacted) → Extract (Anthropic API, PHI-free) → Index (local SQLite + LanceDB) → Report (local rendering).
+This architecture means that even if the software-level redaction missed an identifier, the data would still be contained on the clinician's own machine rather than transmitted to a cloud provider. The Streamlit app's pipeline order is: Parse (local, PHI redacted) → Extract (API, PHI-free) → Index (local SQLite + LanceDB) → Report (local rendering).
 
-The [[concepts/luria-neuropsych-pipeline]] and the Streamlit app share a common structural principle: the local-first approach means the attack surface for PHI leakage is dramatically reduced even before software-level redaction is considered. Docling (see [[concepts/docling-pdf-parsing]]) serves as the local parse stage in both contexts, extracting text and layout from PDFs with PHI redacted before any content reaches a cloud API.
+The [[concepts/luria-neuropsych-pipeline]] and the Streamlit app share a common structural principle: the local-first approach means the attack surface for PHI leakage is dramatically reduced even before software-level redaction is considered. [[concepts/docling-pdf-parsing]] serves as the local parse stage in both contexts, extracting text and layout from PDFs with PHI redacted before any content reaches a cloud API.
 
 ## The PDF Ingestion Entry Point
 
 In pipelines such as the Luria neuropsychological system, the very first stage of document intake is the **PDF Ingestion & Parser Worker** — specifically, the `neuropsych-pdf-parser` agent (see [[summaries/neuropsych-pdf-parser]] and [[summaries/AGENTS_luria]]). This agent is responsible for fetching, classifying, and extracting raw PDF content before any downstream processing occurs. Critically, it is also the **first line of PHI defense**: the parser replaces identifying information with standardized tokens as part of its structured output, meaning PHI anonymization begins at the point of ingestion — before content reaches any reasoning agent.
 
-In the Streamlit app context, [[concepts/docling-pdf-parsing]] performs an analogous role: it is the local parse stage that extracts text and layout from PDFs, with PHI redacted before any content is passed to Claude Sonnet for structured extraction.
+In the Streamlit app context, [[concepts/docling-pdf-parsing]] performs an analogous role: it is the local parse stage that extracts text and layout from PDFs, with PHI redacted before any content is passed onward for structured extraction.
 
 ### PHI Tokenization at Ingestion
 
@@ -55,11 +59,11 @@ The `neuropsych-pdf-parser` enforces a strict token substitution scheme:
 
 Year-only dates may be preserved when clinically necessary. Every substitution is logged in a `PHI_FLAGS` block appended to the parser's output, providing a complete audit trail of what was replaced and where. The parser also enforces a hard rule that it will **never** include real names, MRNs, DOBs, or addresses in its output, regardless of user instruction — making the PHI boundary a property of the agent itself, not just a downstream assumption.
 
-The ingestion worker handles documents including neuropsychological assessment reports (WAIS-IV, MMSE, MoCA, RBANS, WMS, WCST, CPT, Trail Making, Stroop, BDI, BRIEF), psychometric score sheets, clinical notes, and research papers — all of which may carry PHI in different formats and locations within the document. See [[concepts/neuropsychological-tests]] for context on these instruments.
+The ingestion worker handles documents including neuropsychological assessment reports, psychometric score sheets, clinical notes, and research papers — all of which may carry PHI in different formats and locations within the document. See [[concepts/neuropsychological-tests]] for context on these instruments.
 
 ## Implementation in the Luria Pipeline
 
-The [[summaries/deepagents_merged_mem_notes]] describes a concrete implementation of this pattern in the Luria neuropsychological report system:
+The [[summaries/deepagents_merged_mem_notes]] describes a concrete implementation of this pattern in the Luria neuropsychological report system.
 
 ### Tools Used
 
@@ -81,6 +85,8 @@ In the Luria pipeline's Phase A (NSE Intake), the redaction gate is placed at no
 - **A5** runs Presidio over this transcript and outputs `data/intake/nse_summary_redacted.md`
 - **All subsequent agents** (A6 through Phase D) receive only the redacted output
 
+This placement matches the workflow logic described in [[summaries/agentic-workflows]]: ingestion and processing should precede broad autonomous report-generation behavior, and redaction should occur before content fans out into worker agents, retrieval tools, or narrative generators.
+
 ### Filesystem Permission Model
 
 Complementing the software redaction, the pipeline enforces a HIPAA-aware filesystem permission model:
@@ -97,6 +103,8 @@ At Phase D2 (`luria-quality-review`), Presidio is run a **second time** as a re-
 - Validity statements present when required
 - Score ↔ narrative consistency
 
+This second-pass scan is especially important in agentic report assembly, where content may be recombined from multiple subtasks and intermediate artifacts. Even if the first redaction gate protects downstream workers, a final privacy QA check reduces the chance that PHI is reintroduced during synthesis or editing.
+
 ## Key Design Decisions
 
 ### Redaction as a Pipeline Node, Not a Model Instruction
@@ -105,7 +113,7 @@ A common but unreliable approach is to instruct LLMs via prompt to avoid repeati
 
 The `neuropsych-pdf-parser` exemplifies this principle: its PHI tokenization is implemented as a rule-based extraction step with explicit token substitution and audit logging, not a model-level instruction that might be ignored or forgotten. Its hard rules — never output real names regardless of user instruction, never round or paraphrase scores — are agent-level constraints, not prompt suggestions.
 
-The Streamlit app's LangGraph pipeline (see [[concepts/langgraph-agent-workflows]]) similarly encodes PHI redaction as the first node in the `StateGraph`, ensuring the constraint is structural rather than advisory. This integration with [[concepts/agent-pipeline-state-management]] means the redacted content propagates through the state graph as a first-class artifact, not as an afterthought.
+The Streamlit app's graph-based workflow (see [[concepts/langgraph-agent-workflows]]) similarly encodes PHI redaction as an early node in the state graph, ensuring the constraint is structural rather than advisory. This integration with [[concepts/agent-pipeline-state-management]] means the redacted content propagates through the graph as a first-class artifact, not as an afterthought.
 
 ### Layered Anonymization
 
@@ -116,13 +124,21 @@ Both the full Luria pipeline and the Streamlit app employ anonymization at multi
 4. **Network boundary** — only PHI-free content crosses to cloud APIs
 5. **Quality review (D2)** — a final Presidio re-scan before report delivery (full pipeline only)
 
+This layered design is particularly well suited to [[concepts/multi-agent-orchestration]], where outputs may pass through several workers, tools, and memory objects before the final report is produced.
+
 ### Audio-Derived Content: A Special Risk Vector
 
-The [[concepts/audio-transcription-pipeline]] introduces a particularly high-risk PHI surface. The NSE transcript from Phase A4 (speech-to-text) captures full names, family member names, addresses, and dates of birth in natural conversational flow. In the Streamlit app, audio uploads are transcribed via MacWhisper CLI (local, on-device) and summarized via a local oMLX server — meaning the audio PHI surface never crosses a network boundary at all. This local-only handling of audio is consistent with the [[concepts/privacy-first-software]] design philosophy.
+The [[concepts/audio-transcription-pipeline]] introduces a particularly high-risk PHI surface. The NSE transcript from Phase A4 (speech-to-text) captures full names, family member names, addresses, and dates of birth in natural conversational flow. In the Streamlit app, audio uploads are transcribed locally and summarized via a local oMLX server — meaning the audio PHI surface never crosses a network boundary at all. This local-only handling of audio is consistent with the [[concepts/privacy-first-software]] design philosophy.
+
+### Cross-Language Pipelines Need the Same Boundary
+
+The workflow pattern described in [[summaries/agentic-workflows]] also highlights a practical issue for redaction systems: some pipelines span Python and R, with orchestration in one language and domain logic in another. In such hybrid environments, the PHI boundary must survive runtime transitions. If Python orchestrates R-based analytics, only redacted payloads should cross that language boundary unless an explicitly authorized raw-data step is required. This makes privacy constraints part of the interface contract, not just part of a single script.
+
+For Luria-like systems, that principle aligns with [[concepts/r-python-integration]] and the broader need to keep privacy guarantees stable across tool calls, subprocesses, and intermediate files.
 
 ### Gap Identified
 
-The corrected orchestration plan explicitly notes that `pii_presidio.py` **exists as a tool but was not called anywhere in the graph** as of the May 2026 review. Wiring it into A5 was listed as the second-highest build priority, after extending the LangGraph fan-out for domain parallelism. This illustrates a common failure mode: the redaction tooling exists but isn't integrated into the execution graph. The `neuropsych-pdf-parser`'s approach of making PHI scrubbing intrinsic to the agent's output contract — rather than a separate tool call — partially mitigates this risk at the ingestion layer.
+The corrected orchestration plan explicitly notes that `pii_presidio.py` **exists as a tool but was not called anywhere in the graph** as of the May 2026 review. Wiring it into A5 was listed as a high build priority. This illustrates a common failure mode: the redaction tooling exists but isn't integrated into the execution graph. The `neuropsych-pdf-parser` approach of making PHI scrubbing intrinsic to the agent's output contract — rather than a separate optional tool call — partially mitigates this risk at the ingestion layer.
 
 ## Relation to Broader Architecture
 
@@ -135,6 +151,8 @@ This pattern fits within the larger context of [[concepts/multi-agent-orchestrat
 
 ...forms a layered [[concepts/privacy-first-software]] approach suited to HIPAA-regulated clinical environments.
 
+The same pattern also aligns with end-to-end agentic workflows for data science: ingestion, processing, redaction, reporting, and review should be treated as distinct stages with explicit handoffs. Redaction is the boundary that determines which later stages may safely operate autonomously, silently, or at scale. This makes PII handling foundational not only to compliance but also to safe automation in [[concepts/clinical-nlp-pipelines]], [[concepts/clinical-ai-copilot]], and [[concepts/neuropsychological-assessment-automation]].
+
 The document classification step in the `neuropsych-pdf-parser` (assigning one of five document types: `neuropsych_assessment_report`, `psychometric_score_sheet`, `clinical_notes`, `research_paper`, `mixed_other`) also informs which PHI patterns are most likely present — clinical notes, for instance, embed PHI far more densely in running prose than research papers do.
 
 ## Related Pages
@@ -143,9 +161,11 @@ The document classification step in the `neuropsych-pdf-parser` (assigning one o
 - [[summaries/AGENTS_luria]] — PDF ingestion worker with inline PHI tokenization
 - [[summaries/deepagents_merged_mem_notes]] — source implementation details
 - [[summaries/README]] — Luria Streamlit App with local-first PHI redaction architecture
+- [[summaries/agentic-workflows]] — agentic workflow framing for staged automation and review
 - [[concepts/phi-data-handling]] — broader PHI compliance considerations
 - [[concepts/privacy-first-software]] — design philosophy
 - [[concepts/multi-agent-orchestration]] — pipeline context
+- [[concepts/subagent-architecture]] — delegated worker structure that increases need for hard boundaries
 - [[concepts/neuropsychological-reporting]] — clinical domain context
 - [[concepts/clinical-nlp-pipelines]] — NLP pipeline architecture
 - [[concepts/neuropsychological-assessment-pipeline]] — the multi-stage pipeline this pattern operates within
@@ -158,6 +178,9 @@ The document classification step in the `neuropsych-pdf-parser` (assigning one o
 - [[concepts/agent-pipeline-state-management]] — how redacted state propagates through the graph
 - [[concepts/lancedb-vector-store]] — local vector storage that keeps indexed data on-device
 - [[concepts/omlx-server]] — local LLM inference used in audio summarization
+- [[concepts/r-python-integration]] — preserving PHI boundaries across Python/R toolchains
+- [[concepts/clinical-ai-copilot]] — downstream clinical assistance systems that depend on redacted inputs
+- [[concepts/neuropsychological-assessment-automation]] — broader automation context
 
 See also: [[summaries/SKILL]]
 

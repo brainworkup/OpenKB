@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.executive-fx.md, summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.dyscalculia.md, summaries/bwu.neuro.reports.recs.conduct-problems.md, summaries/bwu.neuro.reports.recs.building-verbal-skills.md, summaries/bwu.neuro.reports.recs.build-writing-skills.md, summaries/bwu.neuro.reports.recs.build-reading-skills.md, summaries/bwu.neuro.reports.recs.build-math-skills.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.behav-mod.md, summaries/bwu.neuro.reports.recs.attention-problems.md]
+sources: [summaries/clinical-assessment.md, summaries/attention.md, summaries/attention-problems.md, summaries/bwu.neuro.reports.recs.executive-fx.md, summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.dyscalculia.md, summaries/bwu.neuro.reports.recs.conduct-problems.md, summaries/bwu.neuro.reports.recs.building-verbal-skills.md, summaries/bwu.neuro.reports.recs.build-writing-skills.md, summaries/bwu.neuro.reports.recs.build-reading-skills.md, summaries/bwu.neuro.reports.recs.build-math-skills.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.behav-mod.md, summaries/bwu.neuro.reports.recs.attention-problems.md]
 brief: Evidence-based strategies for attention, executive function, and learning across home and school settings.
 ---
 
@@ -326,3 +326,9 @@ See also: [[summaries/bwu.neuro.reports.recs.dyslexia]]
 See also: [[summaries/bwu.neuro.reports.recs.dyslexia.young-adult]]
 
 See also: [[summaries/bwu.neuro.reports.recs.executive-fx]]
+
+See also: [[summaries/attention-problems]]
+
+See also: [[summaries/attention]]
+
+See also: [[summaries/clinical-assessment]]

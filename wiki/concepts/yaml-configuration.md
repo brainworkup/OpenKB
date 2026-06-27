@@ -1,5 +1,5 @@
 ---
-sources: [summaries/PERMANENT_SOLUTION_SUMMARY.md, summaries/copilot-instructions.md, summaries/cognition.instructions.md, summaries/LLM_INTEGRATION.md, summaries/LLM_AGENT_MAP.md, summaries/CLAUDE.md, summaries/report-rendering-pipeline.md, summaries/brand-yml-integration.md, summaries/style-extensions.md, summaries/report-template.md, summaries/brand-and-skills.md, summaries/0006-brand-yml-for-cross-platform-theming.md, summaries/0004-soul-style-profile-json.md, summaries/SETUP_SUMMARY.md, summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/POSITRON_DATABOT_TROUBLESHOOTING.md, summaries/report-generation.md, summaries/mcp-integration.md, summaries/template-system.md, summaries/quarto-extensions.md, summaries/overview.md, summaries/003-modular-template-structure.md, summaries/002-mcp-llm-integration.md, summaries/001-choose-quarto-typst.md, summaries/quarto.md, summaries/brand-yml-spec.md, summaries/brand-yml-in-r.md, summaries/SKILL.md]
+sources: [summaries/cli-gh.md, summaries/cli-commands.md, summaries/bash-prompts.md, summaries/PERMANENT_SOLUTION_SUMMARY.md, summaries/copilot-instructions.md, summaries/cognition.instructions.md, summaries/LLM_INTEGRATION.md, summaries/LLM_AGENT_MAP.md, summaries/CLAUDE.md, summaries/report-rendering-pipeline.md, summaries/brand-yml-integration.md, summaries/style-extensions.md, summaries/report-template.md, summaries/brand-and-skills.md, summaries/0006-brand-yml-for-cross-platform-theming.md, summaries/0004-soul-style-profile-json.md, summaries/SETUP_SUMMARY.md, summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/POSITRON_DATABOT_TROUBLESHOOTING.md, summaries/report-generation.md, summaries/mcp-integration.md, summaries/template-system.md, summaries/quarto-extensions.md, summaries/overview.md, summaries/003-modular-template-structure.md, summaries/002-mcp-llm-integration.md, summaries/001-choose-quarto-typst.md, summaries/quarto.md, summaries/brand-yml-spec.md, summaries/brand-yml-in-r.md, summaries/SKILL.md]
 brief: YAML configuration files encode settings, metadata, and parameters across branding, reporting, and clinical pipeline tools.
 ---
 
@@ -304,3 +304,9 @@ See also: [[summaries/cognition.instructions]]
 See also: [[summaries/copilot-instructions]]
 
 See also: [[summaries/PERMANENT_SOLUTION_SUMMARY]]
+
+See also: [[summaries/bash-prompts]]
+
+See also: [[summaries/cli-commands]]
+
+See also: [[summaries/cli-gh]]

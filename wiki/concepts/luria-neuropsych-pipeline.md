@@ -1,5 +1,5 @@
 ---
-sources: [summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/DIAGNOSIS_PARSER_IMPROVEMENTS.md, summaries/DIAGNOSIS_FIX_SUMMARY.md, summaries/AGE_OVERRIDE_GUIDE.md, summaries/DEPENDENCIES.md, summaries/installation.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/SETUP_SUMMARY.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/RECOVERY_NOTES.md, summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/neuropsych-pdf-parser.md, summaries/neuropsych-narrative-writer.md]
+sources: [summaries/agentic-workflows.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/LLM Benchmark Comparison.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/DIAGNOSIS_PARSER_IMPROVEMENTS.md, summaries/DIAGNOSIS_FIX_SUMMARY.md, summaries/AGE_OVERRIDE_GUIDE.md, summaries/DEPENDENCIES.md, summaries/installation.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/SETUP_SUMMARY.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/RECOVERY_NOTES.md, summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/neuropsych-pdf-parser.md, summaries/neuropsych-narrative-writer.md]
 brief: Multi-stage LangGraph pipeline transforming neuropsych PDFs into structured clinical reports with local-first PHI safety.
 ---
 
@@ -529,3 +529,5 @@ See also: [[summaries/Apply-to-Y-Combinator-JWT]]
 See also: [[summaries/LLM Benchmark Comparison]]
 
 See also: [[summaries/Luria_AI_Q4_Investor_Memo_2026]]
+
+See also: [[summaries/agentic-workflows]]

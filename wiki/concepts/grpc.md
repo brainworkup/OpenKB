@@ -1,5 +1,5 @@
 ---
-sources: [summaries/top_level.md]
+sources: [summaries/cli-command-management.md, summaries/top_level.md]
 brief: gRPC is a high-performance open-source RPC framework by Google using HTTP/2 and Protocol Buffers.
 ---
 
@@ -54,3 +54,6 @@ For deployments requiring SSL certificate management, [[concepts/ssl-tls-verific
 ## References
 
 - [[summaries/top_level]] — Source document referencing gRPC as a top-level topic.
+
+
+See also: [[summaries/cli-command-management]]

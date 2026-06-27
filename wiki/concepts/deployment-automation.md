@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/SKILL.md]
+sources: [summaries/bash-prompts.md, summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/SKILL.md]
 brief: Automating the triggering, management, and monitoring of software or documentation deployments via APIs.
 ---
 
@@ -47,3 +47,5 @@ It also underpins plain-text documentation approaches (see [[concepts/plain-text
 See also: [[summaries/PROJECT_SETUP_COMPLETE]]
 
 See also: [[summaries/README]]
+
+See also: [[summaries/bash-prompts]]

@@ -1,11 +1,13 @@
 ---
-sources: [summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/entry_points.md, summaries/top_level.md, summaries/requirements.md, summaries/DEPENDENCIES.md, summaries/installation.md]
-brief: Managing Python runtimes and dependencies for isolated, reproducible projects.
+sources: [summaries/cli-commands.md, summaries/cli-command-usage.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/entry_points.md, summaries/top_level.md, summaries/requirements.md, summaries/DEPENDENCIES.md, summaries/installation.md]
+brief: Managing Python runtimes and dependencies for isolated, reproducible workflows.
 ---
 
 # Python Environment Management
 
 Python environment management encompasses the tools, strategies, and best practices for installing, isolating, and maintaining Python dependencies across projects. For tools like Luria, proper environment management ensures reproducible installations, prevents version conflicts, and supports both end-user and developer workflows. It also matters for small writing-heavy repositories: the `YC-2026` project snapshots in [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147]] and [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342]] show full `.venv` directories committed alongside Markdown application materials, illustrating how even a lightweight personal project may depend on a dedicated Python runtime for editing, notebooks, debugging, or automation.
+
+This concept also overlaps with command-line usage. The hub page [[summaries/cli-command-usage]] groups related CLI references such as cli.python3, cli.sh, cli.rvm, cli.seq, and cli.sort, reinforcing that environment management is partly a command-line discipline: selecting the right interpreter, activating the correct shell context, and using project-local tools consistently.
 
 See [[summaries/installation]] for a full breakdown of how Luria handles environment setup. For a concrete example of a pinned Jupyter/IPython environment, see [[summaries/requirements]].
 
@@ -18,6 +20,8 @@ See [[summaries/installation]] for a full breakdown of how Luria handles environ
 - **Workflow support**: Keeps notebooks, shells, debuggers, and automation tools aligned with the project they serve
 
 The `YC-2026` snapshots are a useful reminder that environment management is not only for large software systems. A project centered on `application.md`, `README.md`, draft-history files, and personal application prep can still rely on a local Python environment containing Jupyter, IPython, and debugging tools. In practice, this makes environment management part of broader [[concepts/personal-writing-workflows]] and [[concepts/python-project-structure]]. It also overlaps with [[concepts/application-preparation]] when a repository is used to support reflective writing, drafting, and revision rather than product code alone.
+
+The command-line perspective matters here too. Environment management is often enacted through terminal habits: using the correct `python` or `python3` executable, invoking package managers from the active environment, and keeping shell behavior predictable across sessions. This aligns closely with [[concepts/command-line-workflows]], [[concepts/shell-environments]], and [[concepts/shell-utility-tooling]].
 
 ## Package Managers
 
@@ -50,7 +54,7 @@ pip install --user luria      # user-level, no sudo needed
 pip uninstall luria
 ```
 
-The `YC-2026` snapshots also show conventional `venv` layouts with executables such as `pip`, `pip3`, `python`, `python3`, and `jupyter` under `.venv/bin`, reinforcing how pip-centered environments remain the default shape of many local Python projects.
+The `YC-2026` snapshots also show conventional `venv` layouts with executables such as `pip`, `pip3`, `python`, `python3`, and `jupyter` under `.venv/bin`, reinforcing how pip-centered environments remain the default shape of many local Python projects. This is also where CLI usage becomes concrete: documents grouped by [[summaries/cli-command-usage]] emphasize that interpreter and package invocation are everyday shell operations, not just abstract packaging concerns.
 
 ### Poetry
 
@@ -96,6 +100,8 @@ The `YC-2026` snapshots are especially instructive here. They include:
 
 The newer snapshot, [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342]], makes this even more concrete by showing the full environment beside project materials like `application.md`, `README.md`, `CLAUDE.md`, `GRAYMATTER.md`, `pyproject.toml`, `.history/`, and `.remember/`. This shows a real-world local environment captured as a directory snapshot rather than just an abstract recommendation. It also highlights a common repository hygiene concern: while keeping `.venv` locally is normal, checking the entire environment into source control is usually discouraged unless there is a specific archival or portability reason. See [[concepts/repository-hygiene]].
 
+Environment activation is also a shell concern. In practice, success depends on being in the right terminal session, using the right activation command for the platform, and confirming that `python`, `pip`, and related entry points resolve to the expected environment-local binaries. The CLI reference cluster around [[summaries/cli-command-usage]] complements this by framing environment use as part of ordinary shell navigation and command execution.
+
 ## Python Version Requirements
 
 Luria requires:
@@ -109,6 +115,8 @@ python3 --version
 ```
 
 The `YC-2026` snapshots demonstrate that some projects may target newer interpreters in practice: their `.venv` contents include Python 3.14 executables and libraries. This underscores an important principle: environment management is not just about package versions, but about pinning the interpreter version itself when reproducibility matters.
+
+The distinction between `python` and `python3` is also operationally important on the command line. The CLI hub [[summaries/cli-command-usage]] specifically highlights cli.python3, which is a useful reminder that interpreter naming conventions vary by platform and shell configuration.
 
 ## Jupyter / IPython Kernel Environments
 
@@ -152,6 +160,8 @@ The `[dev]` extras install testing, linting, and formatting tools alongside the 
 
 More generally, development environments often sit beside ordinary project files. The `YC-2026` snapshots combine a Python environment with `README.md`, `application.md`, `CLAUDE.md`, `GRAYMATTER.md`, `pyproject.toml`, editor history files, and temporary state directories. This is a useful example of how environment management supports mixed workflows that combine writing, planning, personal application preparation, and lightweight automation rather than only application code.
 
+CLI literacy is part of this workflow too: developers move between shell entry points, environment-specific executables, and project-local tools. The related links collected in [[summaries/cli-command-usage]] underscore that Python environment management often lives at the intersection of interpreter usage, shell scripting, and utility commands.
+
 ## Docker as an Alternative
 
 Docker provides full environment isolation beyond virtual environments:
@@ -176,6 +186,8 @@ Never commit `.env` to version control. See [[concepts/security-policy]] and [[c
 
 Environment configuration also includes non-secret project files such as `pyproject.toml`, kernelspecs, and tool-specific metadata. The `YC-2026` snapshots illustrate this broader view well: environment management is distributed across interpreter metadata (`pyvenv.cfg`), package layout (`site-packages`), executable shims (`.venv/bin/*`), and project-level configuration files. In practice, even a small personal repository may accumulate environment state across multiple layers, not just one lockfile.
 
+Command-line configuration is part of this same picture. Shell startup behavior, PATH resolution, and interpreter naming all shape whether a declared environment works as intended in practice. This connects Python environment management to [[concepts/shell-environments]] and [[concepts/cli-entry-points]].
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -187,6 +199,8 @@ Environment configuration also includes non-secret project files such as `pyproj
 | Jupyter kernel not found | Confirm `ipykernel` is installed in the active environment |
 | Wrong Python version | Recreate the environment with the intended interpreter |
 | Environment too large or accidentally tracked | Remove `.venv/` from version control and rebuild from dependency specs |
+| `python` points to the wrong interpreter | Check PATH, shell activation state, and whether `python3` is the correct executable |
+| CLI tools resolve globally instead of locally | Invoke them from the activated environment or use explicit `.venv/bin/...` paths |
 
 ## Related Concepts
 
@@ -198,12 +212,19 @@ Environment configuration also includes non-secret project files such as `pyproj
 - [[concepts/personal-writing-workflows]] — Writing-centric projects that still benefit from isolated Python tooling
 - [[concepts/repository-hygiene]] — Why virtual environments are usually excluded from version control
 - [[concepts/application-preparation]] — Repositories used to support reflective, high-stakes writing workflows
+- [[concepts/command-line-workflows]] — Shell-based execution patterns that shape environment use
+- [[concepts/shell-environments]] — Terminal configuration and activation context for Python tools
+- [[concepts/shell-utility-tooling]] — Supporting CLI tools commonly used alongside Python environments
+- [[concepts/cli-entry-points]] — How installed scripts and executable shims are exposed in an environment
 - [[summaries/installation]] — Luria-specific installation instructions
 - [[summaries/requirements]] — Pinned Jupyter/IPython kernel dependency snapshot
 - [[summaries/DEPENDENCIES]] — Additional dependency documentation
 - [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147]] — Real project snapshot with a full `.venv` and writing-oriented repository structure
 - [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342]] — Expanded filesystem snapshot showing the same pattern in more detail
+- [[summaries/cli-command-usage]] — Hub linking related command-line references relevant to interpreter and shell usage
 
 See also: [[summaries/top_level]]
 
 See also: [[summaries/entry_points]]
+
+See also: [[summaries/cli-commands]]

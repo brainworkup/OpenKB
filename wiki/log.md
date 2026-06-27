@@ -556,3 +556,53 @@
 
 ## [2026-06-27 00:43:27] ingest | application_20260413212452.md
 
+## [2026-06-27 01:17:54] ingest | agentic-workflows.md
+
+## [2026-06-27 01:17:59] ingest | arc-clients.md
+
+## [2026-06-27 01:18:05] ingest | archive-ia-automation.md
+
+## [2026-06-27 01:19:02] ingest | attention-problems.md
+
+## [2026-06-27 01:19:07] ingest | attention.md
+
+## [2026-06-27 01:19:24] ingest | autonomous-execution.md
+
+## [2026-06-27 01:19:29] ingest | aws-cost-management.md
+
+## [2026-06-27 01:19:55] ingest | bash-prompts.md
+
+## [2026-06-27 01:20:02] ingest | bash-test-syntax.md
+
+## [2026-06-27 01:20:08] ingest | bujo-planning.md
+
+## [2026-06-27 01:20:13] ingest | cakephp-development.md
+
+## [2026-06-27 01:21:02] ingest | cerner-autotext.md
+
+## [2026-06-27 01:21:08] ingest | certificate-rotation.md
+
+## [2026-06-27 01:21:35] ingest | cli-command-management.md
+
+## [2026-06-27 01:22:01] ingest | cli-command-usage.md
+
+## [2026-06-27 01:22:31] ingest | cli-commands.md
+
+## [2026-06-27 01:22:56] ingest | cli-ftp.md
+
+## [2026-06-27 01:23:10] ingest | cli-gh-create-repo.md
+
+## [2026-06-27 01:23:17] ingest | cli-gh.md
+
+## [2026-06-27 01:23:21] ingest | cli-git-rebase.md
+
+## [2026-06-27 01:23:29] ingest | cli-github.md
+
+## [2026-06-27 01:23:34] ingest | cli-gpg-encryption.md
+
+## [2026-06-27 01:23:39] ingest | cli-httpie.md
+
+## [2026-06-27 01:23:44] ingest | cli-regex-tools.md
+
+## [2026-06-27 01:24:54] ingest | clinical-assessment.md
+

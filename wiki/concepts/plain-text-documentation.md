@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260413204228.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/0001-voice-record-architecture-decisions.md, summaries/001-choose-quarto-typst.md, summaries/quarto.md, summaries/brand-yml-spec.md, summaries/SKILL.md, summaries/One-sentence-per-line.md]
+sources: [summaries/cli-commands.md, summaries/archive-ia-automation.md, summaries/README_20260413204228.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/0001-voice-record-architecture-decisions.md, summaries/001-choose-quarto-typst.md, summaries/quarto.md, summaries/brand-yml-spec.md, summaries/SKILL.md, summaries/One-sentence-per-line.md]
 brief: Lightweight markup formats enabling human-readable, version-controllable documentation without proprietary software.
 ---
 
@@ -68,3 +68,7 @@ See also: [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147]]
 See also: [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342]]
 
 See also: [[summaries/README_20260413204228]]
+
+See also: [[summaries/archive-ia-automation]]
+
+See also: [[summaries/cli-commands]]

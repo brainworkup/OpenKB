@@ -1,5 +1,5 @@
 ---
-sources: [summaries/agent-team.md, summaries/DEPENDENCIES.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/README.md, summaries/RECOVERY_NOTES.md, summaries/neuropsych-pdf-parser.md, summaries/clinical-validity-reviewer.md, summaries/CLAUDE.md, summaries/responses_to_claude.md]
+sources: [summaries/agentic-workflows.md, summaries/agent-team.md, summaries/DEPENDENCIES.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/README.md, summaries/RECOVERY_NOTES.md, summaries/neuropsych-pdf-parser.md, summaries/clinical-validity-reviewer.md, summaries/CLAUDE.md, summaries/responses_to_claude.md]
 brief: Architectural pattern distinguishing static agent specs from runtime-dispatchable subagents in Claude-based pipelines.
 ---
 
@@ -168,3 +168,5 @@ See also: [[summaries/README]]
 See also: [[summaries/DEPENDENCIES]]
 
 See also: [[summaries/agent-team]]
+
+See also: [[summaries/agentic-workflows]]

@@ -1,5 +1,5 @@
 ---
-sources: [summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/File Folder Structure Rebuild.md, summaries/table_API_readme.md, summaries/top_level.md, summaries/LICENSE.md, summaries/entry_points.md, summaries/requirements.md, summaries/installation.md, summaries/text-extraction.md, summaries/0008-soul-single-file-style-agent-architecture.md, summaries/RECOVERY_NOTES.md, summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/POSITRON_DATABOT_TROUBLESHOOTING.md, summaries/index.md, summaries/project-setup-progress.md, summaries/README_luria.md, summaries/SETUP_SUMMARY.md]
+sources: [summaries/bash-prompts.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/File Folder Structure Rebuild.md, summaries/table_API_readme.md, summaries/top_level.md, summaries/LICENSE.md, summaries/entry_points.md, summaries/requirements.md, summaries/installation.md, summaries/text-extraction.md, summaries/0008-soul-single-file-style-agent-architecture.md, summaries/RECOVERY_NOTES.md, summaries/README.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/POSITRON_DATABOT_TROUBLESHOOTING.md, summaries/index.md, summaries/project-setup-progress.md, summaries/README_luria.md, summaries/SETUP_SUMMARY.md]
 brief: How Python repos separate code, tooling, data, and authored project artifacts.
 ---
 
@@ -380,3 +380,5 @@ See also: [[summaries/LICENSE]]
 See also: [[summaries/top_level]]
 
 See also: [[summaries/table_API_readme]]
+
+See also: [[summaries/bash-prompts]]

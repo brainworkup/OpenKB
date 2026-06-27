@@ -1,5 +1,5 @@
 ---
-sources: [summaries/top_level.md, summaries/LICENSE.md, summaries/SECURITY.md]
+sources: [summaries/certificate-rotation.md, summaries/top_level.md, summaries/LICENSE.md, summaries/SECURITY.md]
 brief: Formal documents establishing version support, vulnerability disclosure, and legal liability limits for software projects.
 ---
 
@@ -83,3 +83,5 @@ Security policies are closely related to broader privacy-first software principl
 - [[concepts/clinical-data-privacy]] — Privacy considerations specific to clinical and health-related software
 
 See also: [[summaries/top_level]]
+
+See also: [[summaries/certificate-rotation]]

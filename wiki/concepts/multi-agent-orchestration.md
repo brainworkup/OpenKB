@@ -1,15 +1,17 @@
 ---
-sources: [summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/Introducing-FrontierCode.md, summaries/LLM_AGENT_MAP.md, summaries/CLAUDE.md, summaries/agent-team.md, summaries/DEPENDENCIES.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/README.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/neuropsych-pdf-parser.md, summaries/neuropsych-narrative-writer.md, summaries/clinical-validity-reviewer.md, summaries/responses_to_claude.md, summaries/SKILL.md, summaries/AGENTS_luria.md, summaries/README_luria.md, summaries/deepagents_merged_mem_notes.md]
-brief: Patterns for coordinating specialized agents across structured workflows.
+sources: [summaries/autonomous-execution.md, summaries/agentic-workflows.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/Apply-to-Y-Combinator-JWT.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/Introducing-FrontierCode.md, summaries/LLM_AGENT_MAP.md, summaries/CLAUDE.md, summaries/agent-team.md, summaries/DEPENDENCIES.md, summaries/2026-04-26-cingulate-agent-team-design.md, summaries/README.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/neuropsych-pdf-parser.md, summaries/neuropsych-narrative-writer.md, summaries/clinical-validity-reviewer.md, summaries/responses_to_claude.md, summaries/SKILL.md, summaries/AGENTS_luria.md, summaries/README_luria.md, summaries/deepagents_merged_mem_notes.md]
+brief: Patterns for coordinating specialized AI agents across complex workflows.
 ---
 
 # Multi-Agent Orchestration Patterns
 
 Multi-agent orchestration refers to the coordination of multiple specialized AI agents — each with defined roles, tools, context boundaries, and model assignments — across a structured workflow. Rather than relying on a single monolithic agent, orchestration patterns decompose complex tasks into discrete agents that can run sequentially, in parallel, or in nested hierarchies.
 
+At a high level, this is the core architecture behind agentic workflows: a top-level orchestrator receives a goal, decomposes it into stages, dispatches work to subagents or tools, monitors progress, and assembles the final result. In data science and clinical-reporting contexts, that often means end-to-end automation of ingestion, processing, redaction, analysis, and reporting rather than isolated single-step assistance. This page therefore sits close to [[concepts/multi-agent-orchestration]], [[concepts/subagent-architecture]], [[concepts/agent-pipeline-state-management]], and [[concepts/retrieval-augmented-generation]].
+
 In the Luria context, orchestration is not just a software architecture preference; it is the operating model for a local-first neuropsychological evaluation system intended to execute large portions of the workflow autonomously while preserving clinical quality and strict PHI boundaries. The YC application framing of Luria sharpens the core product thesis behind this page: a team of agents and subagents can coordinate intake, data organization, scoring, interpretation, report drafting, and review in a way that mirrors the real structure of neuropsychological work while keeping sensitive data local. That product framing is closely aligned with [[concepts/luria-overview]], [[concepts/neuropsychological-assessment-workflow]], [[concepts/privacy-first-software]], and [[concepts/phi-data-handling]].
 
-See also: [[summaries/deepagents_merged_mem_notes]] for a detailed real-world implementation correcting an aspirational orchestration sketch against a working neuropsychological report pipeline, [[summaries/README_luria]] for a minimal starter kit demonstrating the core patterns in a clean portable form, and [[summaries/Apply-to-Y-Combinator-JWT]] for the founder-facing articulation of why this orchestration model exists.
+See also: [[summaries/deepagents_merged_mem_notes]] for a detailed real-world implementation correcting an aspirational orchestration sketch against a working neuropsychological report pipeline, [[summaries/README_luria]] for a minimal starter kit demonstrating the core patterns in a clean portable form, [[summaries/Apply-to-Y-Combinator-JWT]] for the founder-facing articulation of why this orchestration model exists, and [[summaries/agentic-workflows]] for a concise overview of agentic pipeline design in data science.
 
 ---
 
@@ -40,6 +42,8 @@ Each stage is its own subagent under `.claude/agents/cingulate-*.md`, driven by 
 
 The `cingulate` R package formalizes this further through its `OllamaModelRouterR6` + `ReportLLMBridgeR6` + `DomainProcessorFactoryR6` stack (see [[summaries/LLM_AGENT_MAP]]). The bridge's `run_stage()` method is the atomic unit of orchestration: it calls the router, writes artifacts, logs timing metadata, and caches content-addressed results — all in one call. A `run_pipeline(stages)` method chains these calls sequentially, replicating the linear chain pattern at the R level.
 
+The broader agentic-workflows framing makes clear why this sequential backbone matters beyond neuropsychology. In end-to-end data science pipelines, stages like data ingestion, transformation, PII redaction, report generation, table creation, and figure generation often have hard dependencies. A sequential backbone gives the orchestrator a stable plan, while selective fan-out lets it exploit parallelism only where dependencies permit.
+
 The YC application reinforces why this sequential backbone matters in practice: neuropsychological evaluations are long, high-stakes, and integrative, with report writing as the core deliverable. An orchestration design that cleanly stages collection, transformation, synthesis, and review is a better fit for this domain than a single generalist agent attempting to reason over the entire case in one pass. This is especially true for pediatric and forensic cases, where workflow length and clinical sensitivity increase substantially.
 
 ### Fan-Out / Fan-In Pattern
@@ -64,6 +68,8 @@ nt_neurocog (orchestrator)
 
 Max concurrency in this configuration: ~21 agents (7 domains × 3 parallel Text/Table/Figure subagents). Actual average is lower (~12–15) because domains finish at different times.
 
+The same pattern appears in general agentic data workflows whenever an orchestrator can split a job into independent outputs such as separate domain analyses, table builds, figure generation, or retrieval tasks. Fan-out becomes especially valuable when the final deliverable is a bundle of heterogeneous artifacts rather than a single text response.
+
 From the product perspective described in the YC application, this pattern is what makes the claim of an "agent team" concrete rather than rhetorical. The product is not merely using multiple prompts; it is decomposing a real clinical workflow into specialized units whose outputs can later be integrated into a coherent report. That distinction matters because the founder's stated differentiation is not just automation, but automation that preserves cross-domain integration and clinical voice.
 
 ### Per-Domain Subgraph Pattern
@@ -77,6 +83,8 @@ DataPrepAgent → [TextSubAgent | TableSubAgent | FigureSubAgent] → Typst
 The same graph topology handles all 9 domains (7 neurocognitive + 2 neurobehavioral) in the Luria pipeline, differing only in input parquet files and QMD stub paths.
 
 At the R level, `DomainProcessorFactoryR6` implements the same pattern: a single `create_processor(domain_key, age_group)` call returns a domain-specific processor using the same base class, with differences encapsulated in the factory. Batch creation via `batch_create()` mirrors the Python fan-out, and multi-rater domains (ADHD, emotion) use `create_multi_processor()` to spawn self/parent/teacher variants — a three-way fan-out within a single domain.
+
+The agentic-workflows document broadens this pattern from domain narratives to full data science pipelines: the orchestrator can stamp out reusable workers not only for neuropsych domains but also for ingestion adapters, processing passes, deidentification jobs, reporting modules, and visualization tasks. The shared principle is modular specialization with controlled composition.
 
 This reuse pattern is central to any domain-specific AI system that must maintain consistency across many output sections. In Luria's case, it supports the founder's claim that the system can integrate across neurocognitive and neurobehavioral domains while still respecting domain-specific data structures.
 
@@ -106,6 +114,8 @@ The 13 defined clinical roles cover the full neuropsychological reporting workfl
 
 This role abstraction insulates the orchestration layer from model changes: swapping a model requires editing `ollama_models.yml` only, not any agent code. The `fallback_general` role ensures the system degrades gracefully when a specialized model is unavailable — a concrete implementation of [[concepts/fallback-strategy]].
 
+The same abstraction is useful in nonclinical agentic workflows: an orchestrator may route ingestion, code execution, retrieval, synthesis, and final narrative generation to different model tiers or tools. This is especially important when some stages are deterministic tool calls and others require higher-order reasoning.
+
 The YC application adds strategic context here: if the product promise is a local-first clinical system rather than a generic cloud chatbot, then orchestration and model routing are part of the product boundary. Choosing which model handles cross-domain interpretation versus deterministic scoring support is not a back-end detail; it is a mechanism for preserving privacy, controlling cost, and protecting report quality.
 
 ---
@@ -131,6 +141,8 @@ Each skill delegates further to one of three agent layers:
 This pattern replaced the old CSV extraction intake directory, which was migrated entirely into the `cingulate` R package. The Streamlit app is now the single main entry point, exposing a 4-tab interface: Ingest, Reference, Ask, Knowledge.
 
 The refactor also renamed `luria_docling/` to `rag/docling/`, consolidating PII obfuscation under `rag/docling/detect_pii.py`.
+
+The agentic-workflows framing helps interpret this refactor: the goal is not merely to split code into modules, but to let an orchestrating agent delegate distinct workflow stages to the best available worker abstraction — whether that worker is a graph node, an R processor, or a service endpoint.
 
 The YC application's language of a "team of agents and subagents" maps directly onto this skill decomposition. It provides an external-facing description of the same internal architecture: a system built from reusable workflow components rather than a single opaque model call.
 
@@ -186,6 +198,8 @@ Each stage subagent's prompt is a self-contained brief: it gets the workspace pa
 | report | `interpretation/*`, `intake/packet.md` | `report/template.qmd`, `report/<slug>.pdf` | `generate_assessment_report()`, `quarto render` |
 | qa | `report/<slug>.pdf`, all upstream outputs | `qa/issue_list.md` | `pdftotext` + heuristics; no R |
 
+These contracts also match the broader agentic-workflows pattern of decomposing end-to-end data work into atomic stages like ingestion, processing, deidentification, reporting, and artifact generation. The orchestrator's job is to preserve the boundaries between those stages while still assembling one coherent run.
+
 ---
 
 ## Per-Patient Workspace as the Inter-Stage Contract
@@ -207,6 +221,8 @@ The `ReportLLMBridgeR6` artifact directory is the R-level analog: each `run_stag
 
 On `error`, the stage writes a one-line `reason` field and a stack trace to `logs/<stage>.log`. The orchestrator surfaces this to the user and halts.
 
+The agentic-workflows document reinforces why explicit state and artifact boundaries matter: when pipelines span multiple runtimes, long horizons, and multiple deliverable types, the orchestrator needs durable state, not just transient chat history. Workspace artifacts become the memory and coordination substrate for the whole run.
+
 This workspace contract is also what makes a local-first clinical product operationally plausible. If raw artifacts, derived tables, narratives, and QA outputs all live inside a bounded patient workspace on local infrastructure, orchestration can proceed without depending on a remote centralized data plane. That aligns directly with [[concepts/local-first-architecture]], [[concepts/local-llm-inference]], and [[concepts/clinical-data-privacy]].
 
 ---
@@ -225,6 +241,8 @@ The cingulate design documents conventions that each subagent inherits independe
 8. `patient_slug` format: `lower_snake_case`, max 64 chars, ASCII only
 
 A known CWD constraint: several cingulate helpers expect `setwd(workspace_path)` after `devtools::load_all()`. Stage subagents must do this explicitly; the package does not currently accept a workspace-path argument. Threading one through cleanly is flagged as a future refactor.
+
+These conventions are examples of orchestration guardrails: explicit operating rules that let many subagents behave predictably inside one larger pipeline.
 
 ---
 
@@ -266,6 +284,8 @@ This pattern generalizes: **read-only parallel reviewers** can be attached to an
 
 The `block_signout` verdict is a form of human-in-the-loop gate: a critical issue (PHI leak, fabricated score, validity language error) surfaces to the orchestrator and prevents delivery until resolved.
 
+The agentic-workflows summary adds a useful broader principle here: low-risk deterministic tasks may run silently, but high-stakes decisions should surface for human review. Parallel reviewers are one architectural way to implement that distinction.
+
 The YC application makes this review layer even more important. Because the founder positions local handling of sensitive evaluations and preservation of clinical voice as core differentiators, review agents are not optional polish; they are part of the product's trust architecture.
 
 ---
@@ -302,6 +322,8 @@ The cingulate design externalizes state entirely to `state.json` in the workspac
 
 The `ConfigManagerR6` and `ErrorHandlerR6` classes in the `cingulate` package formalize the config-as-singleton and safe-execution patterns at the R level: `ConfigManagerR6$new("config.yml")` loads YAML once, and `ErrorHandlerR6$safe_execute(expr, context)` wraps any expression with logging — the R analog of the frozen dataclass + try/except pattern.
 
+The agentic-workflows document adds two important generalizations: long-horizon agent systems need explicit memory and state across steps, and cross-runtime pipelines need a durable substrate for passing intermediate data cleanly. In practice, orchestration state is not just execution metadata; it is part of how the system preserves context, retries safely, and maintains auditability.
+
 The product narrative in the YC application also suggests a broader principle: orchestration state is part of the clinical record of work, not just runtime bookkeeping. When a system claims near-autonomous workflow execution, explicit state becomes necessary for auditability, resumability, and human oversight.
 
 ---
@@ -333,6 +355,8 @@ classifier (router) → IngestGraph
 
 As the Luria product vision expands from point tools to an end-to-end workflow system, this separation supports a modular product surface: ingestion, scoring, narrative generation, retrieval, and QA can evolve independently while still participating in a larger orchestrated run.
 
+The agentic-workflows document describes the same idea in broader terms: one orchestrator delegates to specialized workers and tools rather than treating the entire process as one undifferentiated agent loop.
+
 ---
 
 ## Data Format Alignment
@@ -345,6 +369,8 @@ The [[concepts/cingulate-engine]] defines the canonical data contract for agents
 The `load_data_duckdb()` function is the canonical entry point for this contract: it reads raw CSVs, computes z-scores, splits by `test_type`, and writes `neurocog.parquet`, `neurobehav.parquet`, and `validity.parquet`. All downstream agents — whether R6 processors, LangGraph nodes, or Claude subagents — consume these Parquet files as their authoritative data source.
 
 Report generation is handled by [[concepts/quarto]] and [[concepts/typst-typesetting]] rather than spreadsheet exports.
+
+The agentic-workflows summary highlights why this matters operationally: an orchestrator can only coordinate hybrid tools and languages reliably if intermediate data is passed cleanly across runtime boundaries. Stable artifact formats are therefore part of the orchestration design, not merely a storage choice.
 
 This data-contract discipline is one reason orchestration can scale from the founder's original ad hoc R functions to a more autonomous system. The YC application describes a progression from CSV extraction to PDFs to arbitrary file types; orchestration becomes sustainable only when those heterogeneous inputs are normalized into stable machine-readable artifacts.
 
@@ -385,6 +411,8 @@ The `OllamaModelRouterR6` supports both Ollama and MLX endpoints, configured via
 
 The starter kit abstracts the LLM behind a `_llm()` helper, making it straightforward to swap between a local endpoint, OpenAI, or Anthropic without restructuring the graph. The cingulate design enforces `mode = "development"` as the default for all LLM calls, switching to `production` only on explicit instruction — a safeguard against accidental live PHI processing.
 
+The agentic-workflows document emphasizes the same principle at the workflow level: some steps are tool-heavy and deterministic, while others need retrieval, synthesis, or narrative generation. Multi-agent systems work best when routing reflects those differences rather than applying one model indiscriminately.
+
 The YC application makes clear why this matters commercially as well as technically: the founder's position is that generic cloud AI systems are poorly matched to neuropsychological evaluation because they do not respect strict PHI boundaries or the nuanced synthesis required for clinical reporting. Model routing inside a local-first architecture is therefore a core differentiator, not just an implementation detail.
 
 ---
@@ -413,6 +441,8 @@ The cingulate runbook maps stage outcomes to four statuses: `DONE | DONE_WITH_CO
 
 The cingulate orchestrator takes a stricter position than the Luria pipeline: **no auto-retry at all**. Any `error` state halts the chain and surfaces to the human reviewer, who manually re-dispatches after investigating. This is appropriate for a scaffolding-phase system where failure modes are not yet fully characterized, and it reflects the general principle that in clinical contexts, silent retries could mask data errors.
 
+The agentic-workflows document adds an important cross-language dimension here: hybrid Python/R systems need explicit handling of failures and retries across runtime boundaries, not just within one language process. Orchestration therefore includes managing subprocess failure, data-passing errors, and partial artifact creation.
+
 Any validity flag from a domain pauses the pipeline and surfaces the issue to a human — critical in clinical contexts where a missed result has real consequences.
 
 The YC application indirectly strengthens this design choice: when the product promise is nearly autonomous execution of a sensitive clinical workflow, visible failure states are preferable to hidden retries because they preserve clinician control and accountability.
@@ -431,6 +461,8 @@ Long-running multi-agent pipelines benefit from defined human review gates:
 
 Critically, the cingulate team **never approves a report** — that is always a human decision. QA issue severities (`blocker | major | minor | nit`) map to required actions: blockers must be resolved before any sign-off. This is especially important in [[concepts/phi-data-handling]] contexts where automated errors carry regulatory and clinical risk.
 
+The agentic-workflows summary sharpens the governing principle: deterministic low-risk tasks can often proceed silently, while high-stakes tasks such as PII decisions and final report sign-off should be surfaced. Human review checkpoints are the mechanism by which orchestration expresses that risk gradient.
+
 This hybrid posture also matches the founder narrative in the YC application. Luria is framed as automating the workflow, but not eliminating the importance of expert integration and clinical judgment. In practice, orchestration succeeds in healthcare when it amplifies expert throughput rather than pretending to remove the expert entirely.
 
 ---
@@ -446,6 +478,7 @@ Several unresolved items span the cingulate scaffolding and broader Luria archit
 - **Test fixture:** A synthetic case under `output/_fixture/` is recommended for smoke-testing the chain without real PHI. See [[concepts/smoke-test-scripts]] for related patterns.
 - **`allow_pull` policy:** The router's `allow_pull = FALSE` default is safe for production but requires manual model management; a model availability check via `check_available_models()` should be part of any pre-run checklist.
 - **Commercial packaging question:** The YC application leaves company, pricing, traction, and deployment packaging largely unspecified, so the operational boundary between internal workflow engine and productized customer-facing system remains open.
+- **Cross-runtime ergonomics:** The broader agentic workflow pattern raises an unresolved engineering question for Luria as well: how much orchestration should remain in Python versus being encapsulated inside R-facing workflow wrappers.
 
 ---
 
@@ -460,6 +493,8 @@ From the Luria plan, a practical build sequence:
 6. **Attach read-only parallel reviewers** — quality gates like the clinical-validity-reviewer can be wired in at this stage without disrupting the main generation thread.
 7. **Add voice/style subagents last** — aesthetic enhancements are not blockers; ship the functional pipeline first.
 8. **Create a synthetic fixture case** — smoke-test the full chain against a fake patient before touching real PHI. See [[concepts/smoke-test-scripts]] for related patterns.
+
+The agentic-workflows document supports this ordering at a general level: start with a clear orchestrator, stable stage boundaries, and a few well-defined tools before attempting high-autonomy long-horizon behavior.
 
 The YC application provides a useful origin story for why this order works. The system began as small practical utilities for one clinician's workflow, then accumulated automation, templating, and model assistance over several years. That organic path mirrors the recommended build order: start narrow, prove utility, then orchestrate at larger scale.
 
@@ -510,7 +545,7 @@ The YC application provides a useful origin story for why this order works. The 
 - [[concepts/narrative-report-generation]] — report-writing stage design in multi-agent systems
 - [[concepts/modular-report-architecture]] — report section decomposition that aligns with per-domain subagents
 
-See also: [[summaries/AGENTS_luria]] · [[summaries/SKILL]] · [[summaries/responses_to_claude]] · [[summaries/clinical-validity-reviewer]] · [[summaries/SESSION_SUMMARY_2025-04-28]] · [[summaries/2026-04-26-cingulate-agent-team-design]] · [[summaries/agent-team]] · [[summaries/neuropsych-narrative-writer]] · [[summaries/neuropsych-pdf-parser]] · [[summaries/README]] · [[summaries/DEPENDENCIES]] · [[summaries/LLM_AGENT_MAP]] · [[summaries/CLAUDE]] · [[summaries/Apply-to-Y-Combinator-JWT]]
+See also: [[summaries/AGENTS_luria]] · [[summaries/SKILL]] · [[summaries/responses_to_claude]] · [[summaries/clinical-validity-reviewer]] · [[summaries/SESSION_SUMMARY_2025-04-28]] · [[summaries/2026-04-26-cingulate-agent-team-design]] · [[summaries/agent-team]] · [[summaries/neuropsych-narrative-writer]] · [[summaries/neuropsych-pdf-parser]] · [[summaries/README]] · [[summaries/DEPENDENCIES]] · [[summaries/LLM_AGENT_MAP]] · [[summaries/CLAUDE]] · [[summaries/Apply-to-Y-Combinator-JWT]] · [[summaries/agentic-workflows]]
 
 See also: [[summaries/Introducing-FrontierCode]]
 
@@ -519,3 +554,5 @@ See also: [[summaries/redesign_20260623110817]]
 See also: [[summaries/redesign_20260623110910]]
 
 See also: [[summaries/Luria_AI_Q4_Investor_Memo_2026]]
+
+See also: [[summaries/autonomous-execution]]

@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.executive-fx.md, summaries/bwu.neuro.reports.recs.books.anger.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.aggression.md, summaries/bwu.neuro.reports.recs.adhd.young-adult.md, summaries/bwu.neuro.reports.recs.adhd.merge.md, summaries/bwu.neuro.reports.recs.adhd.child.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/bwu.neuro.reports.recs.adhd.adult.md]
+sources: [summaries/attention.md, summaries/bwu.neuro.reports.recs.executive-fx.md, summaries/bwu.neuro.reports.recs.books.anger.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.aggression.md, summaries/bwu.neuro.reports.recs.adhd.young-adult.md, summaries/bwu.neuro.reports.recs.adhd.merge.md, summaries/bwu.neuro.reports.recs.adhd.child.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/bwu.neuro.reports.recs.adhd.adult.md]
 brief: Structured therapeutic approaches training present-moment awareness to support attention, impulse control, and executive function.
 ---
 
@@ -171,3 +171,5 @@ Beyond ADHD, MBIs are applied across a range of clinical presentations:
 See also: [[summaries/bwu.neuro.reports.recs.executive-fx]], [[summaries/bwu.neuro.reports.recs.aggression]], [[summaries/bwu.neuro.reports.recs.books.adhd]]
 
 See also: [[summaries/bwu.neuro.reports.recs.books.anger]]
+
+See also: [[summaries/attention]]

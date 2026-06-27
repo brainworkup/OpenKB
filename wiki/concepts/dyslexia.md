@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.build-reading-skills.md]
+sources: [summaries/attention-problems.md, summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.build-reading-skills.md]
 brief: Neurodevelopmental disorder of word recognition, decoding, and spelling rooted in phonological processing deficits.
 ---
 
@@ -105,3 +105,6 @@ Beyond formal accommodations (see [[concepts/test-taking-accommodations]]), the 
 ## Related Documents
 - [[summaries/bwu.neuro.reports.recs.dyslexia]]
 - [[summaries/bwu.neuro.reports.recs.dyslexia.young-adult]]
+
+
+See also: [[summaries/attention-problems]]

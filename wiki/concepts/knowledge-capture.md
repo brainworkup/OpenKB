@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/Apply-to-Y-Combinator.md, summaries/SKILL.md]
+sources: [summaries/autonomous-execution.md, summaries/archive-ia-automation.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/Apply-to-Y-Combinator.md, summaries/SKILL.md]
 brief: Deliberately preserving decisions, insights, and procedures so they remain accessible and reusable across sessions.
 ---
 
@@ -86,3 +86,7 @@ See also: [[summaries/README_20260413211931]]
 See also: [[summaries/README_20260413212108]]
 
 See also: [[summaries/README_20260413215204]]
+
+See also: [[summaries/archive-ia-automation]]
+
+See also: [[summaries/autonomous-execution]]

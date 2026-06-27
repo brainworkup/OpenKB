@@ -1,5 +1,5 @@
 ---
-sources: [summaries/top_level.md]
+sources: [summaries/cli-commands.md, summaries/cli-command-usage.md, summaries/cli-command-management.md, summaries/bash-prompts.md, summaries/top_level.md]
 brief: Techniques for enhancing readability of terminal output using colors, formatting, and ANSI codes.
 ---
 
@@ -54,3 +54,12 @@ This approach is non-invasive—existing logging calls require no modification.
 - [[concepts/python-utilities]] — Small libraries that improve developer ergonomics
 - [[concepts/cli-entry-points]] — Command-line interfaces where terminal formatting is most visible
 - [[concepts/smoke-test-scripts]] — Short diagnostic scripts that benefit from clear, colored output
+
+
+See also: [[summaries/bash-prompts]]
+
+See also: [[summaries/cli-command-management]]
+
+See also: [[summaries/cli-command-usage]]
+
+See also: [[summaries/cli-commands]]

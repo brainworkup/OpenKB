@@ -1,11 +1,13 @@
 ---
-sources: [summaries/RECOMMENDATION_FILTERING_IMPROVEMENTS.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP.md, summaries/DIAGNOSIS_PARSER_IMPROVEMENTS.md, summaries/DIAGNOSIS_FIX_SUMMARY.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/AGE_OVERRIDE_GUIDE.md, summaries/2026-02-11-this-session-is-being-continued-from-a-previous-co.md, summaries/nse_narrative.md, summaries/DEPENDENCIES.md, summaries/text-extraction.md, summaries/README.md, summaries/neuropsych-narrative-writer.md, summaries/neuropsych-data-extractor.md, summaries/conversation-export.md, summaries/local_models.md, summaries/index.md, summaries/report-generation.md, summaries/mcp-integration.md, summaries/002-mcp-llm-integration.md, summaries/AGENTS_luria.md, summaries/README_luria.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/RECOVERY_NOTES.md, summaries/DEMO_GUIDE.md]
-brief: Multi-stage systems transforming clinical documents into structured data, de-identified embeddings, and LLM-generated narrative output.
+sources: [summaries/clinical-assessment.md, summaries/RECOMMENDATION_FILTERING_IMPROVEMENTS.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE.md, summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP.md, summaries/DIAGNOSIS_PARSER_IMPROVEMENTS.md, summaries/DIAGNOSIS_FIX_SUMMARY.md, summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION.md, summaries/AGE_OVERRIDE_GUIDE.md, summaries/2026-02-11-this-session-is-being-continued-from-a-previous-co.md, summaries/nse_narrative.md, summaries/DEPENDENCIES.md, summaries/text-extraction.md, summaries/README.md, summaries/neuropsych-narrative-writer.md, summaries/neuropsych-data-extractor.md, summaries/conversation-export.md, summaries/local_models.md, summaries/index.md, summaries/report-generation.md, summaries/mcp-integration.md, summaries/002-mcp-llm-integration.md, summaries/AGENTS_luria.md, summaries/README_luria.md, summaries/SESSION_SUMMARY_2025-04-28.md, summaries/RECOVERY_NOTES.md, summaries/DEMO_GUIDE.md]
+brief: Clinical NLP pipelines turn clinical text into structured data and safe narrative output.
 ---
 
 # Clinical NLP Pipelines
 
-Clinical NLP pipelines are structured, multi-stage systems that process medical and clinical documents — transforming unstructured text (such as neuropsychological PDF reports) into structured data, and generating new clinical-quality narrative output. They are a core pattern in healthcare AI, where accuracy, privacy, and auditability are paramount.
+Clinical NLP pipelines are structured, multi-stage systems that process medical and clinical documents — transforming unstructured text such as neuropsychological PDF reports into structured data, retrieval-ready knowledge, and new clinical-quality narrative output. They are a core pattern in healthcare AI, where accuracy, privacy, auditability, and clinical interpretability are paramount. In practice, these pipelines support [[concepts/clinical-data-management]], [[concepts/neuropsychological-assessment-workflow]], and the broader demands of [[summaries/clinical-assessment]]: standardized evaluation, context-sensitive interpretation, and careful synthesis across multiple sources of evidence.
+
+A key clinical point is that assessment data rarely speaks for itself. Especially in child and adolescent work, symptoms can vary across home, school, and clinic contexts, and informants often disagree. For that reason, strong clinical NLP pipelines should preserve source context, rater identity, and domain-specific structure rather than flattening everything into generic text blobs. This connects the engineering pipeline directly to [[concepts/multi-informant-assessment]] and [[concepts/cross-informant-correspondence]].
 
 ## Core Stages
 
@@ -23,11 +25,13 @@ The **PDF Ingestion & Parser Worker** defined in [[summaries/AGENTS_luria]] form
 
 The **Neuropsychological Report RAG Codemap** (see [[summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP]]) and the **Neuropsychological Report RAG Pipeline** (see [[summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE]]) describe a parallel ingestion pipeline built on **PyMuPDF (`fitz`)** rather than Docling. Its `ingest_recommendations.py` orchestrates the full flow:
 
-```
+```text
 PDF → fitz.open() → parse_report() → deidentify_recommendations() → generate_embeddings() → FAISS
 ```
 
 The key design principle is identical: PHI is stripped from text chunks *before* they are embedded and stored in the vector index. Only de-identified recommendation chunks ever enter the vector store.
+
+From a clinical-assessment perspective, the parse stage also has to preserve contextual distinctions that matter later: whether content came from history, testing, behavioral observations, parent report, teacher report, or final impressions. This is especially important when pipelines are later used to reason about [[concepts/cognitive-domains]], [[concepts/behavioral-rating-scales]], or attention concerns that may differ by setting.
 
 #### Text Extraction Implementation
 
@@ -54,10 +58,13 @@ Clinical extraction involves:
 - Named entity recognition for diagnoses, test scores, medications
 - Converting narrative prose into structured, long-format CSV rows
 - Mapping to standard clinical terminologies (T-scores, percentiles, DSM criteria)
+- Preserving source-specific context that may support multi-informant interpretation
+
+This stage should be thought of as supporting clinical assessment rather than replacing it. In standardized evaluation, the choice of measurement method matters: dimensional rating scales often produce stronger cross-informant correspondence than categorical classifications. That means extraction pipelines should preserve whether data came from dimensional scales, formal diagnoses, checklists, or narrative observations, because those distinctions affect downstream interpretation.
 
 #### Diagnosis Extraction and Header Recognition
 
-A recurring challenge in clinical report parsing is that diagnostic sections use highly variable header formats across institutions and clinicians. In neuropsychological reports, diagnostic information may appear under headers such as `DIAGNOSTIC CONSIDERATIONS`, `Diagnostic Summary`, `DSM-5 Diagnoses`, or `Axis I Diagnostic Considerations:` — as commonly found in multiaxial-format reports (see [[concepts/multiaxial-diagnosis-format]]).
+A recurring challenge in clinical report parsing is that diagnostic sections use highly variable header formats across institutions and clinicians. In neuropsychological reports, diagnostic information may appear under headers such as `DIAGNOSTIC CONSIDERATIONS`, `Diagnostic Summary`, `DSM-5 Diagnoses`, or `Axis I Diagnostic Considerations:` — as commonly found in reports using [[concepts/multiaxial-diagnosis-format]].
 
 The `src/report_parser.py` module was enhanced to address a specific problem: 24 reports (23% of a clinical dataset) initially returned zero diagnoses despite containing valid diagnostic sections. The fixes applied were:
 
@@ -111,6 +118,8 @@ A related pipeline concern is **source material contamination**. In the Autism R
 
 The fix was to move the textbook out of the ingestion directory entirely, embedding its guidance only in the LLM system prompt, not in the retrieval index. This illustrates a general principle: **reference/guidance material belongs in the prompt layer; example/case material belongs in the retrieval layer**. See [[concepts/retrieval-augmented-generation]] and [[concepts/knowledge-base-architecture]] for broader treatment.
 
+This separation is especially important in clinical assessment settings, where pipelines may mix manuals, checklists, recommendation libraries, and actual patient reports. Conflating them can blur the difference between standardized reference material and case-derived evidence.
+
 #### Long-Format Schema (Cingulate Canonical)
 The neuropsych-data-extractor enforces a strict **long-format** discipline: every test/subtest measurement occupies exactly one row, with score-type variants (`scaled_score`, `t_score`, `standard_score`, `z_score`, `base_rate`) stored in a `score_type` column rather than spread across multiple columns. Wide-format output is explicitly forbidden. See [[concepts/neuropsychological-test-scores]] for more on the score types captured.
 
@@ -123,6 +132,8 @@ Required columns include:
 - `description`, `doc_id`, `date` — provenance fields
 
 Required fields (enforced by `domain_processing_utils.R:991`): `domain`, `rater`, `age_group`, `test`.
+
+The inclusion of `rater` is clinically important, not just technically convenient. Multi-informant assessment depends on preserving who reported what, in which context, and through which instrument. If a pipeline collapses parent, teacher, self, and examiner data into a single undifferentiated summary, it destroys exactly the discrepancy patterns that may be clinically informative.
 
 #### Score-Type Mapping
 - "scaled score" / "ss" / range 1–19 → `scaled_score`
@@ -143,6 +154,8 @@ Required fields (enforced by `domain_processing_utils.R:991`): `domain`, `rater`
 #### Multi-Rater Instruments
 Behavioral rating scales (BRIEF, CBCL, BASC, BDEFS) yield one row **per rater per scale**, with the `rater` column taking values `self`, `parent`, `teacher`, or `examiner`. This ensures multi-informant data remains distinguishable in downstream analysis.
 
+This is directly aligned with [[concepts/multi-informant-assessment]] and [[concepts/cross-informant-correspondence]]. In clinical work, disagreement across raters is often expected, and may reflect context-specific functioning rather than simple noise. Pipelines should therefore preserve divergence instead of averaging it away.
+
 The extraction schema used across the Luria pipeline captures document-level metadata (`doc_id`, `doc_type`, `date`, `referral_reason`, `examiner`), per-test score fields, and clinical summary fields. Every test and subtest is extracted as a **separate row** with exact numerical values preserved. Supported assessment instruments include WAIS-IV, MMSE, MoCA, RBANS, WMS, WCST, CPT, Trail Making, Stroop, BDI, and BRIEF (see [[concepts/neuropsychological-tests]]).
 
 ### 3. PHI De-identification
@@ -161,6 +174,8 @@ The full pipeline entry points for de-identification in the RAG pipeline are:
 - Patient-specific regex substitution: `src/report_deidentify.py:254`
 - General PHI safety net patterns: `src/report_deidentify.py:258`
 
+In assessment-heavy pipelines, de-identification also has a secondary methodological benefit: it supports cross-document synthesis without turning the retrieval layer into an uncontrolled repository of identifiable case material. That is especially important when pipelines incorporate recommendation retrieval, narrative drafting, or clinician-style matching.
+
 ### 4. Recommendation Section Parsing
 
 Beyond general text chunking, the Neuropsychological Report RAG Pipeline implements a dedicated recommendation extraction layer in `src/report_parser.py`. This stage:
@@ -171,6 +186,8 @@ Beyond general text chunking, the Neuropsychological Report RAG Pipeline impleme
 4. **Builds `RecommendationChunk` objects** with text, sub-header, diagnoses list, age group, and clinical context metadata.
 
 This metadata-rich chunking strategy enables post-retrieval filtering that plain text chunking cannot support — each chunk carries sufficient context to be filtered by diagnosis, age group, or clinical setting independently of the embedding similarity score.
+
+The clinical-assessment lens strengthens the rationale for this design: recommendations are only meaningful when tied to population, setting, and problem context. For example, attention interventions may differ depending on whether difficulties are longstanding, context-specific, developmentally patterned, or plausibly acquired. Preserving those distinctions supports later reasoning related to [[concepts/premorbid-vs-acquired-attention-difficulties]], [[concepts/attention-intervention-strategies]], and [[concepts/developmental-vs-acquired-cognitive-symptoms]].
 
 ### 5. Chunk & Index
 After extraction, raw text is chunked before embedding. The `chunk_text()` function applies a fixed-size windowing strategy:
@@ -202,7 +219,7 @@ The Autism RAG and Neuropsychological Report RAG pipelines both use **FAISS Inde
 
 The full ingestion sub-pipeline for the SOUL style agent is:
 
-```
+```text
 Report Files → extract_text() → chunk_text() → embed_with_fallback() → SQLite
 ```
 
@@ -210,7 +227,7 @@ Report Files → extract_text() → chunk_text() → embed_with_fallback() → S
 
 The Neuropsychological Report RAG Pipeline introduces a dedicated search trace that goes beyond simple k-nearest-neighbor retrieval:
 
-```
+```text
 User query → SentenceTransformer.encode() → VectorStore.search_filtered() → post-filter by diagnosis → ranked results
 ```
 
@@ -224,6 +241,8 @@ A further post-filter is applied in the UI layer (`app_recommendations.py`) for 
 - Post-filter by diagnosis list: `app_recommendations.py:230`
 
 See [[concepts/vector-search]] for broader treatment of filtered vector retrieval.
+
+Clinically, metadata filtering matters because recommendations, examples, and interpretations are not universally interchangeable. Pipelines should be able to retrieve material by diagnosis, age group, context, and assessment source, and in some cases by rater or instrument type. That is especially relevant for contexts involving [[concepts/substance-use-clinical-assessment]], [[concepts/trauma-informed-clinical-assessment]], or neurodevelopmental presentations with strong setting effects.
 
 ### 7. Generate
 A language model synthesizes the indexed data into a new clinical artifact:
@@ -248,6 +267,8 @@ The Autism RAG system expresses two distinct generation patterns:
 
 This stage is handled by a separate narrative-writer agent — explicitly downstream of the data-extractor. The stage boundary is enforced by design: the data-extractor produces no interpretive language ("suggesting", "consistent with", "indicates"), leaving all clinical synthesis to the generate stage. See [[summaries/report-generation]] for more on report synthesis.
 
+From the standpoint of [[summaries/clinical-assessment]], generation should also preserve uncertainty and context. Low cross-informant agreement, mixed symptom chronicity, or unclear onset should not be collapsed into overconfident prose. Strong systems preserve distinctions between converging evidence, diverging context-specific observations, and possible methodological artifacts.
+
 #### Clipboard Output Patterns
 
 When clinical NLP pipeline output is rendered in a web UI (e.g., Shiny for Python), delivering generated recommendations to end users often requires clipboard integration. Because clipboard access is a browser-only API (`navigator.clipboard`), it must be handled client-side via JavaScript injected through `ui.tags.script()`. Two copy formats serve distinct clinical workflows:
@@ -259,19 +280,19 @@ Visual feedback is provided by briefly swapping Bootstrap classes (`btn-outline-
 
 ## Pipeline Architecture
 
-```
+```text
 pdf-parser → neuropsych-data-extractor → cingulate engine (DuckDB) → narrative-writer
 ```
 
 The Luria Streamlit App expresses this as:
 
-```
+```text
 parse_node → extract_node → index_node → report_node
 ```
 
 The Autism RAG system uses two parallel pipelines sharing a common FAISS retrieval core:
 
-```
+```text
 # Research Q&A
 PDF/EPUB → chunk_text() → embeddings → FAISS → query → FLAN-T5 → answer + citations
 
@@ -281,7 +302,7 @@ Reports → parse + de-identify → embeddings → FAISS → patient query → L
 
 The Neuropsychological Report RAG Pipeline similarly splits into ingestion and query paths:
 
-```
+```text
 # Ingestion
 PDF → fitz.open() → parse_report() → deidentify_recommendations() → SentenceTransformer → FAISS
 
@@ -298,6 +319,8 @@ Each stage has a strictly scoped role:
 A separate **RAG graph** (`build_rag_graph()`) provides a single-node retrieval path for the Ask tab, combining SQL filtering over `TestScores` with semantic search over narrative chunks. This modular split between the ingest pipeline and the retrieval pipeline is a key architectural decision in the Luria system.
 
 The subagent system prompts for each node are sourced from `subagents/*/AGENTS.md` files — static prompt libraries that live in the repo and must be resolvable at pipeline startup (see [[concepts/subagent-architecture]]).
+
+Architecturally, the most important clinical constraint is that representation choices upstream determine what kinds of assessment reasoning remain possible downstream. If the pipeline preserves domain, score type, rater, age group, diagnosis, and context, then retrieval and narrative generation can support clinically meaningful synthesis. If not, the system may still produce fluent text, but it will no longer support disciplined clinical assessment.
 
 ## Key Implementation Files
 
@@ -322,6 +345,8 @@ Clinical NLP pipelines commonly expose two interface types:
 
 Both interface types call the same underlying pipeline functions, enforcing the principle that pipeline logic is interface-agnostic.
 
+For clinical users, interfaces should also make provenance visible: what was extracted, from which document, from which section, and when applicable from which informant or instrument. This is particularly valuable in assessment contexts where apparent contradictions are clinically meaningful rather than simple errors.
+
 ## Evaluation
 
 Clinical NLP pipelines require systematic evaluation beyond ad hoc spot-checking. The Autism RAG system implements a YAML-based test suite:
@@ -331,6 +356,15 @@ Clinical NLP pipelines require systematic evaluation beyond ad hoc spot-checking
 - Results are averaged and written to JSON
 
 The Neuropsychological Report RAG pipeline supports evaluation via `python eval/run_eval.py`. While keyword matching is a heuristic method, it provides a reproducible, automated baseline for detecting regressions. More sophisticated evaluation (semantic similarity, clinical expert review) can be layered on top. See [[concepts/yaml-configuration]] for the test suite format.
+
+For assessment-oriented pipelines, evaluation should extend beyond answer fluency to include:
+- preservation of score accuracy
+- correct attribution of rater/source information
+- correct handling of diagnosis normalization
+- appropriate uncertainty when evidence conflicts
+- resistance to criterion contamination or circular retrieval
+
+These concerns reflect the realities described in [[summaries/clinical-assessment]], where discrepant reports and context-specific behavior are expected features of the data.
 
 ## Orchestration Patterns
 
@@ -368,6 +402,8 @@ The Autism RAG system applies the same principle at the ingestion layer via `dei
 
 For the SOUL style agent, historical reports are similarly ingested locally via `extract_text()`, chunked, and embedded — with the resulting style index stored in SQLite on-device. This architecture means the pipeline can be used with real PHI while remaining HIPAA-conscious, provided the local environment is secured. See [[concepts/clinical-data-privacy]] and [[concepts/pii-redaction-pipelines]] for broader treatment of these concerns.
 
+From a clinical-assessment standpoint, privacy is not only a compliance issue but a workflow enabler: it makes it possible to process rich, longitudinal, multi-source assessment material locally while retaining enough structure to support interpretation, report drafting, and recommendation retrieval.
+
 ## Related Documents
 - [[summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE]]
 - [[summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP]]
@@ -387,5 +423,6 @@ For the SOUL style agent, historical reports are similarly ingested locally via 
 - [[summaries/AGE_OVERRIDE_GUIDE]]
 - [[summaries/DIAGNOSIS_PARSER_IMPROVEMENTS]]
 - [[summaries/report-generation]]
+- [[summaries/clinical-assessment]]
 
 See also: [[summaries/RECOMMENDATION_FILTERING_IMPROVEMENTS]]

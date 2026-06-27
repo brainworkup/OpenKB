@@ -1,11 +1,11 @@
 ---
-sources: [summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/bwu.neuro.reports.recs.books.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.adhd.young-adult.md, summaries/bwu.neuro.reports.recs.adhd.older-adult.md, summaries/bwu.neuro.reports.recs.adhd.merge.md, summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/bwu.neuro.reports.recs.adhd.child.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/bwu.neuro.reports.recs.adhd.adult.md]
-brief: ADHD neurodevelopmental features, assessment, intervention strategies, and lifespan management across clinical contexts.
+sources: [summaries/attention-problems.md, summaries/redesign_20260623110910.md, summaries/redesign_20260623110817.md, summaries/bwu.neuro.reports.recs.books.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.adhd.young-adult.md, summaries/bwu.neuro.reports.recs.adhd.older-adult.md, summaries/bwu.neuro.reports.recs.adhd.merge.md, summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/bwu.neuro.reports.recs.adhd.child.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/bwu.neuro.reports.recs.adhd.adult.md]
+brief: ADHD features center on inattention, impulsivity, and executive dysfunction.
 ---
 
 # ADHD Clinical Features and Interventions
 
-Attention-Deficit/Hyperactivity Disorder (ADHD) is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that impair daily functioning. Presentations vary across development — childhood ADHD may be more overtly hyperactive, while adult presentations often feature more internalized restlessness and prominent executive dysfunction.
+Attention-Deficit/Hyperactivity Disorder (ADHD) is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that impair daily functioning. Presentations vary across development: childhood ADHD may be more overtly hyperactive, while adult presentations often feature more internalized restlessness and prominent executive dysfunction. In clinical assessment, a key diagnostic task is distinguishing longstanding attentional symptoms consistent with ADHD from newly acquired attention problems after neurological illness or injury, a distinction closely related to [[concepts/premorbid-vs-acquired-attention-difficulties]] and [[concepts/developmental-vs-acquired-cognitive-symptoms]].
 
 ## Core Clinical Features
 
@@ -16,6 +16,7 @@ Attention-Deficit/Hyperactivity Disorder (ADHD) is a neurodevelopmental conditio
 - Easily distracted by external stimuli or internal thoughts
 - Forgetfulness in daily activities
 - Tendency to lose focus as the day progresses; attention typically strongest in the morning
+- Symptoms may be longstanding across development even if not formally diagnosed until later evaluation
 
 ### Hyperactivity / Impulsivity
 - Restlessness, difficulty sitting still or feeling "driven by a motor"
@@ -36,9 +37,12 @@ ADHD is closely associated with [[concepts/executive-function-deficits]], includ
 
 ADHD is frequently evaluated in the context of broader [[concepts/neuropsychological-assessment-pipeline]] protocols. Key domains assessed include:
 - Attention and concentration (see [[concepts/cognitive-domains]])
+- Sustained, selective, and divided attention
 - Working memory index performance (see [[concepts/working-memory-index]])
 - Processing speed and executive function
 - Behavioral rating scales from multiple informants (see [[concepts/behavioral-rating-scales]])
+
+A recurring clinical issue is that ADHD-like attention problems may be longstanding but only first treated or formally documented after a later academic, occupational, psychiatric, or neurological trigger. Neuropsychological evaluation often becomes the setting where this developmental history is clarified. This makes it essential to separate premorbid attentional weakness from acquired decline, especially when patients present after injury or other CNS events.
 
 Validity and effort indicators are critical in adult ADHD evaluations, as symptom overreporting can occur (see [[concepts/validity-and-response-styles]]).
 
@@ -136,6 +140,7 @@ Psychoeducation is a foundational component of ADHD management:
 - Reduces self-blame and stigma
 - Improves treatment adherence
 - Resources such as CHADD, ADDitude Magazine, and NIMH provide accessible patient-facing information (see [[summaries/bwu.neuro.reports.recs.adhd.adult]])
+- Can help families understand that some attention problems are developmental and longstanding rather than newly acquired
 
 ### Pharmacological Treatment
 Stimulant medications (amphetamines, methylphenidate) and non-stimulants (atomoxetine, guanfacine) are first-line pharmacological options, typically coordinated with the referring psychiatrist or primary care provider. For pediatric populations, methylphenidate preparations are often considered first. *Straight Talk About Psychiatric Medications for Kids* by Timothy Wilens is a widely recommended parent resource.
@@ -235,7 +240,9 @@ The co-occurrence of ADHD-Inattentive type with dysgraphia is a clinically recog
 
 ## Clinical Reporting Context
 
-In neuropsychological reports, ADHD findings are communicated through [[concepts/neuropsychological-reporting]] conventions, including narrative synthesis of test performance, behavioral observations, and rating scale data. Recommendations for ADHD patients across age groups typically include psychoeducation resources and evidence-based intervention referrals, as illustrated in [[summaries/bwu.neuro.reports.recs.adhd.adult]], [[summaries/bwu.neuro.reports.recs.adhd.child]], [[summaries/bwu.neuro.reports.recs.adhd.books]], and [[summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies]].
+In neuropsychological reports, ADHD findings are communicated through [[concepts/neuropsychological-reporting]] conventions, including narrative synthesis of test performance, behavioral observations, and rating scale data. A recurring reporting issue is whether observed inattention reflects a longstanding neurodevelopmental condition such as ADHD or a later-acquired cognitive change. Reports that document longstanding but previously untreated attention problems may materially change diagnostic interpretation and treatment planning, especially in the context of neurological referral questions.
+
+Recommendations for ADHD patients across age groups typically include psychoeducation resources and evidence-based intervention referrals, as illustrated in [[summaries/bwu.neuro.reports.recs.adhd.adult]], [[summaries/bwu.neuro.reports.recs.adhd.child]], [[summaries/bwu.neuro.reports.recs.adhd.books]], and [[summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies]].
 
 AI-assisted platforms such as Luria.app ([[concepts/luria-overview]]) automate the detection of ADHD-consistent cognitive profiles, generate grounded diagnostic impressions with evidence citations, and recommend follow-up assessments (e.g., CPT-3 for sustained attention, Beery VMI for graphomotor function) — demonstrating how [[concepts/neuropsychological-assessment-automation]] can support clinical decision-making without replacing clinical judgment.
 
@@ -260,6 +267,9 @@ AI-assisted platforms such as Luria.app ([[concepts/luria-overview]]) automate t
 - [[concepts/neuropsychological-synthesis]]
 - [[concepts/luria-overview]]
 - [[concepts/neuropsychological-assessment-automation]]
+- [[concepts/premorbid-vs-acquired-attention-difficulties]]
+- [[concepts/developmental-vs-acquired-cognitive-symptoms]]
+- [[concepts/attention-intervention-strategies]]
 
 See also: [[summaries/bwu.neuro.reports.recs.adhd.merge]]
 
@@ -274,3 +284,5 @@ See also: [[summaries/bwu.neuro.reports.recs.books]]
 See also: [[summaries/redesign_20260623110817]]
 
 See also: [[summaries/redesign_20260623110910]]
+
+See also: [[summaries/attention-problems]]

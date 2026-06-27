@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260413215204.md, summaries/README_20260413204228.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/File Folder Structure Rebuild.md, summaries/Apply-to-Y-Combinator.md, summaries/2026-06-26-2133-plan.md, summaries/cognition.instructions.md, summaries/0001-voice-record-architecture-decisions.md, summaries/003-modular-template-structure.md, summaries/001-choose-quarto-typst.md, summaries/quarto.md, summaries/brand-yml-spec.md, summaries/README.md, summaries/project-setup-progress.md, summaries/RECOVERY_NOTES.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/SKILL.md]
+sources: [summaries/cli-commands.md, summaries/bash-prompts.md, summaries/archive-ia-automation.md, summaries/arc-clients.md, summaries/README_20260413215204.md, summaries/README_20260413204228.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/File Folder Structure Rebuild.md, summaries/Apply-to-Y-Combinator.md, summaries/2026-06-26-2133-plan.md, summaries/cognition.instructions.md, summaries/0001-voice-record-architecture-decisions.md, summaries/003-modular-template-structure.md, summaries/001-choose-quarto-typst.md, summaries/quarto.md, summaries/brand-yml-spec.md, summaries/README.md, summaries/project-setup-progress.md, summaries/RECOVERY_NOTES.md, summaries/PROJECT_SETUP_COMPLETE.md, summaries/SKILL.md]
 brief: The practice of writing, managing, and deploying documentation using the same tools and workflows as software development.
 ---
 
@@ -118,3 +118,11 @@ See also: [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342]]
 See also: [[summaries/README_20260413204228]]
 
 See also: [[summaries/README_20260413215204]]
+
+See also: [[summaries/arc-clients]]
+
+See also: [[summaries/archive-ia-automation]]
+
+See also: [[summaries/bash-prompts]]
+
+See also: [[summaries/cli-commands]]

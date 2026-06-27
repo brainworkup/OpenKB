@@ -1,5 +1,5 @@
 ---
-sources: [summaries/README_20260413204228.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/File Folder Structure Rebuild.md]
+sources: [summaries/cli-gh.md, summaries/cli-gh-create-repo.md, summaries/cli-command-management.md, summaries/bash-prompts.md, summaries/README_20260413204228.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md, summaries/File Folder Structure Rebuild.md]
 brief: Practices that keep a repository safe, organized, and maintainable over time.
 ---
 
@@ -128,3 +128,11 @@ See also: [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147]]
 See also: [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342]]
 
 See also: [[summaries/README_20260413204228]]
+
+See also: [[summaries/bash-prompts]]
+
+See also: [[summaries/cli-command-management]]
+
+See also: [[summaries/cli-gh-create-repo]]
+
+See also: [[summaries/cli-gh]]

@@ -1,6 +1,31 @@
 # Knowledge Base Index
 
 ## Documents
+- [[summaries/clinical-assessment]] (short) — Overview of clinical assessment with emphasis on multi-informant evaluation.
+- [[summaries/cli-regex-tools]] (short) — Stub note linking to the CLI summary document.
+- [[summaries/cli-httpie]] (short) — Stub document linking to the HTTPie CLI summary page.
+- [[summaries/cli-gpg-encryption]] (short) — Notes on GPG encryption in CLI with links to a related GPG zip summary.
+- [[summaries/cli-github]] (short) — Stub page linking the cli-github document to the GitHub CLI summary.
+- [[summaries/cli-git-rebase]] (short) — Stub note linking to the git rebase CLI summary.
+- [[summaries/cli-gh]] (short) — Hub page linking related CLI references for git, GPG, Pandoc YAML, and GitLab Runner.
+- [[summaries/cli-gh-create-repo]] (short) — Summary of linking Git brain notes with gh create-repo CLI guidance.
+- [[summaries/cli-ftp]] (short) — Index note linking the FTP CLI summary to related CLI tool documents.
+- [[summaries/cli-commands]] (short) — Index of CLI command summaries with related command references.
+- [[summaries/cli-command-usage]] (short) — Index of related CLI command summaries across shell, sorting, sequencing, and runtimes.
+- [[summaries/cli-command-management]] (short) — Index of CLI command notes spanning Git, GitHub, formatting, file, and network tools.
+- [[summaries/certificate-rotation]] (short) — Notes Docker Swarm certificate rotation and links it to Swarm CLI documentation.
+- [[summaries/cerner-autotext]] (short) — Cerner Autotext tokens automate patient data insertion in Cerner notes.
+- [[summaries/cakephp-development]] (short) — CakePHP development notes centered on CLI usage and related workflows.
+- [[summaries/bujo-planning]] (short) — Stub note linking to the CLI BuJo summary document.
+- [[summaries/bash-test-syntax]] (short) — Notes Bash test syntax and links it to related CLI docs.
+- [[summaries/bash-prompts]] (short) — Index of related CLI references centered on Bash and shell prompt workflows.
+- [[summaries/aws-cost-management]] (short) — Stub page linking aws-cost-management to the AWS CUR summary.
+- [[summaries/autonomous-execution]] (short) — Defines autonomous execution as complete, no-interruption agent task completion.
+- [[summaries/attention]] (short) — Minimal placeholder document titled attention with no substantive content.
+- [[summaries/attention-problems]] (short) — Clinical framing of longstanding vs acquired attention problems.
+- [[summaries/archive-ia-automation]] (short) — Pointer page linking archive IA automation to the CLI IA summary.
+- [[summaries/arc-clients]] (short) — Stub page linking to the CLI ARC summary document.
+- [[summaries/agentic-workflows]] (short) — Agent-based pipelines for automating end-to-end data science workflows.
 - [[summaries/application_20260413212452]] (short) — Blank YC application form outlining all questions and submission requirements.
 - [[summaries/application_20260413205413]] (short) — YC application form template outlining founder, product, market, and logistics questions.
 - [[summaries/YC Application Questions_20260416091345]] (short) — Counts remaining YC application questions: 11 required plus 2 optional.
@@ -212,6 +237,22 @@
 - [[summaries/The-Complete-Guide-to-AI-Architectures-From-Neural-Networks-to-Foundation-Models]] (short) — Comprehensive guide to AI architectures from perceptrons to 2025 foundation models and reasoning systems
 
 ## Concepts
+- [[concepts/cross-informant-correspondence]] — Agreement and discrepancy patterns across multiple clinical informants.
+- [[concepts/multi-informant-assessment]] — Using multiple informants to assess context-dependent clinical functioning.
+- [[concepts/repository-creation]] — Creating hosted code repositories from local or CLI-based workflows.
+- [[concepts/github-cli]] — CLI tooling for managing GitHub repositories and workflows from the terminal.
+- [[concepts/ftp-clients-and-workflows]] — CLI patterns for navigating FTP-related tools and adjacent workflows.
+- [[concepts/file-transfer]] — File transfer covers moving files between systems, especially via FTP-oriented CLI workflows.
+- [[concepts/shell-utility-tooling]] — Everyday terminal utilities that support inspection, formatting, querying, and piping.
+- [[concepts/git-hosting-cli-workflows]] — CLI workflows for managing GitHub and GitLab-hosted repository tasks.
+- [[concepts/cli-authentication-and-secrets]] — Managing credentials and secret material safely in command-line workflows.
+- [[concepts/shell-environments]] — Shell environments are the configured contexts that make command-line work possible.
+- [[concepts/command-line-workflows]] — How terminal users combine shell tools into repeatable multi-tool workflows.
+- [[concepts/task-management]] — Task management organizes, tracks, and executes work across structured workflows.
+- [[concepts/silent-operation]] — Silent operation suppresses intermediate output until task completion.
+- [[concepts/premorbid-vs-acquired-attention-difficulties]] — Distinguishing lifelong attention problems from later-acquired attentional change.
+- [[concepts/developmental-vs-acquired-cognitive-symptoms]] — Distinguishes lifelong cognitive symptoms from later-acquired impairment.
+- [[concepts/orchestrator-worker-pattern]] — A top-level agent delegates specialized tasks and integrates their results.
 - [[concepts/yc-application-planning]] — Planning YC applications as a structured, trackable completion workflow.
 - [[concepts/application-question-tracking]] — Tracking application prompts turns submission work into a clear operational checklist.
 - [[concepts/competitive-landscape-analysis]] — Assessing rivals and overlap to sharpen startup positioning for YC.
@@ -281,7 +322,7 @@
 - [[concepts/portaudio]] — PortAudio is an open-source, cross-platform audio I/O library with pre-compiled binaries for Windows and macOS.
 - [[concepts/terminology-rebranding]] — The process of systematically updating feature names across codebases and documentation to maintain consistent branding.
 - [[concepts/clinical-ai-copilot]] — An AI assistant embedded in clinical workflows that reasons over patient data and grounds every claim in source evidence.
-- [[concepts/neuropsychological-assessment-workflow]] — End-to-end neuropsych evaluation from intake to synthesis and report delivery.
+- [[concepts/neuropsychological-assessment-workflow]] — End-to-end process from intake to synthesis and neuropsychological reporting.
 - [[concepts/clinical-ai-reasoning]] — AI systems that perform structured, evidence-grounded clinical reasoning.
 - [[concepts/rubric-based-grading]] — Grading AI outputs using structured quality criteria and LLM judges beyond binary pass/fail correctness.
 - [[concepts/llm-evaluation]] — Methods for measuring LLM quality, reliability, and usefulness in real tasks.
@@ -323,7 +364,7 @@
 - [[concepts/iep-accommodations]] — IEP and college accommodation frameworks for neurodevelopmental learning disorders across K–12 and higher education.
 - [[concepts/adhd-resources-by-lifespan]] — Curated ADHD books, websites, and resources organized by developmental stage from childhood through older adulthood.
 - [[concepts/mindfulness-based-interventions]] — Structured therapeutic approaches training present-moment awareness to support attention, impulse control, and executive function.
-- [[concepts/adhd-clinical-features]] — ADHD neurodevelopmental features, assessment, intervention strategies, and lifespan management across clinical contexts.
+- [[concepts/adhd-clinical-features]] — ADHD features center on inattention, impulsivity, and executive dysfunction.
 - [[concepts/autism-adult-support]] — Therapeutic, vocational, social, and community interventions supporting autistic adults beyond pediatric frameworks.
 - [[concepts/autism-intervention-strategies]] — Evidence-based behavioral, therapeutic, and community strategies for supporting individuals with ASD across the lifespan.
 - [[concepts/clinical-guidelines]] — Shared professional practice guidelines that inform clinical AI systems and neuropsychological workflows.
@@ -380,25 +421,25 @@
 - [[concepts/audio-transcription-pipeline]] — A fully local pipeline for transcribing and summarizing clinical audio using on-device ML tools.
 - [[concepts/honcho-ai-peer-observation]] — A session-based AI pattern where one agent observes and learns from another's user interactions.
 - [[concepts/pdf-data-extraction]] — Automated extraction of structured data (numbers, dates, key info) from PDF documents into spreadsheets.
-- [[concepts/neuropsychological-synthesis]] — The integrative section of a neuropsychological report that unifies test data, observations, and clinical context.
+- [[concepts/neuropsychological-synthesis]] — How neuropsychological reports integrate findings into clinical meaning.
 - [[concepts/clinical-narrative-generation]] — Automated generation of structured clinical narrative text from quantitative scores using LLM prompting.
 - [[concepts/neuropsychological-score-interpretation]] — Translating neuropsychological test scores into clinically meaningful cognitive statements via normative and pattern analysis.
-- [[concepts/staged-clinical-intake]] — Multi-phase framework for gathering patient history before formal neuropsychological testing begins.
-- [[concepts/neurobehavioral-status-exam]] — Structured clinician narrative forming the pre-testing context section of a neuropsychological evaluation report.
+- [[concepts/staged-clinical-intake]] — Structured multi-phase intake that organizes history before formal assessment.
+- [[concepts/neurobehavioral-status-exam]] — Structured pre-testing narrative summarizing referral context, history, and observations.
 - [[concepts/neuropsychological-prompt-configuration]] — LLM configuration parameters and persona settings for clinical neuropsychological report generation.
 - [[concepts/neuropsychological-prompt-engineering]] — Structuring LLM prompts for formal neuropsychological report generation across all evaluation phases.
-- [[concepts/behavioral-rating-scales]] — Standardized instruments quantifying behavioral, emotional, social, and adaptive functioning across real-world settings.
+- [[concepts/behavioral-rating-scales]] — Standardized multi-informant scales for real-world behavioral functioning.
 - [[concepts/artifact-caching-pipeline]] — Content-addressed caching that stores and reuses LLM stage outputs to avoid redundant generation runs.
 - [[concepts/role-based-llm-routing]] — Route LLM tasks by semantic role instead of hardcoded model names.
-- [[concepts/neuropsychological-assessment-automation]] — AI-driven automation of end-to-end neuropsych assessment and reporting.
+- [[concepts/neuropsychological-assessment-automation]] — End-to-end AI-assisted pipelines for neuropsych assessment and report generation.
 - [[concepts/duckdb-data-staging]] — Using DuckDB as a high-performance data staging layer for neuropsychological test score pipelines.
 - [[concepts/domain-processor-pattern]] — R6-based pattern where each cognitive domain has a dedicated processor class and QMD fragment for modular report generation.
 - [[concepts/r6-class-architecture]] — R6-first OOP architecture powering the cingulate neuropsych report pipeline from CSV to PDF.
 - [[concepts/luria-skills]] — Thin, generic skill modules defining what each clinical neuropsych stage does, independent of any specific repo.
-- [[concepts/agent-pipeline-state-management]] — Maintaining a durable, queryable record of stage progress in a multi-step agent pipeline to enable halting, resuming, and recovery.
+- [[concepts/agent-pipeline-state-management]] — Durable stage tracking that makes agent workflows resumable and auditable.
 - [[concepts/r-neuropsych-packages]] — R packages supporting Luria’s neuropsych analysis and reporting stack.
 - [[concepts/luria-overview]] — Luria is a local-first neuropsych AI platform for end-to-end clinical workflows.
-- [[concepts/python-environment-management]] — Managing Python runtimes and dependencies for isolated, reproducible projects.
+- [[concepts/python-environment-management]] — Managing Python runtimes and dependencies for isolated, reproducible workflows.
 - [[concepts/per-patient-workspace]] — Filesystem directory tree that serves as the sole inter-stage contract in the cingulate agent pipeline.
 - [[concepts/style-profiles]] — JSON configuration objects encoding a clinician's writing voice, tone, rules, and structure for AI report generation.
 - [[concepts/rag-chunking]] — How text is divided into indexed segments to optimize retrieval quality in RAG systems.
@@ -412,7 +453,7 @@
 - [[concepts/architecture-decision-records]] — Structured documents capturing the why behind architectural choices, kept immutable alongside code.
 - [[concepts/executive-function-deficits]] — Cross-domain overview of executive function deficits, interventions, and scaffolding across the lifespan.
 - [[concepts/autism-spectrum-disorder-clinical-features]] — Clinical features, diagnostic domains, and evidence-based interventions for autism spectrum disorder across the lifespan.
-- [[concepts/working-memory]] — Working memory is the active capacity to hold and manipulate information briefly, central to learning, attention, and executive function.
+- [[concepts/working-memory]] — Working memory is the active short-term system for holding and manipulating information.
 - [[concepts/mild-cognitive-impairment]] — MCI is a clinical syndrome of cognitive decline beyond normal aging, not yet meeting dementia criteria.
 - [[concepts/lancedb-vector-store]] — LanceDB is an embedded, file-local vector database used for semantic retrieval in the Luria neuropsych pipeline.
 - [[concepts/docling-pdf-parsing]] — Local-first PDF parsing library that extracts text and layout from neuropsych reports before PHI redaction.
@@ -432,7 +473,7 @@
 - [[concepts/narrative-report-generation]] — Automated generation of clinician-ready neuropsychological narrative reports.
 - [[concepts/forensic-neuropsychological-evaluation]] — Specialized neuropsychological assessment for medicolegal purposes, integrating cognitive testing with forensic standards.
 - [[concepts/neuropsychological-report-variables]] — Centralized YAML-driven system for injecting patient-specific data across all layers of neuropsychological report generation.
-- [[concepts/clinical-data-management]] — Strategies and workflows for storing, organizing, retrieving, and governing clinical files across heterogeneous environments.
+- [[concepts/clinical-data-management]] — Managing clinical files, structured content, and data flows across care workflows.
 - [[concepts/llm-provider-abstraction]] — Architectural pattern insulating application code from specific LLM providers via a common dispatch interface with fallback and PHI safety.
 - [[concepts/hybrid-search-retrieval]] — Hybrid search merges semantic vector similarity and keyword matching into a single ranked retrieval pipeline.
 - [[concepts/duckdb-as-vector-store]] — DuckDB serves as an embedded analytical database and vector store for local, privacy-first RAG and neuropsych data pipelines.
@@ -457,7 +498,7 @@
 - [[concepts/clinical-communication-register]] — How neuropsychology practitioners vary language formality, tone, and terminology across clinical audiences and contexts.
 - [[concepts/brand-voice-strategy]] — How a clinical brand defines stable voice attributes and flexible tone across audiences and channels.
 - [[concepts/quarto-extensions]] — Quarto extensions package Typst templates and format metadata into reusable units for neuropsychological report variants.
-- [[concepts/modular-report-architecture]] — Design pattern decomposing complex report templates into discrete, independently maintained section files assembled at render time.
+- [[concepts/modular-report-architecture]] — Modular report architecture assembles reports from reusable section files.
 - [[concepts/clinical-data-privacy]] — Privacy architecture for AI systems handling sensitive clinical data.
 - [[concepts/model-context-protocol]] — Open standard for exposing AI tools through a provider-agnostic interface, enabling local LLM integration.
 - [[concepts/typst-typesetting]] — Typst is the fast PDF typesetting engine behind Luria’s clinical report stack.
@@ -471,17 +512,17 @@
 - [[concepts/redaction-tokens]] — Redaction tokens are placeholder markers that protect sensitive information in clinical reports during automated processing.
 - [[concepts/neuropsychological-tests]] — Standardized tools measuring cognitive and psychological functioning, forming the empirical core of neuropsychological evaluations.
 - [[concepts/neuropsychological-assessment-pipeline]] — Multi-stage workflow converting raw neuropsychological PDFs into structured scores, narratives, and formatted clinical reports.
-- [[concepts/cognitive-domains]] — Standardized categories of mental function evaluated in neuropsychological assessment, from taxonomy to clinical profiling.
+- [[concepts/cognitive-domains]] — How neuropsychology organizes and interprets major areas of cognition.
 - [[concepts/neuropsychological-test-scores]] — Numerical outputs of standardized cognitive tests, covering score types, norms, and long-format extraction schemas.
-- [[concepts/multi-agent-orchestration]] — Patterns for coordinating specialized agents across structured workflows.
-- [[concepts/pii-redaction-pipelines]] — Layered PHI/PII redaction as a structural pipeline gate in clinical AI neuropsychological workflows.
+- [[concepts/multi-agent-orchestration]] — Patterns for coordinating specialized AI agents across complex workflows.
+- [[concepts/pii-redaction-pipelines]] — Hard-gated PHI removal before agentic clinical pipeline processing.
 - [[concepts/python-project-structure]] — How Python repos separate code, tooling, data, and authored project artifacts.
 - [[concepts/langgraph-agent-workflows]] — LangGraph-based stateful multi-step agent workflows for orchestrating neuropsychological data pipelines.
 - [[concepts/phi-data-handling]] — How clinical systems prevent PHI exposure across storage, agents, and reporting.
 - [[concepts/monorepo-workspace-layout]] — Monorepo layout organizes related packages under one repo with shared tooling.
-- [[concepts/r-python-integration]] — Combining R's psychometric/statistical ecosystem with Python's engineering capabilities in a single project.
+- [[concepts/r-python-integration]] — Combining R and Python in one pipeline to blend stats, tooling, and automation.
 - [[concepts/neuropsychological-reporting]] — End-to-end pipeline for producing structured clinical neuropsychological assessment reports using AI-assisted tools.
-- [[concepts/clinical-nlp-pipelines]] — Multi-stage systems transforming clinical documents into structured data, de-identified embeddings, and LLM-generated narrative output.
+- [[concepts/clinical-nlp-pipelines]] — Clinical NLP pipelines turn clinical text into structured data and safe narrative output.
 - [[concepts/retrieval-augmented-generation]] — RAG pattern: retrieve relevant passages from a knowledge base to ground LLM outputs in verifiable source material.
 - [[concepts/model-quantization]] — Model quantization reduces neural network weight precision to cut memory and compute costs for LLM deployment.
 - [[concepts/mixture-of-experts]] — MoE splits large models into sparse expert sub-networks, enabling frontier-scale capacity at practical inference cost.

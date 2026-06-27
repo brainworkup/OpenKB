@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.executive-fx.md, summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.building-verbal-skills.md, summaries/bwu.neuro.reports.recs.build-writing-skills.md, summaries/bwu.neuro.reports.recs.build-reading-skills.md, summaries/bwu.neuro.reports.recs.build-math-skills.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.attention-problems.md, summaries/bwu.neuro.reports.recs.aggression.md, summaries/bwu.neuro.reports.recs.adhd.young-adult.md, summaries/bwu.neuro.reports.recs.adhd.merge.md, summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/bwu.neuro.reports.recs.adhd.child.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/bwu.neuro.reports.recs.adhd.adult.md, summaries/CARS2-Manual_extracted.md, summaries/neurobehav.prompt.md, summaries/multi_patient_transcript.md]
+sources: [summaries/clinical-assessment.md, summaries/attention.md, summaries/attention-problems.md, summaries/bwu.neuro.reports.recs.executive-fx.md, summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.building-verbal-skills.md, summaries/bwu.neuro.reports.recs.build-writing-skills.md, summaries/bwu.neuro.reports.recs.build-reading-skills.md, summaries/bwu.neuro.reports.recs.build-math-skills.md, summaries/bwu.neuro.reports.recs.books.adhd.md, summaries/bwu.neuro.reports.recs.attention-problems.md, summaries/bwu.neuro.reports.recs.aggression.md, summaries/bwu.neuro.reports.recs.adhd.young-adult.md, summaries/bwu.neuro.reports.recs.adhd.merge.md, summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies.md, summaries/bwu.neuro.reports.recs.adhd.child.md, summaries/bwu.neuro.reports.recs.adhd.books.md, summaries/bwu.neuro.reports.recs.adhd.adult.md, summaries/CARS2-Manual_extracted.md, summaries/neurobehav.prompt.md, summaries/multi_patient_transcript.md]
 brief: Cross-domain overview of executive function deficits, interventions, and scaffolding across the lifespan.
 ---
 
@@ -490,3 +490,10 @@ See also: [[summaries/bwu.neuro.reports.recs.dyslexia]]
 See also: [[summaries/bwu.neuro.reports.recs.dyslexia.young-adult]]
 
 See also: [[concepts/dyslexia]], [[concepts/phonological-processing]], [[concepts/reading-fluency]], [[concepts/orton-gillingham-reading-intervention]], [[concepts/iep-accommodations]], [[concepts/test-taking-accommodations]], [[concepts/writing-accommodations]], [[concepts/goal-setting-self-monitoring]], [[concepts/self-monitoring-behavior]], [[concepts/parent-training]]
+
+
+See also: [[summaries/attention-problems]]
+
+See also: [[summaries/attention]]
+
+See also: [[summaries/clinical-assessment]]

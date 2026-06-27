@@ -1,5 +1,5 @@
 ---
-sources: [summaries/report_body.md, summaries/NP-20240415-001_report.md, summaries/neuropsych-pdf-parser.md, summaries/AGENTS_luria.md]
+sources: [summaries/clinical-assessment.md, summaries/attention-problems.md, summaries/report_body.md, summaries/NP-20240415-001_report.md, summaries/neuropsych-pdf-parser.md, summaries/AGENTS_luria.md]
 brief: Standardized tools measuring cognitive and psychological functioning, forming the empirical core of neuropsychological evaluations.
 ---
 
@@ -110,3 +110,7 @@ Accurate identification of test instruments — including subtest names and thei
 - [[summaries/neuropsych-pdf-parser]] — PDF parsing stage that identifies instrument tables
 
 See also: [[summaries/report_body]]
+
+See also: [[summaries/attention-problems]]
+
+See also: [[summaries/clinical-assessment]]
