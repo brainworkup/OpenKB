@@ -1,19 +1,20 @@
 ---
-sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md]
-brief: Tracking application prompts as a structured checklist for submission readiness.
+sources: [summaries/application_20260413212452.md, summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md]
+brief: Tracking application prompts turns submission work into a clear operational checklist.
 ---
 
 # Application Question Tracking
 
 ## Overview
-Application question tracking is the practice of maintaining a clear inventory of unanswered, in-progress, completed, and optional application prompts so founders can see remaining work at a glance. In this wiki, the concept is illustrated by [[summaries/YC Application Questions_20260413233900]], [[summaries/YC Application Questions_20260416091345]], and [[summaries/application_20260413205413]]. Together, these sources show both sides of the task: the full structure of a YC application and the operational checklist of what remains to be filled in.
+Application question tracking is the practice of maintaining a clear inventory of unanswered, in-progress, completed, and optional application prompts so founders can see remaining work at a glance. In this wiki, the concept is illustrated by [[summaries/YC Application Questions_20260413233900]], [[summaries/YC Application Questions_20260416091345]], [[summaries/application_20260413205413]], and [[summaries/application_20260413212452]]. Together, these sources show both sides of the task: the full structure of a YC application and the operational checklist of what remains to be filled in.
 
 ## Why It Matters
-For startup applications, progress is often blocked not by lack of ideas but by incomplete coverage across multiple categories such as product, progress, market, legal status, and founder narrative. Question tracking helps:
+For startup applications, progress is often blocked not by lack of ideas but by incomplete coverage across multiple categories such as product, progress, market, legal status, founder narrative, and submission logistics. Question tracking helps:
 - prevent missed required fields
 - reveal which sections need the most work
 - separate required questions from optional materials
 - surface file and format constraints
+- clarify procedural blockers such as incomplete founder profiles
 - clarify which sections remain editable after submission
 - support planning and sequencing for submission
 
@@ -26,12 +27,13 @@ A useful application question tracker typically organizes prompts by:
 - completion state
 - dependencies on other materials
 - submission constraints
+- procedural prerequisites
 - post-submission editability
 
-The YC source materials make clear that good tracking is not just a list of prompts, but a way to translate application ambiguity into a stable checklist with counts, categories, constraints, and clear next actions. [[summaries/application_20260413205413]] is especially useful because it shows the canonical application structure: Team and Founders, Product and Demo, Location and Logistics, Progress and Tech Stack, Strategy and Market, Other Ideas and Legal, YC Specifics, and Submission Information. The question-tracking summaries then show how this full structure can be reduced into an actionable work queue.
+The YC source materials make clear that good tracking is not just a list of prompts, but a way to translate application ambiguity into a stable checklist with counts, categories, constraints, and clear next actions. [[summaries/application_20260413205413]] and [[summaries/application_20260413212452]] are especially useful because they show the canonical application structure: Team and Founders, Product and Demo, Location and Logistics, Progress and Tech Stack, Strategy and Market, Other Ideas and Legal, YC Specifics, and Submission Information. The question-tracking summaries then show how this full structure can be reduced into an actionable work queue.
 
 ## Example From the Source Documents
-[[summaries/application_20260413205413]] provides the complete YC application template, while [[summaries/YC Application Questions_20260413233900]] and [[summaries/YC Application Questions_20260416091345]] record a count of remaining unanswered prompts based on review of application workspace materials.
+[[summaries/application_20260413205413]] and [[summaries/application_20260413212452]] provide the complete YC application template, while [[summaries/YC Application Questions_20260413233900]] and [[summaries/YC Application Questions_20260416091345]] record a count of remaining unanswered prompts based on review of application workspace materials.
 
 The full application template includes many categories of information:
 - founder technical ownership and cofounder status
@@ -45,6 +47,7 @@ The full application template includes many categories of information:
 - prior applications, pivots, and incubators
 - other ideas, legal entity status, investment, and fundraising
 - motivation for applying to YC, discovery channel, and batch preference
+- submission limitations on what can be edited later
 
 The tracking summaries narrow this broader structure to the currently outstanding items, which is the essence of question tracking: preserving the full schema while highlighting only the unresolved work.
 
@@ -55,7 +58,7 @@ The sources identify 4 unanswered questions:
 - Are people using your product?
 - What tech stack are you using, or planning to use, to build this product?
 
-[[summaries/application_20260413205413]] adds helpful context by showing that the tech stack question explicitly asks applicants to include AI models and AI coding tools, making this section partly about execution capacity as well as architecture. These questions connect operational status and product maturity to broader founder evaluation themes such as [[concepts/founder-track-record]] and [[concepts/founder-evaluation]].
+[[summaries/application_20260413205413]] and [[summaries/application_20260413212452]] add helpful context by showing that the tech stack question explicitly asks applicants to include AI models and AI coding tools, making this section partly about execution capacity as well as architecture. The newer application snapshot also shows that the coding-agent export sits immediately adjacent to this section as an optional artifact, reinforcing that YC is evaluating not only product progress but also how a team builds. These questions connect operational status and product maturity to broader founder evaluation themes such as [[concepts/founder-track-record]] and [[concepts/founder-evaluation]].
 
 ### Strategy and Market Section
 The sources identify 4 grouped questions in this section, covering:
@@ -66,7 +69,7 @@ The sources identify 4 grouped questions in this section, covering:
 - business model and revenue potential
 - company category
 
-[[summaries/application_20260413205413]] clarifies that this section also sits alongside application history fields about previous applications, pivots, and incubator participation, which can influence how strategic answers are framed. This area overlaps strongly with [[concepts/application-strategy]], [[concepts/competitive-landscape-analysis]], [[concepts/startup-differentiation]], and [[concepts/market-sizing]].
+[[summaries/application_20260413205413]] and [[summaries/application_20260413212452]] clarify that this section also sits alongside application history fields about previous applications, pivots, and incubator participation, which can influence how strategic answers are framed. This area overlaps strongly with [[concepts/application-strategy]], [[concepts/competitive-landscape-analysis]], [[concepts/startup-differentiation]], and [[concepts/market-sizing]].
 
 ### Legal Section
 The sources identify 3 unanswered legal-status questions:
@@ -81,16 +84,18 @@ The sources also list 2 optional items:
 - coding agent session attachment
 - other ideas considered for applying
 
-[[summaries/application_20260413205413]] adds useful detail here: the coding agent session is described as an experimental Summer 2026 question, typically exported from tools like Claude Code or Cursor, with a maximum size of 25 MB in .md or .txt format. Optional materials can still influence the overall strength and clarity of an application, particularly when they reinforce execution ability or decision quality. The coding session attachment also relates to [[concepts/coding-agent-session]] and [[concepts/ai-code-generation]].
+[[summaries/application_20260413205413]] and [[summaries/application_20260413212452]] add useful detail here: the coding agent session is described as an experimental Summer 2026 question, typically exported from tools like Claude Code or Cursor, with a maximum size of 25 MB in .md or .txt format. The newer application snapshot also reinforces that demos are optional but bounded by specific limits, and that optional materials can still shape reviewer perception. Optional materials can strengthen an application when they reinforce execution ability, product clarity, or decision quality. The coding session attachment also relates to [[concepts/coding-agent-session]] and [[concepts/ai-code-generation]].
 
 ## Key Takeaway From the Sources
 The main tracking result repeated across the question-tracking source documents is:
 - 11 required unanswered questions
 - 2 optional items
 
-[[summaries/application_20260413205413]] strengthens the interpretation of that result by showing what is not currently outstanding: many other application components exist, including founder video, product link, location rationale, and YC-specific motivation questions, but the tracked open work is concentrated in progress, strategy/market, legal, and optional showcase materials.
+[[summaries/application_20260413205413]] and [[summaries/application_20260413212452]] strengthen the interpretation of that result by showing what is not currently outstanding: many other application components exist, including founder video, product link, location rationale, and YC-specific motivation questions, but the tracked open work is concentrated in progress, strategy/market, legal, and optional showcase materials.
 
-This turns a vague sense of incomplete work into a concrete checklist. It also shows the value of preserving question-tracking snapshots over time: even when the answer is similar, repeated reviews confirm the current state of the application and reinforce a shared understanding of what remains. That makes it easier to allocate effort, assign drafting tasks, and monitor readiness for submission.
+The newer application snapshot adds another useful layer: question tracking should include submission-state metadata, not just content prompts. For example, a completed founder profile is required before submission, founder video is required, demo is optional, some uploads have strict size limits, and only certain sections remain editable after submission. This turns a vague sense of incomplete work into a concrete checklist with both content and process dependencies.
+
+It also shows the value of preserving question-tracking snapshots over time: even when the answer is similar, repeated reviews confirm the current state of the application and reinforce a shared understanding of what remains. That makes it easier to allocate effort, assign drafting tasks, and monitor readiness for submission.
 
 ## Practical Use
 Application question tracking is most effective when used as a lightweight planning layer over application materials. A strong tracker should:
@@ -100,14 +105,16 @@ Application question tracking is most effective when used as a lightweight plann
 4. show what remains unanswered
 5. link prompts to supporting evidence or draft materials
 6. record constraints such as video length, file size, or accepted formats
-7. note which fields can still be updated after submission
+7. note procedural blockers such as incomplete profiles or missing uploads
+8. note which fields can still be updated after submission
 
-In practice, this concept supports [[concepts/startup-application-materials]], [[concepts/knowledge-capture]], and [[concepts/decision-logging]] by ensuring application work is visible and auditable over time. The YC template also shows that tracking should include procedural metadata, not just question text. For example, profile completion is required before submission, founder video is required, demo is optional, and only certain sections remain editable after submission. A good tracker therefore acts as a bridge between planning artifacts and final submission materials.
+In practice, this concept supports [[concepts/startup-application-materials]], [[concepts/knowledge-capture]], and [[concepts/decision-logging]] by ensuring application work is visible and auditable over time. The YC templates also show that tracking should include procedural metadata, not just question text. For example, profile completion is required before submission, founder video is required, demo is optional, coding-agent export is optional, and only certain sections remain editable after submission. A good tracker therefore acts as a bridge between planning artifacts and final submission materials.
 
 ## Related Pages
 - [[summaries/YC Application Questions_20260413233900]]
 - [[summaries/YC Application Questions_20260416091345]]
 - [[summaries/application_20260413205413]]
+- [[summaries/application_20260413212452]]
 - [[concepts/application-preparation]]
 - [[concepts/application-strategy]]
 - [[concepts/yc-application-planning]]

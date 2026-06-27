@@ -1,5 +1,5 @@
 ---
-sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/Apply-to-Y-Combinator.md]
+sources: [summaries/application_20260413212452.md, summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/Luria_AI_Q4_Investor_Memo_2026.md, summaries/Apply-to-Y-Combinator.md]
 brief: How startups turn traction, narrative, and readiness into investable capital.
 ---
 
@@ -168,3 +168,5 @@ See also: [[summaries/YC Application Questions_20260413233900]]
 See also: [[summaries/YC Application Questions_20260416091345]]
 
 See also: [[summaries/application_20260413205413]]
+
+See also: [[summaries/application_20260413212452]]

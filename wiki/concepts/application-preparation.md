@@ -1,5 +1,5 @@
 ---
-sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md]
+sources: [summaries/application_20260413212452.md, summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342.md, summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147.md]
 brief: Preparing high-stakes applications through reflection, prompt staging, and tracking.
 ---
 
@@ -156,3 +156,5 @@ See also: [[summaries/README_20260413235353]]
 See also: [[summaries/README_20260413235533]]
 
 See also: [[summaries/README_20260414001057]]
+
+See also: [[summaries/application_20260413212452]]

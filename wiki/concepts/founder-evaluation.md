@@ -1,12 +1,14 @@
 ---
-sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/Apply-to-Y-Combinator.md]
-brief: How investors judge whether a founder can build a major company.
+sources: [summaries/application_20260413212452.md, summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md, summaries/Apply-to-Y-Combinator.md]
+brief: How investors assess whether founders can build, learn, and win.
 ---
 
 # Founder Evaluation
 
 ## Overview
-Founder evaluation is the process investors and accelerators use to judge whether a founder or founding team is likely to build an important company. In [[summaries/Apply-to-Y-Combinator]], [[summaries/README_20260413211931]], [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], and [[summaries/README_20260413235148]], this evaluation appears through the structure of the Y Combinator application itself: the questions are designed to reveal technical ability, commitment, insight, traction, ambition, credibility, and evidence of unusual personal effectiveness. The newer application-preparation notes also show that founder evaluation is not only about answering prompts, but about assembling a coherent research-backed case around competition, market size, technical feasibility, regulatory constraints, partner preferences, and founder positioning.
+Founder evaluation is the process investors and accelerators use to judge whether a founder or founding team is likely to build an important company. In [[summaries/Apply-to-Y-Combinator]], [[summaries/application_20260413212452]], [[summaries/README_20260413211931]], [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], and [[summaries/README_20260413235148]], this evaluation appears through the structure of the Y Combinator application itself: the questions are designed to reveal technical ability, commitment, insight, traction, ambition, credibility, and evidence of unusual personal effectiveness. The newer application-preparation notes also show that founder evaluation is not only about answering prompts, but about assembling a coherent research-backed case around competition, market size, technical feasibility, regulatory constraints, partner preferences, and founder positioning.
+
+The newly summarized application form in [[summaries/application_20260413212452]] reinforces this by showing the current YC application as a practical evaluation scaffold. Even without substantive answers, the form makes clear that YC is systematically collecting signals across team construction, product clarity, logistics, progress, market understanding, legal readiness, fundraising status, and founder motivation for applying.
 
 ## How founder evaluation appears in the YC application
 The application does not explicitly score founders, but its prompts operationalize founder assessment across several dimensions.
@@ -20,7 +22,9 @@ YC asks:
 - for an optional exported [[concepts/coding-agent-session]]
 - what the founder has built before, including apps, websites, and open source contributions
 
-These questions assess whether the founders can directly create the product, how dependent they are on outsiders, and how effectively they use modern tooling. The accomplishments prompts surfaced in [[summaries/README_20260413211931]], [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], and [[summaries/README_20260413235148]] make clear that YC also evaluates a founder’s prior output, not just the current company. This overlaps with technical execution, product velocity, and evidence of a persistent builder identity. The newer notes also frame technical viability itself as part of the founder case, for example by emphasizing local-LLM feasibility via [[concepts/mlx-framework]], which suggests that founders are judged partly on whether they can choose and justify a credible implementation path.
+These questions assess whether the founders can directly create the product, how dependent they are on outsiders, and how effectively they use modern tooling. The accomplishments prompts surfaced in [[summaries/README_20260413211931]], [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], and [[summaries/README_20260413235148]] make clear that YC also evaluates a founder’s prior output, not just the current company. This overlaps with technical execution, product velocity, and evidence of a persistent builder identity.
+
+[[summaries/application_20260413212452]] strengthens this interpretation because it explicitly groups technical work, tech stack disclosure, and the coding-agent export into the application core. The optional coding transcript is especially revealing: founder evaluation increasingly includes not only whether founders can build, but how they work with modern AI tooling. The newer notes also frame technical viability itself as part of the founder case, for example by emphasizing local-LLM feasibility via [[concepts/mlx-framework]], which suggests that founders are judged partly on whether they can choose and justify a credible implementation path.
 
 ### 2. Commitment and speed
 YC asks:
@@ -30,6 +34,8 @@ YC asks:
 - how much of that time has been full-time
 
 This helps evaluate seriousness, momentum, and whether the team is moving unusually fast relative to time invested. Founder evaluation is partly about current dedication, but also about whether the founder has a history of converting effort into concrete results. The application-preparation framing in [[summaries/README_20260413235016]] and [[summaries/README_20260413235148]] also implies that speed includes preparation quality: strong founders are expected to arrive with tight answers, evidence, and strategic clarity before the deadline.
+
+The current form summarized in [[summaries/application_20260413212452]] also shows that progress is one of the few areas editable after submission, which suggests YC expects this dimension to evolve quickly. That implicitly frames founder speed as observable over time, not just as a static claim in the initial application.
 
 ### 3. Evidence of demand
 YC asks:
@@ -41,6 +47,8 @@ YC asks:
 
 These are signals that founders are not just building, but solving a real problem for real users. This area connects closely to [[concepts/startup-fundraising]], since traction often strengthens fundraising credibility. Even when direct traction is limited, the newer notes suggest founders may still strengthen evaluation by presenting a researched market case, including explicit market sizing and a clear view of unmet demand.
 
+Although [[summaries/application_20260413212452]] presents a mostly blank form, it reinforces that usage and progress are central evaluation categories by placing them directly in the progress section alongside build status and technical choices. YC is therefore judging not just the product idea, but whether the founder has already converted that idea into real-world engagement.
+
 ### 4. Founder insight and idea quality
 YC asks:
 
@@ -50,6 +58,8 @@ YC asks:
 - who competitors are and what the founder understands that competitors do not
 
 These questions test whether the team has unique insight rather than a generic idea. A strong founder is expected to know the customer problem deeply and articulate a non-obvious advantage. [[summaries/README_20260413235016]] and [[summaries/README_20260413235148]] add that this insight can be demonstrated through deliberate positioning work: solo founder strategy, partner preference awareness, competitive whitespace analysis, market sizing, and regulatory framing. In that sense, founder evaluation includes not just having an idea, but showing disciplined thinking about why this founder, this product, and this market make sense together.
+
+[[summaries/application_20260413212452]] also shows that YC pairs these prompts with requests for category selection and alternative ideas considered. That broadens founder evaluation beyond the main pitch: YC is also testing how founders think about the problem space, whether they can identify adjacent opportunities, and whether they are pursuing the strongest version of the opportunity.
 
 ### 5. Communication and persuasion
 YC asks for:
@@ -62,6 +72,8 @@ YC asks for:
 
 This evaluates clarity of thought and the founder's ability to communicate conviction, competence, and ambition under tight constraints. The short accomplishment prompts in [[summaries/README_20260413211931]], [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], and [[summaries/README_20260413235148]] reinforce that YC values compression: founders must present strong evidence in very little space. The newer notes also suggest that communication quality includes integrating complex material—market, regulatory, technical, and strategic—into direct answers that still feel simple.
 
+[[summaries/application_20260413212452]] makes this even more concrete by specifying hard constraints on the founder video and demo, including short duration and file-size limits. These constraints imply that founder evaluation includes disciplined communication under format pressure. The requirement to describe the company in 50 characters or less is a particularly strong signal that founders are being judged on compression, crisp positioning, and the ability to express the company’s essence instantly.
+
 ### 6. Ambition and business potential
 YC asks:
 
@@ -71,6 +83,8 @@ YC asks:
 - what other ideas the founder considered
 
 These prompts help determine whether the founder is pursuing a large opportunity and thinking expansively about market potential. [[summaries/README_20260413235016]] and [[summaries/README_20260413235148]] strengthen this dimension by explicitly referencing a core TAM and expanded TAM, showing that ambition is often evaluated through the founder’s ability to quantify the opportunity and describe how a niche starting point can expand into a larger market.
+
+The inclusion of alternative ideas in [[summaries/application_20260413212452]] is notable because it suggests YC is not only evaluating the current plan, but also the founder’s opportunity selection process. A strong founder is expected to generate promising ideas, compare them intelligently, and pursue the one with the best combination of insight, market size, and execution fit.
 
 ### 7. Integrity and operational readiness
 YC also asks about:
@@ -84,6 +98,8 @@ YC also asks about:
 
 These questions help assess founder honesty, cap-table clarity, and whether the company is organized enough to fund and scale responsibly. The broader preparation approach reflected in [[summaries/README_20260413235016]] and [[summaries/README_20260413235148]] also suggests operational readiness includes understanding constraints outside pure company formation, such as healthcare-related regulatory considerations relevant to the product category.
 
+[[summaries/application_20260413212452]] reinforces this by clearly separating legal-entity status, prior investment, and active fundraising into their own section. That structure suggests YC treats operational transparency as foundational rather than incidental. The same document also notes that only certain fields remain editable after submission, which implies that founders are expected to have their legal and strategic story largely coherent at the time of application.
+
 ### 8. Track record and exceptionalism
 YC also asks founders to describe:
 
@@ -93,6 +109,8 @@ YC also asks founders to describe:
 - competitions, awards, and published papers
 
 These prompts are especially revealing because they evaluate more than startup mechanics. They look for resourcefulness, agency, creativity, social intelligence, and a history of exceptional performance. The wording in [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], and [[summaries/README_20260413235148]] shows YC explicitly clustering these items under an accomplishments section, which makes prior achievement a first-class input into founder judgment rather than a minor supplement. In practice, this means founder evaluation includes whether the founder has repeatedly produced unusually strong outcomes before this company. This dimension aligns closely with [[concepts/founder-track-record]].
+
+While [[summaries/application_20260413212452]] focuses more on the contemporary application scaffold than on the accomplishments prompts, it still complements this dimension by showing how prior work, current build ownership, and founder motivation all sit together inside the same evaluative system. YC is not just asking whether the startup could work; it is asking whether this founder has the pattern of behavior that predicts outsized outcomes.
 
 ## Core dimensions of founder evaluation
 Across the application, founder evaluation can be grouped into several recurring dimensions:
@@ -109,9 +127,12 @@ Across the application, founder evaluation can be grouped into several recurring
 - **Track record:** Have they already built, achieved, won, published, or otherwise demonstrated unusual ability?
 - **Resourcefulness:** Can they navigate systems creatively and effectively, including outside pure technical work?
 - **Positioning skill:** Can they frame the company convincingly across competition, market, technical feasibility, partner expectations, and constraints?
+- **Operational readiness:** Are they organized enough to handle logistics, fundraising disclosures, submission constraints, and company formation details responsibly?
 
 ## What the source documents contribute
 [[summaries/Apply-to-Y-Combinator]] is useful because it shows founder evaluation not as abstract theory, but as a practical checklist embedded in a real accelerator application. Even though the form is mostly unfilled, it reveals what YC believes matters most when judging early-stage founders.
+
+[[summaries/application_20260413212452]] adds a complementary and more current view of the application structure. It highlights the present sectioning of the YC form into team, product, location, progress, strategy, legal, and YC-specific motivation. It also makes explicit the hard constraints around founder video, demo length, coding-agent exports, and post-submission editability. This strengthens the interpretation of founder evaluation as not only a judgment of the founder’s ideas and achievements, but also of their ability to present a concise, complete, operationally credible application under real constraints.
 
 [[summaries/README_20260413211931]] adds a complementary layer by surfacing the accomplishments section of the application. That section makes explicit that YC is not only evaluating the startup's present state, but also the founder's prior pattern of achievement.
 
@@ -123,7 +144,7 @@ Across the application, founder evaluation can be grouped into several recurring
 
 [[summaries/README_20260413235148]] confirms and slightly extends that strategic framing. It again presents the YC S26 application as supported by a research foundation that covers exact application questions, partner preferences, solo founder strategy, competitive landscape analysis with no direct competitors and no YC portfolio overlap, market sizing ranges for both a core and expanded TAM, regulatory positioning across FDA, HIPAA, and APA-related frameworks, local-LLM technical viability through Apple MLX, and question-by-question tactical guidance for every application section including the new coding agent session. It also preserves the explicit accomplishments prompts—non-computer system hacking, most impressive prior achievement, things built before, and competitions, awards, or papers—showing that strategic application preparation and prior founder exceptionalism are being combined into one coherent founder case.
 
-Especially notable is the inclusion of AI coding workflows alongside classic accomplishment prompts. This suggests founder evaluation increasingly includes how well a founder uses modern development tools, not just whether they can code in a traditional sense. At the same time, the accomplishments prompts show that YC still values broader evidence of founder quality beyond the product itself. The newer documents further suggest that investors may read technical choices, market framing, regulatory awareness, and competitive positioning as proxies for founder judgment. That makes this concept adjacent to [[concepts/ai-code-generation]], [[concepts/application-preparation]], [[concepts/founder-track-record]], [[concepts/healthcare-ai-regulation]], [[concepts/mlx-framework]], [[concepts/yc-partner-preferences]], [[concepts/startup-application-materials]], [[concepts/application-strategy]], and [[concepts/founder-narrative]].
+Especially notable across these materials is the inclusion of AI coding workflows alongside classic accomplishment prompts. This suggests founder evaluation increasingly includes how well a founder uses modern development tools, not just whether they can code in a traditional sense. At the same time, the accomplishments prompts show that YC still values broader evidence of founder quality beyond the product itself. The newer documents further suggest that investors may read technical choices, market framing, regulatory awareness, competitive positioning, and even application completeness as proxies for founder judgment. That makes this concept adjacent to [[concepts/ai-code-generation]], [[concepts/application-preparation]], [[concepts/founder-track-record]], [[concepts/healthcare-ai-regulation]], [[concepts/mlx-framework]], [[concepts/yc-partner-preferences]], [[concepts/startup-application-materials]], [[concepts/application-strategy]], and [[concepts/founder-narrative]].
 
 ## Related concepts
 - [[concepts/startup-fundraising]]
@@ -138,6 +159,7 @@ Especially notable is the inclusion of AI coding workflows alongside classic acc
 - [[concepts/yc-partner-preferences]]
 - [[concepts/coding-agent-session]]
 - [[summaries/Apply-to-Y-Combinator]]
+- [[summaries/application_20260413212452]]
 - [[summaries/README_20260413211931]]
 - [[summaries/README_20260413212108]]
 - [[summaries/README_20260413215204]]

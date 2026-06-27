@@ -1,11 +1,11 @@
 ---
-sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md]
-brief: Documents and trackers used to prepare and position a startup application.
+sources: [summaries/application_20260413212452.md, summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md]
+brief: Materials used to prepare, track, and frame a startup application.
 ---
 
 # Startup Application Materials
 
-Startup application materials are the documents, prompts, trackers, and supporting evidence used to present a company and its founders to an accelerator, investor, or other evaluator. In this wiki, the concept is illustrated by [[summaries/README_20260413211931]], [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], [[summaries/README_20260413235148]], [[summaries/README_20260414001057]], [[summaries/YC Application Questions_20260413233900]], and [[summaries/YC Application Questions_20260416091345]], which together capture YC-2026 application scaffolds focused on founder accomplishments, prior work, external signals of achievement, workflow ties to a live application form, deadline awareness, broader application-positioning research, and explicit tracking of unanswered application questions.
+Startup application materials are the documents, prompts, trackers, templates, and supporting evidence used to present a company and its founders to an accelerator, investor, or other evaluator. In this wiki, the concept is illustrated by [[summaries/README_20260413211931]], [[summaries/README_20260413212108]], [[summaries/README_20260413215204]], [[summaries/README_20260413235016]], [[summaries/README_20260413235148]], [[summaries/README_20260414001057]], [[summaries/YC Application Questions_20260413233900]], [[summaries/YC Application Questions_20260416091345]], and [[summaries/application_20260413212452]], which together capture YC-2026 application scaffolds focused on founder accomplishments, prior work, external signals of achievement, workflow ties to a live application form, deadline awareness, broader application-positioning research, the structure of the full YC form, and explicit tracking of unanswered application questions.
 
 ## What this concept includes
 
@@ -20,8 +20,9 @@ Startup application materials often combine:
 - market, competitive, regulatory, and technical framing used to strengthen evaluator interpretation of the company
 - tactical guidance for specific application sections, including newer evaluation formats such as [[concepts/coding-agent-session]]
 - practical timeline information, such as application deadlines and submission milestones
+- the application form structure itself, including section-level requirements, media constraints, and post-submission editing limits
 
-These materials are not just administrative paperwork. They are a framing device for [[concepts/founder-evaluation]] because they shape how reviewers assess ambition, capability, originality, resourcefulness, speed of execution, and the coherence of the company's positioning. They also help turn a broad application into a manageable workstream by making visible what has already been prepared and what still needs answers.
+These materials are not just administrative paperwork. They are a framing device for [[concepts/founder-evaluation]] because they shape how reviewers assess ambition, capability, originality, resourcefulness, speed of execution, and the coherence of the company's positioning. They also help turn a broad application into a manageable workstream by making visible what has already been prepared, what the evaluator expects to see, and what still needs answers.
 
 ## Example from the source
 
@@ -39,7 +40,9 @@ The later versions are more explicit about what counts as supporting application
 
 [[summaries/YC Application Questions_20260413233900]] and [[summaries/YC Application Questions_20260416091345]] add a different but complementary example: chat-generated inventories of the remaining unanswered YC questions. Instead of collecting founder stories or positioning research, they organize unfinished work by section and count what is left. Both documents identify 11 required unanswered questions across progress, strategy and market, and legal sections, plus 2 optional items. The later summary is especially useful because it cleanly restates the section breakdown: 4 progress questions, 4 strategy and market questions, and 3 legal questions, along with the optional coding agent session attachment and other ideas considered for the application. This shows that startup application materials may also include operational tracking artifacts that monitor completion status, not just content scaffolds or supporting research.
 
-Taken together, these sources show that startup application materials can include not only answer templates but also the surrounding research and task structure used to support a stronger application strategy. They are less polished narrative artifacts than collection, preparation, and progress-management templates for application inputs.
+[[summaries/application_20260413212452]] adds the clearest example of the application form itself as part of the material set. Unlike the README-based scaffolds and unanswered-question trackers, this source preserves the structure of the YC application interface: Team and Founders, Product and Demo, Location and Logistics, Progress and Tech Stack, Strategy and Market, Other Ideas and Legal, YC Specifics, and Submission Information. It shows not only what the founder needs to say, but how YC organizes the evaluation. The document also records operational constraints that matter for preparation, including the need for a completed profile before submission, a required one-minute founder introduction video, a demo capped at 3 minutes and 100 MB, an optional coding agent transcript capped at 25 MB, and the note that only certain sections remain editable after submission. This makes visible that startup application materials include not just answer content and trackers, but also the platform rules, attachment requirements, and section boundaries that shape how application work must be organized.
+
+Taken together, these sources show that startup application materials can include not only answer templates but also the surrounding research, evaluator framing, workflow structure, completion tracking, and form-level submission requirements used to support a stronger application strategy. They are less polished narrative artifacts than collection, preparation, and progress-management templates for application inputs.
 
 ## Why these materials matter
 
@@ -52,8 +55,9 @@ Well-structured startup application materials help compress a founder's track re
 - readiness to translate raw experience into a concise evaluator-facing narrative
 - clarity about market, competition, technical feasibility, regulatory constraints, and deadlines
 - visibility into which required application questions still need answers
+- awareness of submission mechanics such as file constraints, required media, and editability rules
 
-This directly overlaps with [[concepts/founder-track-record]] and can also support later processes such as [[concepts/startup-fundraising]], where the same evidence and framing are often reused in pitch narratives, investor updates, or diligence materials. In practice, these materials reduce the risk that an application remains partially complete or strategically incoherent by pairing answer content with explicit progress tracking.
+This directly overlaps with [[concepts/founder-track-record]] and can also support later processes such as [[concepts/startup-fundraising]], where the same evidence and framing are often reused in pitch narratives, investor updates, or diligence materials. In practice, these materials reduce the risk that an application remains partially complete, procedurally invalid, or strategically incoherent by pairing answer content with explicit progress tracking and platform-specific requirements.
 
 ## Common components
 
@@ -81,11 +85,17 @@ The newer source set shows that application materials may also serve as operatio
 ### 8. Question-completion tracking
 [[summaries/YC Application Questions_20260413233900]] and [[summaries/YC Application Questions_20260416091345]] show that a useful application artifact can simply be a status snapshot of unanswered questions. In those documents, the remaining work is grouped into progress, strategy and market, and legal sections, with optional items tracked separately. The repeated count across both summaries strengthens the interpretation that these are active planning tools rather than one-off notes. This is closely related to [[concepts/application-question-tracking]] because it turns application preparation into a visible checklist with section-level accountability.
 
+### 9. Form structure and submission constraints
+[[summaries/application_20260413212452]] shows that the application form itself is part of the material set. The section structure tells the applicant how evaluators segment judgment across founder capability, product clarity, traction, market understanding, legal status, and YC-specific motivation. The file and timing constraints also matter operationally: applicants need to prepare videos, credentials, tech-stack explanations, and optional artifacts in the formats and sizes the platform accepts.
+
+### 10. Post-submission edit boundaries
+The YC form summary also shows that application materials may need to distinguish between sections that can still be revised later and sections that effectively lock at submission. That affects drafting order, review rigor, and where applicants may tolerate placeholders versus where they need finalized answers before pressing submit.
+
 ## Interpretation of the source document
 
-The source documents do not primarily contain substantive finished answers; they contain prompts, scaffolding, and workflow structure. That distinction matters. They represent early-stage preparation artifacts rather than finished applications. Their main value is organizational: they define the categories of information the applicant needs to gather, verify, articulate, and complete.
+The source documents do not primarily contain substantive finished answers; they contain prompts, scaffolding, workflow structure, and submission requirements. That distinction matters. They represent early-stage preparation artifacts rather than finished applications. Their main value is organizational: they define the categories of information the applicant needs to gather, verify, articulate, package, and complete.
 
-The progression across the sources clarifies that this concept includes more than question lists. It includes lightweight workflow scaffolds, linked application entry points, contextual assets such as images, concrete deadline reminders, higher-level supporting research on competition, market size, regulation, technical feasibility, evaluator preferences, and explicit inventories of unanswered questions. The two YC Application Questions summaries make the tracking function especially clear by repeatedly enumerating unfinished items and organizing them into application workstreams. These materials sit between brainstorming and submission, helping convert a founder's background and startup thesis into structured evaluator-facing responses while also keeping the application process on track.
+The progression across the sources clarifies that this concept includes more than question lists. It includes lightweight workflow scaffolds, linked application entry points, contextual assets such as images, concrete deadline reminders, higher-level supporting research on competition, market size, regulation, technical feasibility, evaluator preferences, explicit inventories of unanswered questions, and the structure and constraints of the live application form itself. The two YC Application Questions summaries make the tracking function especially clear by repeatedly enumerating unfinished items and organizing them into application workstreams. [[summaries/application_20260413212452]] makes the procedural layer especially clear by showing the full section map, attachment requirements, and post-submission limitations of the YC application. These materials sit between brainstorming and submission, helping convert a founder's background and startup thesis into structured evaluator-facing responses while also keeping the application process on track.
 
 ## Related concepts
 
@@ -113,6 +123,7 @@ The progression across the sources clarifies that this concept includes more tha
 - [[summaries/README_20260414001057]]
 - [[summaries/YC Application Questions_20260413233900]]
 - [[summaries/YC Application Questions_20260416091345]]
+- [[summaries/application_20260413212452]]
 
 See also: [[summaries/README_20260413235353]]
 

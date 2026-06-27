@@ -1,6 +1,7 @@
 # Knowledge Base Index
 
 ## Documents
+- [[summaries/application_20260413212452]] (short) — Blank YC application form outlining all questions and submission requirements.
 - [[summaries/application_20260413205413]] (short) — YC application form template outlining founder, product, market, and logistics questions.
 - [[summaries/YC Application Questions_20260416091345]] (short) — Counts remaining YC application questions: 11 required plus 2 optional.
 - [[summaries/YC Application Questions_20260413233900]] (short) — Counts unanswered YC application questions and groups them by section.
@@ -211,18 +212,18 @@
 - [[summaries/The-Complete-Guide-to-AI-Architectures-From-Neural-Networks-to-Foundation-Models]] (short) — Comprehensive guide to AI architectures from perceptrons to 2025 foundation models and reasoning systems
 
 ## Concepts
-- [[concepts/yc-application-planning]] — YC application planning turns YC prompts into a structured completion plan.
-- [[concepts/application-question-tracking]] — Tracking application prompts as a structured checklist for submission readiness.
+- [[concepts/yc-application-planning]] — Planning YC applications as a structured, trackable completion workflow.
+- [[concepts/application-question-tracking]] — Tracking application prompts turns submission work into a clear operational checklist.
 - [[concepts/competitive-landscape-analysis]] — Assessing rivals and overlap to sharpen startup positioning for YC.
 - [[concepts/solo-founder-strategy]] — How a solo founder should frame strength, credibility, and execution in a YC app.
 - [[concepts/startup-differentiation]] — How a startup proves it is uniquely valuable, credible, and hard to replace.
 - [[concepts/regulatory-positioning]] — How a healthcare AI product is framed within legal and clinical boundaries.
 - [[concepts/market-sizing]] — Estimating a startup’s current and future market to support strategy and scale.
 - [[concepts/yc-partner-preferences]] — Inferred YC evaluation signals from application prompts and preparation materials.
-- [[concepts/coding-agent-session]] — Optional YC artifact showing AI-assisted coding execution and judgment.
+- [[concepts/coding-agent-session]] — Optional YC upload showing AI-assisted coding skill and product judgment.
 - [[concepts/application-strategy]] — Strategic framing of startup applications to maximize founder and company signal.
 - [[concepts/founder-narrative]] — Founder narrative is the evidence-backed story of why a founder will win.
-- [[concepts/startup-application-materials]] — Documents and trackers used to prepare and position a startup application.
+- [[concepts/startup-application-materials]] — Materials used to prepare, track, and frame a startup application.
 - [[concepts/founder-track-record]] — Founder track record is curated evidence that a founder can execute credibly.
 - [[concepts/personal-writing-workflows]] — Structured systems for drafting, revising, and preserving personal writing.
 - [[concepts/application-preparation]] — Preparing high-stakes applications through reflection, prompt staging, and tracking.
@@ -234,7 +235,7 @@
 - [[concepts/repository-hygiene]] — Practices that keep a repository safe, organized, and maintainable over time.
 - [[concepts/migration-strategy]] — A staged, low-risk approach for reorganizing systems while preserving recoverability.
 - [[concepts/codebase-reorganization]] — Reorganizing a codebase into clearer modules and service boundaries safely.
-- [[concepts/founder-evaluation]] — How investors judge whether a founder can build a major company.
+- [[concepts/founder-evaluation]] — How investors assess whether founders can build, learn, and win.
 - [[concepts/startup-fundraising]] — How startups turn traction, narrative, and readiness into investable capital.
 - [[concepts/grpc]] — gRPC is a high-performance open-source RPC framework by Google using HTTP/2 and Protocol Buffers.
 - [[concepts/python-data-structures]] — Core data structures in Python, including mutable, immutable, and lifecycle-controlled containers.

@@ -1,5 +1,5 @@
 ---
-sources: [summaries/application_20260413205413.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md]
+sources: [summaries/application_20260413212452.md, summaries/application_20260413205413.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md, summaries/README_20260413215204.md, summaries/README_20260413212108.md, summaries/README_20260413211931.md]
 brief: Founder track record is curated evidence that a founder can execute credibly.
 ---
 
@@ -108,3 +108,5 @@ The newest note also situates founder track record within a question-by-question
 - [[summaries/README_20260414001057]]
 
 See also: [[summaries/application_20260413205413]]
+
+See also: [[summaries/application_20260413212452]]

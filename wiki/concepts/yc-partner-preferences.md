@@ -1,5 +1,5 @@
 ---
-sources: [summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md]
+sources: [summaries/application_20260413212452.md, summaries/application_20260413205413.md, summaries/YC Application Questions_20260416091345.md, summaries/YC Application Questions_20260413233900.md, summaries/README_20260414001057.md, summaries/README_20260413235533.md, summaries/README_20260413235353.md, summaries/README_20260413235148.md, summaries/README_20260413235016.md]
 brief: Inferred YC evaluation signals from application prompts and preparation materials.
 ---
 
@@ -203,3 +203,5 @@ This concept is derived from [[summaries/README_20260413235016]], [[summaries/RE
 - [[concepts/ai-code-generation]]
 - [[concepts/luria-overview]]
 - [[concepts/yc-application-planning]]
+
+See also: [[summaries/application_20260413212452]]
