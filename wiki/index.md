@@ -1,0 +1,495 @@
+# Knowledge Base Index
+
+## Documents
+- [[summaries/README_20260413235533]] (short) — YC S26 application prep README outlining research scope and application prompts.
+- [[summaries/README_20260413235353]] (short) — Summary of YC S26 application research and tactical submission guidance.
+- [[summaries/README_20260413235148]] (short) — Notes for a YC S26 application with positioning, market, and application guidance.
+- [[summaries/README_20260413235016]] (short) — Notes for a YC S26 application with positioning, market, and response prompts.
+- [[summaries/README_20260413215204]] (short) — Draft YC 2026 application README listing personal application question prompts.
+- [[summaries/README_20260413212108]] (short) — Outline of YC 2026 application accomplishment prompts.
+- [[summaries/README_20260413211931]] (short) — YC-2026 README listing application prompts about the founder’s background and accomplishments.
+- [[summaries/README_20260413204228]] (short) — Overview README for YC-2026 with setup and project context.
+- [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212342]] (short) — Project snapshot mixing YC application notes with a Python environment tree.
+- [[summaries/snapshot-2026-04-14T04_21_45_999Z_20260413212147]] (short) — Brief note on YC application prep plus a Python project directory snapshot.
+- [[summaries/Luria_AI_Q4_Investor_Memo_2026]] (short) — Q4 2026 investor memo on Luria AI’s neuropsych clinical AI traction and scaling plan.
+- [[summaries/LLM Benchmark Comparison]] (short) — Assessment of local LLM quality and stability for Apple Silicon deployment.
+- [[summaries/File Folder Structure Rebuild]] (short) — Safe idempotent shell script for a local folder structure refactor.
+- [[summaries/Apply-to-Y-Combinator]] (short) — Blank YC application form outlining startup questions and required materials.
+- [[summaries/Apply-to-Y-Combinator-JWT]] (short) — Draft YC application for Luria, an AI neuropsychology workflow startup.
+- [[summaries/table_API_readme]] (short) — Explains how fontTools ttLib maps TT/OT table tags to Python module/class names and the API for writing custom table converters.
+- [[summaries/LICENSE]] (short) — Apache License 2.0 governing the aio-libs contributors' project distribution and use.
+- [[summaries/top_level]] (short) — Single-word document containing the term 'accelerate' with no additional context.
+- [[summaries/entry_points]] (short) — Defines CLI entry points for the Accelerate library's command-line tools.
+- [[summaries/2026-06-26-2133-plan]] (short) — Plan to rebrand 'Status Exam' to 'Neurobehavioral Exam (STT)' across all documentation files.
+- [[summaries/.llm-tmp]] (short) — Empty or inaccessible temporary LLM file with no content.
+- [[summaries/redesign_20260623110910]] (short) — Luria.app redesign mockup: AI-powered neuropsychological assessment platform with local-first LLM inference.
+- [[summaries/redesign_20260623110817]] (short) — Redesign mockups for Luria.app neuropsychological reporting platform with AI-assisted clinical workflow
+- [[summaries/.atlas-preview]] (short) — Empty or non-text document with no extractable content.
+- [[summaries/Introducing-FrontierCode]] (short) — FrontierCode: a benchmark measuring code mergeability and quality beyond functional correctness.
+- [[summaries/bwu.neuro.reports.recs.executive-fx]] (short) — Practical recommendations for improving executive functioning in a child named KB.
+- [[summaries/bwu.neuro.reports.recs.dyslexia.young-adult]] (short) — Academic and study recommendations for young adults with dyslexia and ADHD returning to college.
+- [[summaries/bwu.neuro.reports.recs.dyslexia]] (short) — Comprehensive neuropsych report recommendations for a 7-year-old with dyslexia and ADHD.
+- [[summaries/bwu.neuro.reports.recs.dyscalculia]] (short) — Practical recommendations for supporting students with dyscalculia across home and school settings.
+- [[summaries/bwu.neuro.reports.recs.conversion]] (short) — Treatment recommendations for conversion/somatic symptom disorder: education first, then CBT.
+- [[summaries/bwu.neuro.reports.recs.conduct-problems]] (short) — Evidence-based interventions for conduct problems in children, focusing on Social Skills Training and Parent Training.
+- [[summaries/bwu.neuro.reports.recs.building-verbal-skills]] (short) — Practical recommendations for building verbal, language, and vocabulary skills in KB at home and school.
+- [[summaries/bwu.neuro.reports.recs.build-writing-skills]] (short) — Evidence-based recommendations to support KB's writing, spelling, and fine motor skill development.
+- [[summaries/bwu.neuro.reports.recs.build-reading-skills]] (short) — Evidence-based recommendations to remediate reading difficulties for a student with dyslexia.
+- [[summaries/bwu.neuro.reports.recs.build-math-skills]] (short) — Practical recommendations for building math skills in students with dyscalculia or math difficulties.
+- [[summaries/bwu.neuro.reports.recs.books]] (short) — A curated list of book recommendations covering ADHD, aging, communication, and anger management.
+- [[summaries/bwu.neuro.reports.recs.books.anger]] (short) — Book recommendation for anger management: 'When Anger Hurts: Quieting the Storm Within'.
+- [[summaries/bwu.neuro.reports.recs.books.aging]] (short) — A reading recommendation on aging featuring a book about purposeful longer living.
+- [[summaries/bwu.neuro.reports.recs.books.adhd]] (short) — Curated ADHD book and resource recommendations organized by age group and setting.
+- [[summaries/bwu.neuro.reports.recs.behav-mod]] (short) — Behavior modification recommendations focusing on self-monitoring, positive alternatives, and praise.
+- [[summaries/bwu.neuro.reports.recs.autism.adults]] (short) — Compilation of autism (ASD) recommendations from neuropsychological reports, primarily pediatric with adult notes.
+- [[summaries/bwu.neuro.reports.recs.attention-problems]] (short) — Behavioral recommendations and intervention strategies for children with attention problems in school/home settings.
+- [[summaries/bwu.neuro.reports.recs.aggression]] (short) — Clinical recommendations for treating Jonathan's aggression via problem-solving and replacement behavior training.
+- [[summaries/bwu.neuro.reports.recs.adhd.young-adult]] (short) — Clinical recommendations for young adults with ADHD covering medical, academic, and home strategies.
+- [[summaries/bwu.neuro.reports.recs.adhd.older-adult]] (short) — Overview of ADHD medication considerations and research gaps in older adults (65+).
+- [[summaries/bwu.neuro.reports.recs.adhd.merge]] (short) — Comprehensive ADHD recommendations covering medical, school, home, work, and self-care strategies.
+- [[summaries/bwu.neuro.reports.recs.adhd]] (short) — Autism intervention recommendations covering ABA, social skills, structure, and adult adaptations.
+- [[summaries/bwu.neuro.reports.recs.adhd.dref-intervention-strategies]] (short) — Classroom intervention strategies for ADHD-related indices based on T-score thresholds from D-REF.
+- [[summaries/bwu.neuro.reports.recs.adhd.child]] (short) — Clinical recommendations for managing childhood ADHD across medical, school, and home settings.
+- [[summaries/bwu.neuro.reports.recs.adhd.books]] (short) — Curated ADHD book recommendations organized by age group and context.
+- [[summaries/bwu.neuro.reports.recs.adhd.adult]] (short) — Clinical and patient-facing resources for adult ADHD, focusing on mindfulness and general guidance.
+- [[summaries/autism_recommendations_for_adults_summary]] (short) — Autism intervention recommendations for children and adults, covering ABA, social skills, and adult adaptations.
+- [[summaries/SESSION_SUMMARY]] (short) — Session log of data cleaning, age override system, and diagnosis parser improvements for neuropsych RAG.
+- [[summaries/RECOMMENDATION_FILTERING_IMPROVEMENTS]] (short) — Improvements to report_parser.py filtering out non-actionable content from extracted recommendations.
+- [[summaries/PERMANENT_SOLUTION_SUMMARY]] (short) — Describes a persistent age override config system for neuropsychological report ingestion.
+- [[summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_PIPELINE]] (short) — Multi-stage RAG pipeline for parsing, de-identifying, and searching neuropsychological reports.
+- [[summaries/NEUROPSYCHOLOGICAL_REPORT_RAG_CODEMAP]] (short) — Multi-stage pipeline for parsing, de-identifying, and RAG-querying neuropsychological PDF reports.
+- [[summaries/DIAGNOSIS_PARSER_IMPROVEMENTS]] (short) — Fixes diagnosis parser to recover 23% of reports missing diagnoses via expanded patterns and filters.
+- [[summaries/DIAGNOSIS_FIX_SUMMARY]] (short) — Summary of fixes to diagnosis parser in report_parser.py, reducing missing-diagnosis reports from 23% to ~10%.
+- [[summaries/AUTISM_RAG_SYSTEM_DOCUMENTATION]] (short) — Two-pipeline RAG system for autism research Q&A and clinical recommendation generation.
+- [[summaries/AGE_OVERRIDE_GUIDE]] (short) — Guide to the age override system for fixing unknown age groups in neuropsych PDF ingestion.
+- [[summaries/2026-02-11-this-session-is-being-continued-from-a-previous-co]] (short) — Claude Code session: adding clipboard copy buttons and fixing DSM-5 diagnosis canonicalization in an autism RAG app.
+- [[summaries/CARS2-Manual_extracted]] (short) — Clinical manual for CARS2, a standardized autism rating scale with standard and high-functioning versions.
+- [[summaries/pai_96]] (short) — PAI clinical interpretive report for 22-year-old male showing depression, anxiety, and suicidal ideation.
+- [[summaries/pai_94]] (short) — PAI clinical interpretive report for Benjamin Chiu (age 41) showing severe psychopathology with suicide risk.
+- [[summaries/pai_76]] (short) — PAI clinical interpretive report for Kira Giummo (age 18, 11/03/2022) flagged invalid due to inattention.
+- [[summaries/pai_74]] (short) — PAI clinical report for Charles Feuerborn (age 22) suggesting bipolar mania, antisocial/narcissistic traits, and PTSD.
+- [[summaries/pai_62]] (short) — PAI clinical interpretive report for Woody Chiang (age 22, female), dated 03/24/2022.
+- [[summaries/pai_53]] (short) — PAI clinical report for AJ Zhang (19F) showing depression, anxiety, and suicidal ideation.
+- [[summaries/pai_47]] (short) — PAI clinical report for Lauren Hurlbut (age 24) highlighting mania, antisocial traits, and aggression risk.
+- [[summaries/pai_45]] (short) — PAI clinical report for Alexander Jacobs (age 32) showing normal-range results with no significant psychopathology.
+- [[summaries/pai_40]] (short) — PAI clinical interpretive report for Tianyu Wang (age 24, female), dated May 2022.
+- [[summaries/pai_35]] (short) — PAI clinical interpretive report for 19-year-old female Leslie Moreno, dated April 2022.
+- [[summaries/pai_34]] (short) — PAI clinical interpretive report for Max Gosey (age 34), dated 02/26/2022, highlighting BPD and depression.
+- [[summaries/pai_317]] (short) — PAI clinical interpretive report for Ed Gonzalez (age 62), highlighting alcohol use disorder.
+- [[summaries/pai_316]] (pageindex) — This PAI Plus Clinical Interpretive Report for Eric Roizman (dated December 29, 2024) provides a comprehensive psychological evaluation, including validity indices, clinical profiles, DSM-5 diagnostic hypotheses, and treatment considerations for a motor vehicle accident claimant.
+- [[summaries/pai_314]] (short) — PAI clinical interpretive report for Tiffany Cha (age 28), dated May 2023.
+- [[summaries/pai_312]] (short) — PAI clinical interpretive report for Elea Zhong (age 20, female), dated 05/18/2023.
+- [[summaries/pai_30]] (short) — PAI clinical report for Krishan Patel (age 21) suggesting bipolar I disorder and borderline features.
+- [[summaries/pai_26]] (short) — PAI clinical interpretive report for Alex Shirley (age 27, male), dated 02/17/2022.
+- [[summaries/pai_23]] (short) — PAI clinical interpretive report for Gorety Nguyen (age 23, female), dated 03/16/2023.
+- [[summaries/pai_202]] (short) — PAI clinical interpretive report for Raven Colbert (age 20, F), dated 04/19/2023.
+- [[summaries/pai_199]] (short) — PAI clinical interpretive report for Dylan Kay (age 20, female), dated 02/09/2023.
+- [[summaries/pai_197]] (short) — PAI clinical interpretive report for Lilith Mo (age 30, female), dated 03/30/2023.
+- [[summaries/pai_18]] (short) — PAI clinical report for Anna Finkel (age 21) showing normal limits profile with mild defensiveness.
+- [[summaries/pai_17]] (short) — PAI clinical report for Summer Young (age 24) showing BPD traits, suicidal ideation, and trauma symptoms.
+- [[summaries/pai_16]] (short) — PAI clinical interpretive report for Annette Malan (age 19, Feb 2023) showing trauma, anxiety, and alcohol use concerns.
+- [[summaries/pai_15]] (short) — PAI clinical interpretive report for Aria Dewey (age 23), highlighting mood, personality, and risk findings.
+- [[summaries/pai_14]] (short) — PAI clinical interpretive report for Alexandra Stanley (age 25), showing normal-range psychological profile.
+- [[summaries/pai_13]] (short) — PAI clinical report for Sourina Mehryar (age 42) dated 03/05/2023 with diagnostic impressions.
+- [[summaries/pai_11]] (short) — PAI clinical interpretive report for AJ Zhang (age 19, F) dated 01/12/2023.
+- [[summaries/pai_102]] (short) — PAI clinical interpretive report for Ashish Gautam (age 31, male), dated April 2023.
+- [[summaries/pai_100]] (short) — PAI Clinical Interpretive Report for Christine Kaneshige (age 55, tested 06/05/2023).
+- [[summaries/pai_10]] (short) — PAI clinical interpretive report for Nestor Lopez (age 23, male), flagged invalid due to validity concerns.
+- [[summaries/pai_09]] (short) — PAI clinical report for Daniel Estey-Ang (age 36) showing broad psychopathology with validity concerns.
+- [[summaries/pai_07]] (short) — PAI clinical interpretive report for a 66-year-old male (RS24) showing generally normal results with mild stressors.
+- [[summaries/pai_06]] (short) — PAI clinical interpretive report for Itamar Cohen (IC24), male age 36, dated 09/18/2024.
+- [[summaries/pai_05]] (short) — PAI clinical interpretive report for Michelle De Los Santos (57F), showing normal-range profile with mild defensiveness.
+- [[summaries/pai_04]] (short) — PAI clinical interpretive report for Jemiel Rosen (JR24), 53F, showing major depression and somatic concerns.
+- [[summaries/pai_03]] (short) — PAI Clinical Interpretive Report for Alejan Barre (age 22, female), dated 03/03/2022.
+- [[summaries/pai_02]] (short) — PAI clinical interpretive report for Lars StPierre (age 33, male), tested 03/17/2022.
+- [[summaries/pai_01]] (short) — PAI clinical interpretive report for Nat Lim (age 28) showing severe, broad psychopathology.
+- [[summaries/pai_00]] (short) — PAI clinical interpretive report for Bridget Yu (age 24), assessed 11/10/2023.
+- [[summaries/extract_pdf]] (short) — Prompt for extracting structured data from PDFs into spreadsheet format.
+- [[summaries/sirf_synthesis]] (short) — Prompt template for generating neuropsychological evaluation synthesis sections using LLM.
+- [[summaries/nt_interpretation]] (short) — Prompt template for generating clinical neuropsychological domain interpretation narratives.
+- [[summaries/nse_narrative]] (short) — LLM prompt template for generating clinician-facing NSE summaries in neuropsychological evaluations.
+- [[summaries/neurocog.prompt]] (short) — Clinical neuropsychologist prompt for integrated neurocognitive performance summaries.
+- [[summaries/neurobehav.prompt]] (short) — Clinical neuropsychologist prompt for integrated behavioral/personality assessment summaries
+- [[summaries/copilot-instructions]] (short) — AI agent guide for the cingulate R package: a neuropsychological report generation system.
+- [[summaries/cognition.instructions]] (short) — AI coding guidelines file directing context and standards for code generation and review.
+- [[summaries/LLM_INTEGRATION]] (short) — Guide to cingulate's new R6-based LLM integration replacing deprecated make_mega() functions
+- [[summaries/LLM_AGENT_MAP]] (short) — Reference guide for orchestrating LLM agents in the cingulate R package for neuropsych reporting.
+- [[summaries/agent-team]] (short) — Operator runbook for running the Cingulate Agent Team pipeline from raw CSVs to draft PDF report.
+- [[summaries/DEPENDENCIES]] (short) — Complete dependency and tool reference for the Luria neuropsych platform (Python, R, CLI, LLM).
+- [[summaries/installation]] (short) — Complete installation guide for Luria covering prerequisites, methods, configuration, and troubleshooting.
+- [[summaries/2026-04-26-cingulate-agent-team-design]] (short) — Design spec for a 5-stage multi-agent pipeline orchestrating neuropsychological report generation.
+- [[summaries/0007-voice-modular-report-sections-via-quarto-includes]] (short) — ADR for composing neuropsychological reports from modular Quarto section files via includes.
+- [[summaries/full-pipeline]] (short) — End-to-end guide for indexing reports, training a style profile, and generating drafts with a local LLM.
+- [[summaries/customization]] (short) — Guide to customizing the neuro report style agent via profiles, chunking, retrieval, and QA workflows.
+- [[summaries/style-training-to-report-drafting]] (short) — Workflow connecting Soul style agent's output to report rendering via embedding, style profiling, and Quarto.
+- [[summaries/report-rendering-pipeline]] (short) — End-to-end workflow describing how patient data flows through Quarto and Typst to produce PDF reports.
+- [[summaries/brand-yml-integration]] (short) — Explains how _brand.yml connects to Quarto, Shiny for R, and Shiny for Python rendering targets.
+- [[summaries/vector-store]] (short) — SQLite-based vector store with pure-Python cosine similarity search for chunk retrieval.
+- [[summaries/text-extraction]] (short) — Documents the text extraction component for ingesting neuropsychological reports into plain text.
+- [[summaries/style-trainer]] (short) — Describes the train-style command that extracts a reusable JSON writing style profile from indexed report chunks.
+- [[summaries/style-extensions]] (short) — Three Quarto/Typst custom format extensions for rendering neuropsychological reports with variant typography.
+- [[summaries/soul-style-agent]] (short) — A local CLI agent for neuropsych report writing using LLM + RAG with style profiling.
+- [[summaries/report-template]] (short) — Quarto+Typst template assembling modular neuropsychological reports with R and LLM integration
+- [[summaries/report-generator]] (short) — Documents the RAG-based report generator component for drafting neuropsychological reports via CLI.
+- [[summaries/embedding-client]] (short) — HTTP client module for local LLM embedding and text generation via OpenAI-compatible OMLX API.
+- [[summaries/brand-and-skills]] (short) — Describes the brand system (_brand.yml) and reusable AI skill modules for Posit/Quarto projects.
+- [[summaries/0010-voice-quarto-typst-reporting]] (short) — ADR choosing Quarto + Typst over LaTeX for neuropsychological PDF report generation.
+- [[summaries/0009-soul-local-llm-inference-with-omlx]] (short) — ADR consolidating local LLM inference via OMLX for privacy-preserving PHI-adjacent style agent.
+- [[summaries/0008-soul-single-file-style-agent-architecture]] (short) — ADR canonizing a single-file Python script as the soul/ style agent architecture.
+- [[summaries/0007-style-modular-report-sections-via-quarto-includes]] (short) — ADR for composing neuropsychological reports from modular Quarto section files via includes.
+- [[summaries/0006-brand-yml-for-cross-platform-theming]] (short) — ADR adopting _brand.yml as single source of truth for cross-platform visual theming.
+- [[summaries/0005-style-quarto-custom-format-extensions-for-report-variants]] (short) — ADR choosing three separate Quarto custom format extensions for pediatric, adult, and forensic report variants.
+- [[summaries/0004-soul-style-profile-json]] (short) — ADR defining JSON schema for persisting learned writing style profiles across sessions.
+- [[summaries/0002-soul-sqlite-vector-storage]] (short) — ADR choosing SQLite with JSON-serialized embeddings as the vector store for a RAG system.
+- [[summaries/0001-voice-record-architecture-decisions]] (short) — Establishes ADR practice for the voice project to preserve architectural rationale across sessions.
+- [[summaries/requirements]] (short) — Empty document titled 'requirements' with no content provided.
+- [[summaries/multi_patient_transcript]] (short) — Clinical interview transcript exploring speech, OCD-like behaviors, and possible autism spectrum traits in adult male patient
+- [[summaries/report_body]] (short) — Neuropsychological report (NP-20240415-001) documenting WAIS-IV Digit Span findings suggesting MCI.
+- [[summaries/NP-20240415-001_report]] (short) — Neuropsychological narrative report for case NP-20240415-001 with WAIS-IV working memory findings.
+- [[summaries/SECURITY]] (short) — Security policy outlining supported versions and vulnerability reporting guidelines.
+- [[summaries/neuropsych-pdf-parser]] (short) — Stage-1 pipeline agent that converts neuropsychological PDFs into clean, PHI-scrubbed structured text.
+- [[summaries/neuropsych-narrative-writer]] (short) — Stage-3 Luria pipeline agent that writes per-domain Quarto narrative includes for neuropsych reports.
+- [[summaries/neuropsych-data-extractor]] (short) — Stage-2 pipeline tool converting parsed neuropsych text into cingulate long-format CSV rows.
+- [[summaries/clinical-validity-reviewer]] (short) — Read-only parallel reviewer agent for neuropsych report drafts: completeness, validity, PHI, tone.
+- [[summaries/CLAUDE]] (short) — Project memory file for CLAUDE with shared team instructions and context.
+- [[summaries/responses_to_claude]] (short) — User responses to Claude's suggestions about plugins and subagents for the luria/cingulate app.
+- [[summaries/issue_branding_typst]] (short) — Instructions for branding and Typst report formatting, referencing a screenshot guide.
+- [[summaries/processed_files]] (short) — Shell script output consolidating 208 PAI neuropsychological report PDFs from scattered directories.
+- [[summaries/conversation-export]] (short) — Step-by-step build of a PAI neuropsychology RAG system using R, ragnar, Ollama, DuckDB, and Parquet
+- [[summaries/WORKFLOW_INSTRUCTIONS]] (short) — Workflow guide for PAI RAG system: rebuild KB, extract T-scores, generate clinical reports.
+- [[summaries/TECHNICAL_DOCS]] (short) — Technical docs for a RAG system using DuckDB, embeddings, and LLMs for PAI clinical neuropsychology.
+- [[summaries/SHINY_APP_FIXED]] (short) — Fix notes for Shiny app PAI PDF assessment logic correcting GRAPHICAL_ONLY detection.
+- [[summaries/REBUILD_FINAL_STATUS]] (short) — Final status report of PAI knowledge base rebuild: 4,830 chunks from 98 PDFs using Parquet files.
+- [[summaries/REBUILD_COMPLETE]] (short) — Completion log for rebuilding the PAI RAG knowledge base with 98 documents and ragnar v2.
+- [[summaries/README_WORKFLOW]] (short) — Workflow guide for rebuilding a PAI RAG knowledge base and generating clinical interpretations.
+- [[summaries/README_PIPELINE]] (short) — README for an R-based PAI clinical interpretation pipeline using RAG and LLM providers.
+- [[summaries/README_AS_PROCESSING]] (short) — README for processing Alessandra Snavely's PAI report using semantic RAG in R.
+- [[summaries/QUICK_REFERENCE]] (short) — Quick reference for PAI RAG system commands, key files, and current patient workflow.
+- [[summaries/POSITRON_DATABOT_TROUBLESHOOTING]] (short) — Troubleshooting guide for Positron Databot extension setup, covering runtime, config, and API issues.
+- [[summaries/OCR_PDF_GUIDE]] (short) — Guide to converting scanned/OCR PDFs into clean text for RAG system ingestion using R.
+- [[summaries/KNOWLEDGE_BASE_EXPLAINED]] (short) — Explains PAI knowledge base architecture: Parquet-based RAG system with chunk/embedding files and DuckDB for queries only.
+- [[summaries/FIX_EXPLANATION]] (short) — Explains why assess_pdf_text() misreports PAI T-scores as extractable and introduces PAI-specific fixes.
+- [[summaries/EMBEDDINGS_COMPLETE]] (short) — PAI RAG system embeddings generation complete: 4,830 chunks from 98 docs with semantic search.
+- [[summaries/COMPLETE_STATUS]] (short) — Status report comparing old DuckDB and new Parquet PAI knowledge base versions with usage guidance
+- [[summaries/AS_PROCESSING_COMPLETE]] (short) — Demonstration completion report for Alessandra Snavely PAI semantic RAG processing system.
+- [[summaries/mlx_embeddings]] (short) — MLX-Embeddings: run Vision & Language embedding models locally on Mac using Apple's MLX framework.
+- [[summaries/local_models]] (short) — Catalog of locally stored AI models with sizes, spanning LLMs, medical, and embedding models.
+- [[summaries/index]] (short) — Documentation suite for a local LLM-powered neuropsych report agent using RAG and soul profiling.
+- [[summaries/0001‑choose‑local‑llm]] (short) — ADR selecting OMLX with Ollama fallback as the local LLM inference backend for offline use.
+- [[summaries/brainworkup-branding-concepts]] (short) — Seven branding directions for brainworkup.org covering tone, visuals, naming, and audience targeting.
+- [[summaries/brainworkup-brand-voice-guide]] (short) — Brand voice, tone, terminology, and style guide for brainworkup neuropsychology practice.
+- [[summaries/report-generation]] (short) — End-to-end workflow for generating neuropsychological reports from raw PDFs using LLM, R, Quarto, and Typst.
+- [[summaries/mcp-integration]] (short) — Describes MCP integration for local LLM-powered PDF extraction and clinical report generation.
+- [[summaries/template-system]] (short) — Modular QMD-based template system for composing neuropsychological reports with Quarto and Typst.
+- [[summaries/quarto-extensions]] (short) — Defines three Quarto/Typst extensions for neuropsychological report formatting: pediatric, adult, and forensic.
+- [[summaries/overview]] (short) — Overview of the Voice Style modular neuropsychological report generation framework built on Quarto and Typst.
+- [[summaries/003-modular-template-structure]] (short) — ADR 003 defines a modular QMD template system for neuropsychological reports using numbered section files.
+- [[summaries/002-mcp-llm-integration]] (short) — ADR choosing MCP+Ollama for privacy-preserving local LLM integration in clinical AI ops
+- [[summaries/001-choose-quarto-typst]] (short) — ADR selecting Quarto+Typst for reproducible neuropsychological report generation in Voice project.
+- [[summaries/quarto]] (short) — Guide for applying brand.yml styling across Quarto output formats including HTML, PDF, and presentations.
+- [[summaries/brand-yml-spec]] (short) — Complete specification for _brand.yml files covering meta, logo, color, typography, and defaults.
+- [[summaries/brand-yml-in-r]] (short) — Guide to applying brand.yml styling to R plots, tables, and documents programmatically.
+- [[summaries/README]] (short) — README for a report-writing coordination workspace defining canonical sources and directory rules.
+- [[summaries/project-setup-progress]] (short) — Seven-phase plan to reorganize the Luria project into a clean Python/R structure, all completed.
+- [[summaries/AGENTS_luria]] (short) — Defines the Narrative Report Generator Worker, the final stage in a neuropsychological PDF ingestion pipeline.
+- [[summaries/README_luria]] (short) — Minimal LangGraph starter kit for multi-agent neuropsychology pipeline orchestration.
+- [[summaries/deepagents_merged_mem_notes]] (short) — Corrected orchestration plan for Luria neuropsych report pipeline using LangGraph over fictional deepagents SDK.
+- [[summaries/SETUP_SUMMARY]] (short) — Setup summary for Luria neuropsychology project restructuring with modern Python/R standards.
+- [[summaries/SESSION_SUMMARY_2025-04-28]] (short) — Luria architecture refactor session: CLI removed, Streamlit+LangGraph+R6 multi-agent system documented.
+- [[summaries/RECOVERY_NOTES]] (short) — Recovery notes for the Luria repo path bug fix on 2026-04-28, detailing root cause, fixes, and open items.
+- [[summaries/PROJECT_SETUP_COMPLETE]] (short) — Setup completion record for the Luria neuropsychology Python/R project with directory structure and next steps.
+- [[summaries/DEMO_GUIDE]] (short) — Demo guide for Luria neuropsych pipeline covering setup, features, and YC pitch script
+- [[summaries/A-Mac-Studio-for-Local-AI-6-Months-Later]] (short) — 6-month hands-on guide to running frontier LLMs locally on a 512GB Mac Studio.
+- [[summaries/SKILL]] (short) — Best practices and reference guide for building documentation sites with Mintlify platform.
+- [[summaries/One-sentence-per-line]] (short) — Recommends placing each sentence on its own line in plain-text documentation formats.
+- [[summaries/GitHub-Automattic-harper-Offline-privacy-first-grammar-checker.-Fast-open-source]] (short) — Harper is a fast, private, offline-first English grammar checker built as an alternative to Grammarly and LanguageTool.
+- [[summaries/Hermes-Agent-Documentation-Hermes-Agent]] (short) — Overview of Hermes Agent, a self-improving autonomous AI agent by Nous Research with persistent memory and multi-platform support.
+- [[summaries/The-Complete-Guide-to-AI-Architectures-From-Neural-Networks-to-Foundation-Models]] (short) — Comprehensive guide to AI architectures from perceptrons to 2025 foundation models and reasoning systems
+
+## Concepts
+- [[concepts/startup-differentiation]] — How a startup proves it is uniquely valuable, credible, and hard to replace.
+- [[concepts/regulatory-positioning]] — How a healthcare AI product is framed within legal and clinical boundaries.
+- [[concepts/market-sizing]] — Estimating a startup’s current and future market to support focus and scale claims.
+- [[concepts/yc-partner-preferences]] — Inferred YC signals around founder quality, clarity, execution, and market promise.
+- [[concepts/coding-agent-session]] — A YC application component showcasing AI-assisted technical execution and judgment.
+- [[concepts/application-strategy]] — How startup applications are framed to maximize founder and company signal.
+- [[concepts/founder-narrative]] — Founder narrative is the evidence-backed story that makes a founder credible.
+- [[concepts/startup-application-materials]] — Application prompts, evidence, and framing used to present a startup to evaluators.
+- [[concepts/founder-track-record]] — Founder track record is curated evidence of a founder’s ability to execute.
+- [[concepts/personal-writing-workflows]] — Structured systems for drafting, revising, and preserving personal writing.
+- [[concepts/application-preparation]] — Application preparation is the reflective and organizational work before applying.
+- [[concepts/healthcare-workforce-automation]] — Using software and AI to expand clinical capacity amid workforce shortages.
+- [[concepts/healthcare-ai-regulation]] — Healthcare AI regulation is the compliance framework for deploying AI in clinical care.
+- [[concepts/semantic-cohesion]] — Semantic cohesion is the degree to which all parts of an output support one core meaning.
+- [[concepts/concurrent-model-serving]] — Running multiple models at once can degrade local inference reliability.
+- [[concepts/local-inference-reliability]] — Stable local LLM behavior under real resource and concurrency constraints.
+- [[concepts/repository-hygiene]] — Practices that keep a repository safe, organized, and maintainable over time.
+- [[concepts/migration-strategy]] — A staged, low-risk approach for reorganizing systems while preserving recoverability.
+- [[concepts/codebase-reorganization]] — Reorganizing a codebase into clearer modules and service boundaries safely.
+- [[concepts/founder-evaluation]] — How investors judge whether a founder can build a major company.
+- [[concepts/startup-fundraising]] — How startups turn traction, narrative, and readiness into investable capital.
+- [[concepts/grpc]] — gRPC is a high-performance open-source RPC framework by Google using HTTP/2 and Protocol Buffers.
+- [[concepts/python-data-structures]] — Core data structures in Python, including mutable, immutable, and lifecycle-controlled containers.
+- [[concepts/immutability]] — Immutability is the design principle of making data structures unmodifiable after creation to ensure correctness and safety.
+- [[concepts/font-subsetting]] — Font subsetting reduces font file size by retaining only glyphs and features needed for a target use case.
+- [[concepts/variable-fonts]] — Variable fonts are OpenType fonts that encode multiple design variations in a single file using interpolation axes.
+- [[concepts/opentype]] — OpenType is a scalable font file format standard supporting advanced typography and variable fonts.
+- [[concepts/fonttools]] — fontTools is a Python library for reading, writing, and manipulating font files via CLI tools.
+- [[concepts/python-identifier-encoding]] — A naming convention that encodes case-sensitive tags into valid, case-insensitive Python identifiers and filenames.
+- [[concepts/fonttools-table-converters]] — Python classes in fontTools ttLib.tables that convert raw OpenType binary table data to Python objects and back.
+- [[concepts/decorator]] — A pattern for extending function/class behavior without modifying source code, central to Python design.
+- [[concepts/iterators]] — Python iterators and cycling enable repeated iteration over sequences, foundational to property cycling in visualization.
+- [[concepts/matplotlib]] — Matplotlib is a Python data visualization library that uses cycler for automatic plot style cycling.
+- [[concepts/terminal-output-formatting]] — Techniques for enhancing readability of terminal output using colors, formatting, and ANSI codes.
+- [[concepts/python-logging]] — Python's built-in logging framework for recording runtime events at configurable severity levels.
+- [[concepts/pallets-project]] — The Pallets organization maintains popular open-source Python web frameworks including Flask and Jinja2.
+- [[concepts/open-source-licensing]] — Legal frameworks governing software reuse, distribution, and modification rights in open-source projects.
+- [[concepts/charset-normalizer]] — A Python library for detecting and normalizing character encodings, with optional mypyc-compiled extensions.
+- [[concepts/mypyc]] — Mypyc compiles typed Python source into C extensions for faster runtime execution.
+- [[concepts/cffi]] — CFFI is a Python library for calling C functions from Python via compiled C extension modules.
+- [[concepts/python-networking]] — Python libraries and tools for making HTTP requests and managing secure network connections.
+- [[concepts/ssl-tls-verification]] — SSL/TLS verification ensures secure HTTPS connections by validating server certificates against trusted CAs.
+- [[concepts/bitsandbytes-library]] — A Python library enabling efficient LLM training and inference via quantization and memory optimization.
+- [[concepts/pcm-audio]] — PCM audio stores sound as sequences of discrete integer samples at fixed bit widths.
+- [[concepts/digital-signal-processing]] — Mathematical techniques for manipulating, analyzing, and transforming discrete digital audio and signal data.
+- [[concepts/audio-encoding]] — Audio encoding formats define how raw audio samples are compressed or represented for storage and transmission.
+- [[concepts/filterbanks]] — Filterbanks decompose audio signals into frequency sub-bands for encoding in deep learning pipelines.
+- [[concepts/asteroid-audio-toolkit]] — Asteroid is a PyTorch-based open-source toolkit for audio source separation with modular filterbank components.
+- [[concepts/async-backends]] — Async backends are runtime engines (asyncio, trio) that execute asynchronous Python code.
+- [[concepts/structured-concurrency]] — A concurrency paradigm ensuring tasks have well-defined lifetimes within scoped, nested execution contexts.
+- [[concepts/python-entry-points]] — Standard Python packaging mechanism for advertising CLI commands, plugins, and hooks across packages.
+- [[concepts/pytest-plugins]] — Pytest plugins extend test functionality and are auto-discovered via Python entry points under pytest11.
+- [[concepts/database-migrations]] — Database migrations are versioned, incremental changes to a database schema managed programmatically over time.
+- [[concepts/alembic]] — Alembic is a Python database schema migration tool built on top of SQLAlchemy.
+- [[concepts/observer-pattern]] — A design pattern where objects (observers) register to be notified when another object's state changes.
+- [[concepts/event-driven-architecture]] — A software design paradigm where components communicate by producing and consuming discrete events asynchronously.
+- [[concepts/python-web-frameworks]] — Python web frameworks provide tools for building HTTP servers, APIs, and web applications in Python.
+- [[concepts/websockets]] — WebSockets enable persistent, full-duplex communication channels over a single TCP connection for real-time apps.
+- [[concepts/asyncio]] — Python's standard async I/O framework powering coroutines, event loops, and the broader aio-libs ecosystem.
+- [[concepts/cli-entry-points]] — Console script entry points map shell commands to Python functions, registered during package installation.
+- [[concepts/accelerate-library]] — Hugging Face Accelerate is a library enabling distributed and accelerated ML training via a unified CLI.
+- [[concepts/asio-audio]] — Steinberg's proprietary low-latency audio driver API enabling direct hardware access for professional audio.
+- [[concepts/portaudio]] — PortAudio is an open-source, cross-platform audio I/O library with pre-compiled binaries for Windows and macOS.
+- [[concepts/terminology-rebranding]] — The process of systematically updating feature names across codebases and documentation to maintain consistent branding.
+- [[concepts/clinical-ai-copilot]] — An AI assistant embedded in clinical workflows that reasons over patient data and grounds every claim in source evidence.
+- [[concepts/neuropsychological-assessment-workflow]] — End-to-end neuropsych evaluation from intake to synthesis and report delivery.
+- [[concepts/clinical-ai-reasoning]] — AI systems that perform structured, evidence-grounded clinical reasoning.
+- [[concepts/rubric-based-grading]] — Grading AI outputs using structured quality criteria and LLM judges beyond binary pass/fail correctness.
+- [[concepts/llm-evaluation]] — Methods for measuring LLM quality, reliability, and usefulness in real tasks.
+- [[concepts/ai-code-generation]] — AI code generation uses LLMs and agents to produce and evolve software.
+- [[concepts/goal-setting-self-monitoring]] — Strategies for setting realistic targets and tracking progress, supporting executive function and self-regulation.
+- [[concepts/academic-accommodations-higher-education]] — Formal supports and modifications granted to college students with disabilities to ensure equitable access to learning.
+- [[concepts/strategic-reading]] — Structured pre-, during-, and post-reading routines that maximize comprehension and retention for learners with reading difficulties.
+- [[concepts/test-taking-accommodations]] — Structured modifications to test conditions that allow students with learning disabilities to demonstrate true knowledge.
+- [[concepts/orton-gillingham-reading-intervention]] — Evidence-based multisensory reading instruction approaches targeting phonological decoding and orthographic mapping in dyslexia.
+- [[concepts/numeracy-foundations]] — Core early math skills—rote counting, one-to-one correspondence, and number sense—that underpin arithmetic learning.
+- [[concepts/cognitive-behavioral-therapy]] — CBT is a structured psychological therapy targeting dysfunctional thought-behavior patterns across many clinical conditions.
+- [[concepts/conversion-disorder]] — Conversion disorder involves neurological symptoms without organic cause, treated via education then CBT.
+- [[concepts/social-skills-training]] — A cognitive-behavioral intervention teaching prosocial skills to replace maladaptive behaviors in children.
+- [[concepts/parent-training]] — A psychoeducational intervention coaching parents in effective skills to reduce child antisocial behavior.
+- [[concepts/conduct-problems-interventions]] — Evidence-based interventions targeting conduct disorder's persistent rule-violating behaviors in children.
+- [[concepts/vocabulary-development]] — Deliberate expansion of word knowledge supporting reading, comprehension, communication, and academic achievement.
+- [[concepts/dialogic-reading]] — Evidence-based shared reading intervention building early literacy, vocabulary, and language in young children.
+- [[concepts/writing-accommodations]] — Formal and informal adjustments that reduce barriers to written output for students with dyslexia, dysgraphia, or related learning profiles.
+- [[concepts/dysgraphia]] — Neurodevelopmental writing disorder involving handwriting, spelling, and graphomotor deficits, often co-occurring with ADHD.
+- [[concepts/phonological-processing]] — Cognitive skills for recognizing and manipulating speech sounds, foundational to reading, spelling, and dyslexia intervention.
+- [[concepts/reading-fluency]] — The ability to read text accurately, automatically, and with expression, bridging decoding and comprehension.
+- [[concepts/dyslexia]] — Neurodevelopmental disorder of word recognition, decoding, and spelling rooted in phonological processing deficits.
+- [[concepts/math-interventions]] — Evidence-based strategies and accommodations for remediating math learning difficulties, especially dyscalculia.
+- [[concepts/dyscalculia]] — Neurodevelopmental learning disability causing persistent difficulties with number sense, arithmetic, and math reasoning.
+- [[concepts/anger-management]] — Psychological strategies and therapeutic approaches for recognizing, regulating, and constructively expressing anger.
+- [[concepts/purposeful-living]] — The pursuit of purpose and meaning as a core dimension of psychological wellbeing across the lifespan.
+- [[concepts/aging]] — Aging as a distinct clinical and life stage with cognitive, psychiatric, and purposeful-living dimensions.
+- [[concepts/adhd-psychoeducational-resources]] — Books, websites, and videos helping patients, families, and clinicians understand and manage ADHD across the lifespan.
+- [[concepts/self-monitoring-behavior]] — Techniques for teaching individuals to observe, record, and evaluate their own behavior to build regulation skills.
+- [[concepts/attention-intervention-strategies]] — Evidence-based strategies for attention, executive function, and learning across home and school settings.
+- [[concepts/functional-behavioral-assessment]] — A structured process identifying why problem behaviors occur to guide targeted, individualized interventions.
+- [[concepts/aggression-interventions]] — Evidence-based strategies for reducing aggressive behavior in children through skill-building and behavior replacement.
+- [[concepts/box-breathing]] — A structured 4-4-4-4 breathing technique used to reduce stress, improve concentration, and support mindfulness.
+- [[concepts/adhd-older-adults]] — ADHD in older adults: an underserved population facing unique diagnostic, treatment, and resource challenges.
+- [[concepts/cognitive-flexibility-training]] — Techniques for building mental flexibility and adaptive problem-solving in executive dysfunction and aggression.
+- [[concepts/adhd-treatment-recommendations]] — Multimodal ADHD treatment spanning pharmacotherapy, behavioral strategies, and lifestyle across the lifespan.
+- [[concepts/behavior-modification]] — Systematic application of reinforcement, consequence structures, and skill-building to increase desired and decrease problematic behaviors.
+- [[concepts/adhd-classroom-interventions]] — Evidence-based classroom strategies for students with ADHD and comorbid learning disorders, tiered by severity.
+- [[concepts/iep-accommodations]] — IEP and college accommodation frameworks for neurodevelopmental learning disorders across K–12 and higher education.
+- [[concepts/adhd-resources-by-lifespan]] — Curated ADHD books, websites, and resources organized by developmental stage from childhood through older adulthood.
+- [[concepts/mindfulness-based-interventions]] — Structured therapeutic approaches training present-moment awareness to support attention, impulse control, and executive function.
+- [[concepts/adhd-clinical-features]] — ADHD neurodevelopmental features, assessment, intervention strategies, and lifespan management across clinical contexts.
+- [[concepts/autism-adult-support]] — Therapeutic, vocational, social, and community interventions supporting autistic adults beyond pediatric frameworks.
+- [[concepts/autism-intervention-strategies]] — Evidence-based behavioral, therapeutic, and community strategies for supporting individuals with ASD across the lifespan.
+- [[concepts/clinical-guidelines]] — Shared professional practice guidelines that inform clinical AI systems and neuropsychological workflows.
+- [[concepts/clinical-text-classification]] — Distinguishing actionable clinical recommendations from assessment narratives and administrative text in reports.
+- [[concepts/autism-research-rag]] — A RAG pipeline purpose-built for autism research, enabling semantic question answering over clinical documents.
+- [[concepts/report-ingestion-pipeline]] — Automated pipeline ingesting neuropsych PDFs into a structured knowledge base with age and diagnosis extraction.
+- [[concepts/sentence-transformer-embeddings]] — Using SentenceTransformer models to encode clinical text into dense vectors for semantic retrieval.
+- [[concepts/recommendation-rag-pipeline]] — End-to-end pipeline ingesting neuropsychological reports to generate evidence-based clinical recommendations via RAG.
+- [[concepts/report-parser-quality]] — Systematic measurement and improvement of clinical report parser accuracy, coverage, and content filtering quality.
+- [[concepts/multiaxial-diagnosis-format]] — The DSM-IV multiaxial system organizing diagnoses across labeled Axes, common in older neuropsychological reports.
+- [[concepts/icd10-diagnosis-extraction]] — Automated parsing of ICD-10 diagnostic codes and labels from unstructured neuropsychological report text.
+- [[concepts/neuropsych-report-parsing]] — Automated extraction of diagnoses, scores, demographics, and recommendations from heterogeneous PDF neuropsychological reports.
+- [[concepts/phi-deidentification-pipeline]] — Multi-stage pipeline for detecting and redacting PHI from clinical neuropsychological reports before vector storage.
+- [[concepts/faiss-vector-index]] — FAISS high-performance vector index for nearest-neighbor search, used as the retrieval core in clinical RAG pipelines.
+- [[concepts/age-group-classification]] — Mapping patient numeric age to clinical category (pediatric/adolescent/adult/geriatric) in neuropsych pipelines.
+- [[concepts/clipboard-api-patterns]] — Browser-native clipboard APIs for copying rich text, HTML, and plain content from web apps.
+- [[concepts/dsm5-diagnosis-normalization]] — Mapping raw clinical diagnosis strings to canonical DSM-5 names and categories for reliable NLP retrieval.
+- [[concepts/structured-teaching-teacch]] — TEACCH Structured Teaching: a visual, individualized autism intervention framework spanning childhood through adulthood.
+- [[concepts/autism-diagnostic-rating-scales]] — Structured clinician-administered instruments quantifying autism-related behavior severity for diagnosis and intervention planning.
+- [[concepts/alcohol-use-disorder-clinical-features]] — Clinical features, diagnostic criteria, and assessment of alcohol use disorder in psychological evaluations.
+- [[concepts/suicide-risk-assessment-pai]] — How the PAI identifies and stratifies suicide risk through converging clinical indices and critical items.
+- [[concepts/unstable-self-concept]] — Unstable self-concept in PAI assessments: patterns of identity diffusion, self-esteem reactivity, and fragility across severity levels.
+- [[concepts/treatment-motivation-and-compliance]] — PAI-based assessment of client readiness, resistance, and compliance across diverse clinical presentations.
+- [[concepts/manic-episode-presentation]] — Clinical features, PAI profile patterns, and comorbidities characterizing manic/hypomanic episode presentations.
+- [[concepts/bipolar-disorder-clinical-features]] — Bipolar disorder clinical features as identified across PAI profiles, from subclinical to severe manic presentations.
+- [[concepts/antisocial-personality-features]] — Antisocial personality features on the PAI: sensation-seeking, recklessness, authority conflict, and comorbid risk patterns.
+- [[concepts/fear-of-abandonment-and-rejection]] — Fear of abandonment and rejection is a core interpersonal preoccupation seen in borderline and depressive clinical profiles.
+- [[concepts/persistent-depressive-disorder]] — Chronic depressive disorder (DSM-5 300.4/F34.1) marked by persistent low mood, negative self-concept, and high comorbidity.
+- [[concepts/identity-disturbance-clinical-features]] — Identity disturbance: unstable self-concept, shifting values, and chronic emptiness across psychiatric presentations and ages.
+- [[concepts/social-avoidance-and-withdrawal]] — Social avoidance and withdrawal patterns across PAI clinical profiles, from subclinical to severe presentations.
+- [[concepts/depression-clinical-features]] — Depression clinical features across PAI-assessed populations, including subtypes, comorbidities, and risk indicators.
+- [[concepts/random-responding]] — Random responding renders PAI self-report profiles invalid by producing noise rather than genuine clinical signal.
+- [[concepts/malingering-detection]] — Systematic use of PAI validity indices to detect feigned, exaggerated, or distorted symptom reporting in psychological assessment.
+- [[concepts/paranoia-and-suspiciousness]] — Paranoia and suspiciousness in PAI clinical assessment: hypervigilance, mistrust, persecutory ideation, and treatment implications.
+- [[concepts/validity-and-response-styles]] — PAI validity and response style framework with case-series illustrations across 31 clinical protocols.
+- [[concepts/somatic-symptom-disorder]] — Somatic Symptom Disorder: clinical features, assessment, differential diagnosis, and evidence-based treatment.
+- [[concepts/major-depressive-disorder-clinical-features]] — Clinical features, PAI assessment patterns, and case examples for Major Depressive Disorder across age groups.
+- [[concepts/substance-use-clinical-assessment]] — Cross-case synthesis of PAI alcohol and drug use assessment patterns, denial indicators, and DSM-5 implications.
+- [[concepts/anxiety-clinical-features]] — Cross-domain synthesis of anxiety clinical features, subtypes, and comorbidities as captured by PAI assessment.
+- [[concepts/psychosis-clinical-features]] — Clinical features, assessment, and differential diagnosis of psychosis and psychotic symptoms across psychiatric contexts.
+- [[concepts/borderline-personality-disorder]] — BPD clinical features, PAI assessment patterns, and differential diagnosis across a large case series.
+- [[concepts/suicide-and-violence-risk-indices]] — Quantitative PAI indices estimating self-harm and violence risk across a large clinical case series.
+- [[concepts/trauma-informed-clinical-assessment]] — PAI-based trauma assessment practices across 23 clinical cases, tracking ARD-T indicators and PTSD profile fit.
+- [[concepts/personality-assessment-inventory]] — The PAI is a 344-item self-report personality and psychopathology assessment with rich validity, clinical, and treatment indices.
+- [[concepts/knowledge-base-architecture]] — Tiered architecture separating curated reference wikis from shared auto-ingested clinical resources for clinical AI.
+- [[concepts/agent-memory]] — Agent memory enables AI agents to store, retrieve, and apply past knowledge within and across sessions.
+- [[concepts/proactive-retrieval]] — Proactive retrieval is the practice of searching stored knowledge before being asked, based on contextual signals.
+- [[concepts/decision-logging]] — Recording decisions with their rationale so future sessions and agents can understand past choices.
+- [[concepts/knowledge-capture]] — Deliberately preserving decisions, insights, and procedures so they remain accessible and reusable across sessions.
+- [[concepts/neurodevelopmental-clinical-intake]] — Structured multi-informant interview process for neurodevelopmental differential diagnosis across ASD and related profiles.
+- [[concepts/speech-language-development-disorders]] — Disorders of speech production, language formulation, and literacy with neurodevelopmental co-occurrence and lifespan impact.
+- [[concepts/working-memory-index]] — The Working Memory Index (WMI) is a WAIS-IV composite score measuring the ability to hold and manipulate information in mind.
+- [[concepts/wais-iv]] — The WAIS-IV is a standardized intelligence battery widely used in neuropsychological assessment of adults.
+- [[concepts/audio-transcription-pipeline]] — A fully local pipeline for transcribing and summarizing clinical audio using on-device ML tools.
+- [[concepts/honcho-ai-peer-observation]] — A session-based AI pattern where one agent observes and learns from another's user interactions.
+- [[concepts/pdf-data-extraction]] — Automated extraction of structured data (numbers, dates, key info) from PDF documents into spreadsheets.
+- [[concepts/neuropsychological-synthesis]] — The integrative section of a neuropsychological report that unifies test data, observations, and clinical context.
+- [[concepts/clinical-narrative-generation]] — Automated generation of structured clinical narrative text from quantitative scores using LLM prompting.
+- [[concepts/neuropsychological-score-interpretation]] — Translating neuropsychological test scores into clinically meaningful cognitive statements via normative and pattern analysis.
+- [[concepts/staged-clinical-intake]] — Multi-phase framework for gathering patient history before formal neuropsychological testing begins.
+- [[concepts/neurobehavioral-status-exam]] — Structured clinician narrative forming the pre-testing context section of a neuropsychological evaluation report.
+- [[concepts/neuropsychological-prompt-configuration]] — LLM configuration parameters and persona settings for clinical neuropsychological report generation.
+- [[concepts/neuropsychological-prompt-engineering]] — Structuring LLM prompts for formal neuropsychological report generation across all evaluation phases.
+- [[concepts/behavioral-rating-scales]] — Standardized instruments quantifying behavioral, emotional, social, and adaptive functioning across real-world settings.
+- [[concepts/artifact-caching-pipeline]] — Content-addressed caching that stores and reuses LLM stage outputs to avoid redundant generation runs.
+- [[concepts/role-based-llm-routing]] — Route LLM tasks by semantic role instead of hardcoded model names.
+- [[concepts/neuropsychological-assessment-automation]] — AI-driven automation of end-to-end neuropsych assessment and reporting.
+- [[concepts/duckdb-data-staging]] — Using DuckDB as a high-performance data staging layer for neuropsychological test score pipelines.
+- [[concepts/domain-processor-pattern]] — R6-based pattern where each cognitive domain has a dedicated processor class and QMD fragment for modular report generation.
+- [[concepts/r6-class-architecture]] — R6-first OOP architecture powering the cingulate neuropsych report pipeline from CSV to PDF.
+- [[concepts/luria-skills]] — Thin, generic skill modules defining what each clinical neuropsych stage does, independent of any specific repo.
+- [[concepts/agent-pipeline-state-management]] — Maintaining a durable, queryable record of stage progress in a multi-step agent pipeline to enable halting, resuming, and recovery.
+- [[concepts/r-neuropsych-packages]] — R packages supporting Luria’s neuropsych analysis and reporting stack.
+- [[concepts/luria-overview]] — Luria is a local-first neuropsych AI platform for end-to-end clinical workflows.
+- [[concepts/python-environment-management]] — Managing Python runtimes and dependencies for isolated, reproducible projects.
+- [[concepts/per-patient-workspace]] — Filesystem directory tree that serves as the sole inter-stage contract in the cingulate agent pipeline.
+- [[concepts/style-profiles]] — JSON configuration objects encoding a clinician's writing voice, tone, rules, and structure for AI report generation.
+- [[concepts/rag-chunking]] — How text is divided into indexed segments to optimize retrieval quality in RAG systems.
+- [[concepts/text-chunking]] — Splitting documents into overlapping segments before embedding, balancing retrieval quality with storage cost.
+- [[concepts/omlx-server]] — OMLX Server is a local OpenAI-compatible inference server for Apple Silicon workflows.
+- [[concepts/skills-modules]] — Reusable, self-contained modules encoding decision logic, memory protocols, and retrieval guidance for AI agents.
+- [[concepts/local-first-architecture]] — Architecture that keeps sensitive data and core workflows on the local machine.
+- [[concepts/single-file-agent-pattern]] — A design pattern placing an entire agent workflow in one script for auditability, portability, and low overhead.
+- [[concepts/typst-modules]] — Reusable Typst code modules that centralize shared layout logic across multiple document templates.
+- [[concepts/knowledge-continuity]] — Preserving design rationale and intent so future contributors and sessions can reconstruct decisions without reading all source code.
+- [[concepts/architecture-decision-records]] — Structured documents capturing the why behind architectural choices, kept immutable alongside code.
+- [[concepts/executive-function-deficits]] — Cross-domain overview of executive function deficits, interventions, and scaffolding across the lifespan.
+- [[concepts/autism-spectrum-disorder-clinical-features]] — Clinical features, diagnostic domains, and evidence-based interventions for autism spectrum disorder across the lifespan.
+- [[concepts/working-memory]] — Working memory is the active capacity to hold and manipulate information briefly, central to learning, attention, and executive function.
+- [[concepts/mild-cognitive-impairment]] — MCI is a clinical syndrome of cognitive decline beyond normal aging, not yet meeting dementia criteria.
+- [[concepts/lancedb-vector-store]] — LanceDB is an embedded, file-local vector database used for semantic retrieval in the Luria neuropsych pipeline.
+- [[concepts/docling-pdf-parsing]] — Local-first PDF parsing library that extracts text and layout from neuropsych reports before PHI redaction.
+- [[concepts/vulnerability-disclosure]] — The structured process for reporting, triaging, and remediating software security vulnerabilities responsibly.
+- [[concepts/security-policy]] — Formal documents establishing version support, vulnerability disclosure, and legal liability limits for software projects.
+- [[concepts/smoke-test-scripts]] — Lightweight validation scripts that verify static paths resolve and source files parse before a deployment or demo.
+- [[concepts/uv-workspace-layout]] — A uv workspace organizes multiple Python packages under a single root with shared lockfile and per-member pyproject.toml files.
+- [[concepts/neuropsychological-toolkit]] — Integrated Python/R software system for neuropsychology data ingestion, analysis, and clinical report generation.
+- [[concepts/edit-protection-pattern]] — Safeguard preventing automated pipeline stages from silently overwriting human-edited clinical files.
+- [[concepts/luria-neuropsych-pipeline]] — Multi-stage LangGraph pipeline transforming neuropsych PDFs into structured clinical reports with local-first PHI safety.
+- [[concepts/pass-theory]] — PASS Theory organizes cognition into Planning, Attention, Simultaneous, and Successive processes for assessment tagging.
+- [[concepts/long-format-clinical-data]] — Long-format schema storing one clinical measurement per row with a score_type discriminator column.
+- [[concepts/report-review-qa]] — Systematic, structured verification of clinical neuropsychological reports before human sign-off in automated pipelines.
+- [[concepts/validity-language]] — Calibrated phrasing standards for communicating validity, effort, and response style in clinical reports.
+- [[concepts/subagent-architecture]] — Architectural pattern distinguishing static agent specs from runtime-dispatchable subagents in Claude-based pipelines.
+- [[concepts/cingulate-engine]] — R package that transforms neuropsychological CSV test data into publication-quality PDF reports via R6/LLM pipeline.
+- [[concepts/narrative-report-generation]] — Automated generation of clinician-ready neuropsychological narrative reports.
+- [[concepts/forensic-neuropsychological-evaluation]] — Specialized neuropsychological assessment for medicolegal purposes, integrating cognitive testing with forensic standards.
+- [[concepts/neuropsychological-report-variables]] — Centralized YAML-driven system for injecting patient-specific data across all layers of neuropsychological report generation.
+- [[concepts/clinical-data-management]] — Strategies and workflows for storing, organizing, retrieving, and governing clinical files across heterogeneous environments.
+- [[concepts/llm-provider-abstraction]] — Architectural pattern insulating application code from specific LLM providers via a common dispatch interface with fallback and PHI safety.
+- [[concepts/hybrid-search-retrieval]] — Hybrid search merges semantic vector similarity and keyword matching into a single ranked retrieval pipeline.
+- [[concepts/duckdb-as-vector-store]] — DuckDB serves as an embedded analytical database and vector store for local, privacy-first RAG and neuropsych data pipelines.
+- [[concepts/ide-ai-assistant-configuration]] — Configuring AI coding assistants in IDEs via settings files, provider selection, model choice, and instruction files.
+- [[concepts/positron-ide]] — Positron is a data science IDE by Posit with built-in AI assistant and multilingual R/Python support.
+- [[concepts/ocr-pipeline]] — OCR pipelines convert scanned or image-based PDFs into machine-readable text for downstream processing.
+- [[concepts/parquet-as-knowledge-store]] — Parquet files serve as portable, versionable columnar storage for RAG text chunks and embeddings.
+- [[concepts/clinical-pdf-assessment]] — Analyzing clinical PDFs to determine content type, machine-readability, and appropriate extraction method for clinical workflows.
+- [[concepts/pdf-score-extraction]] — Programmatically retrieving structured numerical scores from clinical assessment PDFs for downstream analysis.
+- [[concepts/vector-search]] — Retrieval technique using dense vector embeddings and similarity search to find semantically related text chunks.
+- [[concepts/pai-knowledge-base]] — Parquet+DuckDB RAG knowledge base of 81–98 PAI documents enabling semantic clinical query and LLM-grounded interpretation.
+- [[concepts/pai-assessment]] — Comprehensive reference for the PAI instrument, corpus protocols, scoring, validity, and RAG system.
+- [[concepts/late-interaction-retrieval]] — A multi-vector retrieval paradigm where token-level embeddings are matched via MaxSim scoring.
+- [[concepts/multimodal-embeddings]] — Multimodal embeddings map text and images into a shared vector space for unified retrieval and comparison.
+- [[concepts/mlx-framework]] — Apple’s ML framework enabling practical local AI on Apple Silicon.
+- [[concepts/style-profile-extraction]] — Extracting a reusable JSON style profile from a report corpus to constrain LLM-generated clinical text.
+- [[concepts/sqlite-as-vector-store]] — Using SQLite to persist and query vector embeddings locally, avoiding dedicated vector database infrastructure.
+- [[concepts/fallback-strategy]] — Resilience pattern routing AI calls through a preferred backend with automatic degradation to a secondary option.
+- [[concepts/openai-compatible-api]] — An inference server interface mirroring OpenAI's REST API, enabling drop-in local or third-party LLM backends.
+- [[concepts/clinical-practice-branding]] — Strategies for building a professional brand identity for clinical or medical practices across audiences.
+- [[concepts/dual-audience-design]] — Designing communications to serve two distinct audiences without alienating either through strategic segmentation.
+- [[concepts/clinical-communication-register]] — How neuropsychology practitioners vary language formality, tone, and terminology across clinical audiences and contexts.
+- [[concepts/brand-voice-strategy]] — How a clinical brand defines stable voice attributes and flexible tone across audiences and channels.
+- [[concepts/quarto-extensions]] — Quarto extensions package Typst templates and format metadata into reusable units for neuropsychological report variants.
+- [[concepts/modular-report-architecture]] — Design pattern decomposing complex report templates into discrete, independently maintained section files assembled at render time.
+- [[concepts/clinical-data-privacy]] — Privacy architecture for AI systems handling sensitive clinical data.
+- [[concepts/model-context-protocol]] — Open standard for exposing AI tools through a provider-agnostic interface, enabling local LLM integration.
+- [[concepts/typst-typesetting]] — Typst is the fast PDF typesetting engine behind Luria’s clinical report stack.
+- [[concepts/quarto]] — Quarto is the publishing layer for modular, branded clinical report pipelines.
+- [[concepts/brand-typography]] — Structured font and typographic role specifications governing text appearance across all brand touchpoints and formats.
+- [[concepts/brand-color-system]] — Structured approach to defining, naming, and applying brand colors consistently across digital products and contexts.
+- [[concepts/r-visualization-theming]] — Applying consistent brand colors, fonts, and styles to R plots and tables across multiple packages.
+- [[concepts/yaml-configuration]] — YAML configuration files encode settings, metadata, and parameters across branding, reporting, and clinical pipeline tools.
+- [[concepts/brand-theming]] — Centralizing brand identity in _brand.yml for consistent styling across Quarto, Shiny, and Typst targets.
+- [[concepts/clinical-report-structure]] — Standardized organizational framework for presenting neuropsychological evaluation findings in professional reports.
+- [[concepts/redaction-tokens]] — Redaction tokens are placeholder markers that protect sensitive information in clinical reports during automated processing.
+- [[concepts/neuropsychological-tests]] — Standardized tools measuring cognitive and psychological functioning, forming the empirical core of neuropsychological evaluations.
+- [[concepts/neuropsychological-assessment-pipeline]] — Multi-stage workflow converting raw neuropsychological PDFs into structured scores, narratives, and formatted clinical reports.
+- [[concepts/cognitive-domains]] — Standardized categories of mental function evaluated in neuropsychological assessment, from taxonomy to clinical profiling.
+- [[concepts/neuropsychological-test-scores]] — Numerical outputs of standardized cognitive tests, covering score types, norms, and long-format extraction schemas.
+- [[concepts/multi-agent-orchestration]] — Patterns for coordinating specialized agents across structured workflows.
+- [[concepts/pii-redaction-pipelines]] — Layered PHI/PII redaction as a structural pipeline gate in clinical AI neuropsychological workflows.
+- [[concepts/python-project-structure]] — How Python repos separate code, tooling, data, and authored project artifacts.
+- [[concepts/langgraph-agent-workflows]] — LangGraph-based stateful multi-step agent workflows for orchestrating neuropsychological data pipelines.
+- [[concepts/phi-data-handling]] — How clinical systems prevent PHI exposure across storage, agents, and reporting.
+- [[concepts/monorepo-workspace-layout]] — Monorepo layout organizes related packages under one repo with shared tooling.
+- [[concepts/r-python-integration]] — Combining R's psychometric/statistical ecosystem with Python's engineering capabilities in a single project.
+- [[concepts/neuropsychological-reporting]] — End-to-end pipeline for producing structured clinical neuropsychological assessment reports using AI-assisted tools.
+- [[concepts/clinical-nlp-pipelines]] — Multi-stage systems transforming clinical documents into structured data, de-identified embeddings, and LLM-generated narrative output.
+- [[concepts/retrieval-augmented-generation]] — RAG pattern: retrieve relevant passages from a knowledge base to ground LLM outputs in verifiable source material.
+- [[concepts/model-quantization]] — Model quantization reduces neural network weight precision to cut memory and compute costs for LLM deployment.
+- [[concepts/mixture-of-experts]] — MoE splits large models into sparse expert sub-networks, enabling frontier-scale capacity at practical inference cost.
+- [[concepts/local-llm-inference]] — Running LLMs on local hardware for privacy, control, and workflow reliability.
+- [[concepts/deployment-automation]] — Automating the triggering, management, and monitoring of software or documentation deployments via APIs.
+- [[concepts/preview-deployments]] — Preview deployments let teams review documentation or app changes in isolated environments before going live.
+- [[concepts/mdx-authoring]] — MDX authoring combines Markdown with JSX components to create structured, interactive documentation pages.
+- [[concepts/documentation-as-code]] — The practice of writing, managing, and deploying documentation using the same tools and workflows as software development.
+- [[concepts/plain-text-documentation]] — Lightweight markup formats enabling human-readable, version-controllable documentation without proprietary software.
+- [[concepts/semantic-linefeeds]] — A writing practice placing each sentence on its own line in plain-text markup documents.
+- [[concepts/webassembly]] — WebAssembly (Wasm) is a binary instruction format enabling high-performance code execution in web browsers.
+- [[concepts/privacy-first-software]] — Architectural philosophy prioritizing local data processing and user control over sensitive information.
+- [[concepts/multi-platform-messaging]] — Deploying AI agents across 20+ messaging platforms from a single unified gateway interface.
+- [[concepts/persistent-memory]] — How AI agents retain knowledge, skills, and context across sessions to compound learning over time.
+- [[concepts/scaling-laws]] — The three empirical laws governing how AI model performance improves with more resources.
+- [[concepts/transformer-architecture]] — The transformer architecture uses parallel self-attention to model sequences, dominating modern AI.
+
+## Explorations
+
+## Related Concepts
