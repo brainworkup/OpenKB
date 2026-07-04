@@ -21,3 +21,9 @@ docs/
 !docs/summaries
 .claude/
 wiki/sources/
+.tipsboard/kanban.json
+.tipsboard/pins.json
+.tipsboard/canvas/canvas.canvas
+.vscode/mcp.json
+inbox/Tipsboard.md
+README.pdf

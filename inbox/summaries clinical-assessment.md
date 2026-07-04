@@ -1,0 +1,1 @@
+summaries/clinical-assessment

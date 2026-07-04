@@ -1,0 +1,40 @@
+{
+  "workbench.colorCustomizations": {
+    "[Black Ocean]": {
+      "activityBar.inactiveForeground": "#1d2d3c",
+      "button.background": "#7b90a5",
+      "contrastActiveBorder": "#0d0d0d",
+      "contrastBorder": "#000000",
+      "descriptionForeground": "#d9d9d9",
+      "dropdown.listBackground": "#000000",
+      "editorGroupHeader.tabsBackground": "#262d34",
+      "inputValidation.errorForeground": "#000000",
+      "menubar.selectionBorder": "#ff033e",
+      "merge.currentContentBackground": "#54ceb680",
+      "selection.background": "#000000",
+      "sideBarTitle.foreground": "#c8c8c8",
+      "tab.activeBorder": "#d6d739",
+      "tab.hoverBorder": "#000000",
+      "tab.inactiveForeground": "#7b91a4",
+      "tab.unfocusedActiveBorder": "#0d0d0d",
+      "tab.unfocusedActiveForeground": "#ffffff",
+      "tab.unfocusedHoverBackground": "#000000",
+      "tab.unfocusedHoverBorder": "#000000",
+      "tab.unfocusedInactiveForeground": "#e5e5e5",
+      "tab.unfocusedInactiveModifiedBorder": "#47a3d1"
+    },
+    "[Mayukai Dark]": {
+      "sideBarSectionHeader.background": "#071324"
+    },
+    "editor.findMatch.foreground": "#f5f4f4",
+    "editor.findMatchBackground": "#ff9900",
+    "editor.findMatchHighlightBackground": "#f5f4f480",
+    "editor.selectionForeground": "#00308f",
+    "merge.currentHeaderBackground": "#54ceb680",
+    "tab.activeForeground": "#f5f4f4",
+    "terminal.border": "#060606"
+  },
+  "markdown.validate.ignoredLinks": [
+    "brain2"
+  ]
+}
