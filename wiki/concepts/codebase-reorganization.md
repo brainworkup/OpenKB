@@ -1,5 +1,5 @@
 ---
-sources: [summaries/File Folder Structure Rebuild.md]
+sources: [summaries/MIGRATION_GUIDE.md, summaries/File Folder Structure Rebuild.md]
 brief: Reorganizing a codebase into clearer modules and service boundaries safely.
 ---
 
@@ -147,3 +147,5 @@ These heuristics connect the concept to [[concepts/documentation-as-code]] and [
 
 ## Related source
 - [[summaries/File Folder Structure Rebuild]]
+
+See also: [[summaries/MIGRATION_GUIDE]]

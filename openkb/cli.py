@@ -1,10 +1,12 @@
 """OpenKB CLI — command-line interface for the knowledge base workflow."""
+
 from __future__ import annotations
 
 # Silence import-time warnings (e.g. pydub's missing-ffmpeg warning emitted
 # when markitdown pulls it in). markitdown later clobbers the filters during
 # its own import, so we re-apply after all imports below.
 import warnings
+
 warnings.filterwarnings("ignore")
 
 import asyncio
@@ -19,11 +21,13 @@ from typing import Literal
 import os
 
 from agents import set_tracing_disabled
+
 set_tracing_disabled(True)
 # Use local model cost map — skip fetching from GitHub on every invocation
 os.environ.setdefault("LITELLM_LOCAL_MODEL_COST_MAP", "True")
 
 import click
+
 
 # Silence LiteLLM's "could not pre-load <aws-service> response stream
 # shape" warnings — they fire at import time when ``botocore`` isn't
@@ -37,25 +41,104 @@ class _SuppressLiteLLMPreloadWarnings(logging.Filter):
 logging.getLogger("LiteLLM").addFilter(_SuppressLiteLLMPreloadWarnings())
 
 import litellm
+
 litellm.suppress_debug_info = True
+# Drop parameters that local/compatible providers don't support
+litellm.drop_params = True
+
+# Patch ollama provider to silently accept parallel_tool_calls parameter
+try:
+    from litellm.llms.ollama.chat.transformation import OllamaChatConfig
+
+    original_get_supported = OllamaChatConfig.get_supported_openai_params
+
+    def patched_get_supported(self, model: str) -> list:
+        params = original_get_supported(self, model)
+        if "parallel_tool_calls" not in params:
+            params = list(params) + ["parallel_tool_calls"]
+        return params
+
+    OllamaChatConfig.get_supported_openai_params = patched_get_supported
+except Exception:
+    pass  # Silently ignore if patching fails
+
+
+# Register OMLX as OpenAI-compatible provider for local models
+def _setup_omlx_provider():
+    """Register OMLX provider with LiteLLM programmatically."""
+    try:
+        import json
+        import os
+
+        # Try to write to providers.json first (system installs that allow it)
+        litellm_path = os.path.dirname(litellm.__file__)
+        providers_path = os.path.join(
+            litellm_path, "llms", "openai_like", "providers.json"
+        )
+
+        try:
+            with open(providers_path, "r") as f:
+                providers = json.load(f)
+            if "omlx" not in providers:
+                providers["omlx"] = {
+                    "base_url": "http://127.0.0.1:8000/v1",
+                    "api_key_env": "OMLX_API_KEY",
+                }
+                with open(providers_path, "w") as f:
+                    json.dump(providers, f, indent=2)
+        except (PermissionError, OSError):
+            # If we can't write to system providers.json, register directly in memory
+            from litellm.llms.openai_like.json_loader import (
+                JSONProviderRegistry,
+                SimpleProviderConfig,
+            )
+
+            # Register OMLX in the JSONProviderRegistry's cache
+            omlx_config_dict = {
+                "base_url": "http://127.0.0.1:8000/v1",
+                "api_key_env": "OMLX_API_KEY",
+            }
+            omlx_config = SimpleProviderConfig("omlx", omlx_config_dict)
+            JSONProviderRegistry._providers["omlx"] = omlx_config
+
+    except Exception as e:
+        import sys
+
+        print(f"Warning: Could not register OMLX provider: {e}", file=sys.stderr)
+
+
+_setup_omlx_provider()
+
 from dotenv import load_dotenv
 
-from openkb.config import DEFAULT_CONFIG, load_config, save_config, load_global_config, register_kb
+from openkb.config import (
+    DEFAULT_CONFIG,
+    load_config,
+    save_config,
+    load_global_config,
+    register_kb,
+)
 from openkb.converter import convert_document
 from openkb.log import append_log
 from openkb.schema import AGENTS_MD, INDEX_SEED, PAGE_CONTENT_DIRS
 
 # Suppress warnings after all imports — markitdown overrides filters at import time
 import warnings
+
 warnings.filterwarnings("ignore")
 
 load_dotenv()  # load from cwd (covers running inside the KB dir)
 
 
 _KNOWN_PROVIDER_KEYS = (
-    "OPENAI_API_KEY", "ANTHROPIC_API_KEY", "GEMINI_API_KEY",
-    "DEEPSEEK_API_KEY", "MISTRAL_API_KEY", "MOONSHOT_API_KEY",
-    "ZHIPUAI_API_KEY", "DASHSCOPE_API_KEY",
+    "OPENAI_API_KEY",
+    "ANTHROPIC_API_KEY",
+    "GEMINI_API_KEY",
+    "DEEPSEEK_API_KEY",
+    "MISTRAL_API_KEY",
+    "MOONSHOT_API_KEY",
+    "ZHIPUAI_API_KEY",
+    "DASHSCOPE_API_KEY",
 )
 
 
@@ -92,6 +175,7 @@ def _setup_llm_key(kb_dir: Path | None = None) -> None:
             load_dotenv(env_file, override=False)
 
     from openkb.config import GLOBAL_CONFIG_DIR
+
     global_env = GLOBAL_CONFIG_DIR / ".env"
     if global_env.exists():
         load_dotenv(global_env, override=False)
@@ -110,8 +194,7 @@ def _setup_llm_key(kb_dir: Path | None = None) -> None:
     if not api_key:
         # Check if any provider key is already set
         check_keys = (
-            (f"{provider.upper()}_API_KEY",) if provider
-            else _KNOWN_PROVIDER_KEYS
+            (f"{provider.upper()}_API_KEY",) if provider else _KNOWN_PROVIDER_KEYS
         )
         has_key = any(os.environ.get(k) for k in check_keys)
         if not has_key:
@@ -136,10 +219,20 @@ def _setup_llm_key(kb_dir: Path | None = None) -> None:
             if not os.environ.get(env_var):
                 os.environ[env_var] = api_key
 
+
 # Supported document extensions for the `add` command
 SUPPORTED_EXTENSIONS = {
-    ".pdf", ".md", ".markdown", ".docx", ".pptx", ".xlsx", ".xls",
-    ".html", ".htm", ".txt", ".csv",
+    ".pdf",
+    ".md",
+    ".markdown",
+    ".docx",
+    ".pptx",
+    ".xlsx",
+    ".xls",
+    ".html",
+    ".htm",
+    ".txt",
+    ".csv",
 }
 
 # Map raw doc types to display types
@@ -147,7 +240,19 @@ _TYPE_DISPLAY_MAP = {
     "long_pdf": "pageindex",
 }
 
-_SHORT_DOC_TYPES = {"pdf", "docx", "md", "markdown", "html", "htm", "txt", "csv", "pptx", "xlsx", "xls"}
+_SHORT_DOC_TYPES = {
+    "pdf",
+    "docx",
+    "md",
+    "markdown",
+    "html",
+    "htm",
+    "txt",
+    "csv",
+    "pptx",
+    "xlsx",
+    "xls",
+}
 
 
 def _display_type(raw_type: str) -> str:
@@ -162,6 +267,7 @@ def _display_type(raw_type: str) -> str:
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _find_kb_dir(override: Path | None = None) -> Path | None:
     """Find the KB root: explicit override → walk up from cwd → global default_kb."""
@@ -259,7 +365,9 @@ def _clear_existing_skill_dir(kb_dir: Path, name: str) -> None:
         shutil.rmtree(target)
 
 
-def add_single_file(file_path: Path, kb_dir: Path) -> Literal["added", "skipped", "failed"]:
+def add_single_file(
+    file_path: Path, kb_dir: Path
+) -> Literal["added", "skipped", "failed"]:
     """Convert, index, and compile a single document into the knowledge base.
 
     Steps:
@@ -307,6 +415,7 @@ def add_single_file(file_path: Path, kb_dir: Path) -> Literal["added", "skipped"
         click.echo(f"  Long document detected — indexing with PageIndex...")
         try:
             from openkb.indexer import index_long_document
+
             index_result = index_long_document(result.raw_path, kb_dir)
         except Exception as exc:
             click.echo(f"  [ERROR] Indexing failed: {exc}")
@@ -318,8 +427,14 @@ def add_single_file(file_path: Path, kb_dir: Path) -> Literal["added", "skipped"
         for attempt in range(2):
             try:
                 asyncio.run(
-                    compile_long_doc(doc_name, summary_path, index_result.doc_id, kb_dir, model,
-                                     doc_description=index_result.description)
+                    compile_long_doc(
+                        doc_name,
+                        summary_path,
+                        index_result.doc_id,
+                        kb_dir,
+                        model,
+                        doc_description=index_result.description,
+                    )
                 )
                 break
             except Exception as exc:
@@ -334,7 +449,9 @@ def add_single_file(file_path: Path, kb_dir: Path) -> Literal["added", "skipped"
         click.echo(f"  Compiling short doc...")
         for attempt in range(2):
             try:
-                asyncio.run(compile_short_doc(doc_name, result.source_path, kb_dir, model))
+                asyncio.run(
+                    compile_short_doc(doc_name, result.source_path, kb_dir, model)
+                )
                 break
             except Exception as exc:
                 if attempt == 0:
@@ -369,9 +486,18 @@ def add_single_file(file_path: Path, kb_dir: Path) -> Literal["added", "skipped"
 # CLI
 # ---------------------------------------------------------------------------
 
+
 @click.group()
-@click.option("-v", "--verbose", is_flag=True, default=False, help="Enable verbose logging.")
-@click.option("--kb-dir", "kb_dir_override", default=None, type=click.Path(exists=True, file_okay=False, resolve_path=True), help="Path to a KB root directory (overrides auto-detection).")
+@click.option(
+    "-v", "--verbose", is_flag=True, default=False, help="Enable verbose logging."
+)
+@click.option(
+    "--kb-dir",
+    "kb_dir_override",
+    default=None,
+    type=click.Path(exists=True, file_okay=False, resolve_path=True),
+    help="Path to a KB root directory (overrides auto-detection).",
+)
 @click.pass_context
 def cli(ctx, verbose, kb_dir_override):
     """OpenKB — Karpathy's LLM Knowledge Base workflow, powered by PageIndex."""
@@ -481,8 +607,11 @@ def _stdin_is_tty() -> bool:
 
 @cli.command()
 @click.option(
-    "--model", "-m", "model",
-    default=None, metavar="MODEL",
+    "--model",
+    "-m",
+    "model",
+    default=None,
+    metavar="MODEL",
     callback=_model_option_callback,
     help=(
         "LLM in LiteLLM provider/model format "
@@ -491,8 +620,11 @@ def _stdin_is_tty() -> bool:
     ),
 )
 @click.option(
-    "--language", "-l", "language",
-    default=None, metavar="LANG",
+    "--language",
+    "-l",
+    "language",
+    default=None,
+    metavar="LANG",
     callback=_language_option_callback,
     help="Wiki output language (e.g. 'en', 'ko'). Skips the interactive prompt when set.",
 )
@@ -507,16 +639,20 @@ def init(model, language):
     click.echo("Pick an LLM in `provider/model` LiteLLM format:")
     click.echo("  OpenAI:    gpt-5.4-mini, gpt-5.4")
     click.echo("  Anthropic: anthropic/claude-sonnet-4-6, anthropic/claude-opus-4-6")
-    click.echo("  Gemini:    gemini/gemini-3.1-pro-preview, gemini/gemini-3-flash-preview")
+    click.echo(
+        "  Gemini:    gemini/gemini-3.1-pro-preview, gemini/gemini-3-flash-preview"
+    )
     click.echo("  DeepSeek:  deepseek/deepseek-v4-flash, deepseek/deepseek-v4-pro")
     click.echo("  Others:    see https://docs.litellm.ai/docs/providers")
     click.echo()
     if model is None and _stdin_is_tty():
-        model = _coerce_model(click.prompt(
-            f"Model (enter for default {DEFAULT_CONFIG['model']})",
-            default=DEFAULT_CONFIG["model"],
-            show_default=False,
-        ))
+        model = _coerce_model(
+            click.prompt(
+                f"Model (enter for default {DEFAULT_CONFIG['model']})",
+                default=DEFAULT_CONFIG["model"],
+                show_default=False,
+            )
+        )
     if not model:
         model = DEFAULT_CONFIG["model"]
     api_key = click.prompt(
@@ -526,11 +662,13 @@ def init(model, language):
         show_default=False,
     ).strip()
     if language is None and _stdin_is_tty():
-        language = _coerce_language(click.prompt(
-            f"Wiki language (enter for default {DEFAULT_CONFIG['language']})",
-            default=DEFAULT_CONFIG["language"],
-            show_default=False,
-        ))
+        language = _coerce_language(
+            click.prompt(
+                f"Wiki language (enter for default {DEFAULT_CONFIG['language']})",
+                default=DEFAULT_CONFIG["language"],
+                show_default=False,
+            )
+        )
     if not language:
         language = DEFAULT_CONFIG["language"]
     # Create directory structure
@@ -559,7 +697,9 @@ def init(model, language):
     if api_key:
         env_path = Path(".env")
         if env_path.exists():
-            click.echo(".env already exists, skipping write. Add LLM_API_KEY manually if needed.")
+            click.echo(
+                ".env already exists, skipping write. Add LLM_API_KEY manually if needed."
+            )
         else:
             env_path.write_text(f"LLM_API_KEY={api_key}\n", encoding="utf-8")
             os.chmod(env_path, 0o600)
@@ -594,6 +734,7 @@ def add(ctx, path):
     # Without this, re-adding the same URL leaves an orphan in raw/
     # that the registry can't reach via openkb remove.
     from openkb.url_ingest import looks_like_url, fetch_url_to_raw
+
     if looks_like_url(path):
         fetched = fetch_url_to_raw(path, kb_dir)
         if fetched is None:
@@ -614,7 +755,8 @@ def add(ctx, path):
 
     if target.is_dir():
         files = [
-            f for f in sorted(target.rglob("*"))
+            f
+            for f in sorted(target.rglob("*"))
             if f.is_file() and f.suffix.lower() in SUPPORTED_EXTENSIONS
         ]
         if not files:
@@ -648,10 +790,14 @@ def _stream_to_tty() -> bool:
 
 @cli.command()
 @click.argument("question")
-@click.option("--save", is_flag=True, default=False, help="Save the answer to wiki/explorations/.")
 @click.option(
-    "--raw", "raw",
-    is_flag=True, default=False,
+    "--save", is_flag=True, default=False, help="Save the answer to wiki/explorations/."
+)
+@click.option(
+    "--raw",
+    "raw",
+    is_flag=True,
+    default=False,
     help="Show raw markdown source instead of rendered output (keeps tool-call colors).",
 )
 @click.pass_context
@@ -683,6 +829,7 @@ def query(ctx, question, save, raw):
     if save and answer:
         import re
         from openkb.lint import list_existing_wiki_targets, strip_ghost_wikilinks
+
         slug = re.sub(r"[^a-z0-9]+", "-", question.lower()).strip("-")[:60]
         explore_dir = kb_dir / "wiki" / "explorations"
         explore_dir.mkdir(parents=True, exist_ok=True)
@@ -694,14 +841,17 @@ def query(ctx, question, save, raw):
         known = list_existing_wiki_targets(kb_dir / "wiki")
         cleaned_answer, _ = strip_ghost_wikilinks(answer, known)
         explore_path.write_text(
-            f"---\nquery: \"{question}\"\n---\n\n{cleaned_answer}\n",
+            f'---\nquery: "{question}"\n---\n\n{cleaned_answer}\n',
             encoding="utf-8",
         )
         click.echo(f"\nSaved to {explore_path}")
 
 
 def _cleanup_pageindex(
-    openkb_dir: Path, kb_dir: Path, doc_name: str, doc_id: str | None,
+    openkb_dir: Path,
+    kb_dir: Path,
+    doc_name: str,
+    doc_id: str | None,
 ) -> tuple[bool, str]:
     """Drop a long-doc entry from PageIndex's local SQLite + remove its
     managed files. Returns ``(did_cleanup, message)``.
@@ -762,7 +912,8 @@ def _resolve_doc_identifier(registry, identifier: str) -> list[tuple[str, dict]]
 
     needle = identifier.lower()
     fuzzy = [
-        (h, m) for h, m in entries.items()
+        (h, m)
+        for h, m in entries.items()
         if needle in (m.get("name") or "").lower()
         or needle in (m.get("doc_name") or "").lower()
     ]
@@ -771,18 +922,32 @@ def _resolve_doc_identifier(registry, identifier: str) -> list[tuple[str, dict]]
 
 @cli.command()
 @click.argument("identifier")
-@click.option("--keep-raw", is_flag=True, default=False,
-              help="Don't delete the original file from raw/.")
-@click.option("--keep-empty", "--keep-empty-concepts", "keep_empty",
-              is_flag=True, default=False,
-              help="Keep concept AND entity pages whose only source was the "
-                   "removed doc (leaving an empty sources: [] list). Useful "
-                   "when replacing the doc with a newer version. "
-                   "(--keep-empty-concepts is a backward-compatible alias.)")
-@click.option("--dry-run", is_flag=True, default=False,
-              help="Print what would be done without modifying anything.")
-@click.option("--yes", "-y", is_flag=True, default=False,
-              help="Skip the confirmation prompt.")
+@click.option(
+    "--keep-raw",
+    is_flag=True,
+    default=False,
+    help="Don't delete the original file from raw/.",
+)
+@click.option(
+    "--keep-empty",
+    "--keep-empty-concepts",
+    "keep_empty",
+    is_flag=True,
+    default=False,
+    help="Keep concept AND entity pages whose only source was the "
+    "removed doc (leaving an empty sources: [] list). Useful "
+    "when replacing the doc with a newer version. "
+    "(--keep-empty-concepts is a backward-compatible alias.)",
+)
+@click.option(
+    "--dry-run",
+    is_flag=True,
+    default=False,
+    help="Print what would be done without modifying anything.",
+)
+@click.option(
+    "--yes", "-y", is_flag=True, default=False, help="Skip the confirmation prompt."
+)
 @click.pass_context
 def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     """Remove a document from the knowledge base.
@@ -823,7 +988,9 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     if len(matches) > 1:
         click.echo(f"'{identifier}' matches multiple documents:")
         for _, m in matches:
-            click.echo(f"  - {m.get('name', '?')}  (doc_name: {m.get('doc_name', '?')})")
+            click.echo(
+                f"  - {m.get('name', '?')}  (doc_name: {m.get('doc_name', '?')})"
+            )
         click.echo("Use a more specific name or the exact doc_name slug.")
         return
 
@@ -852,10 +1019,12 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     # openkb.images during ingest, keyed by doc_name.
     images_dir = wiki_dir / "sources" / "images" / doc_name
     if images_dir.is_dir():
-        actions.append((
-            "DELETE",
-            f"{images_dir.relative_to(kb_dir)}/  (images directory)",
-        ))
+        actions.append(
+            (
+                "DELETE",
+                f"{images_dir.relative_to(kb_dir)}/  (images directory)",
+            )
+        )
 
     # Scan concept pages to predict which will be edited vs. deleted.
     # Only frontmatter ``sources:`` membership drives the plan — body-only
@@ -871,7 +1040,9 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     for slug in concept_deletes:
         actions.append(("DELETE", f"wiki/concepts/{slug}.md  (only source: this doc)"))
     for slug in concept_edits:
-        actions.append(("MODIFY", f"wiki/concepts/{slug}.md  (drop this doc from sources)"))
+        actions.append(
+            ("MODIFY", f"wiki/concepts/{slug}.md  (drop this doc from sources)")
+        )
 
     # Scan entity pages with the same frontmatter logic as concepts. The
     # executor calls ``remove_doc_from_entity_pages``; this only makes the
@@ -883,7 +1054,9 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     for slug in entity_deletes:
         actions.append(("DELETE", f"wiki/entities/{slug}.md  (only source: this doc)"))
     for slug in entity_edits:
-        actions.append(("MODIFY", f"wiki/entities/{slug}.md  (drop this doc from sources)"))
+        actions.append(
+            ("MODIFY", f"wiki/entities/{slug}.md  (drop this doc from sources)")
+        )
 
     if (wiki_dir / "index.md").exists():
         actions.append(("MODIFY", "wiki/index.md  (remove Documents entry)"))
@@ -899,13 +1072,19 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     cleanup_pageindex = doc_type == "long_pdf" and pageindex_state_exists
     if cleanup_pageindex:
         if pageindex_doc_id:
-            actions.append((
-                "PAGEINDEX", f"delete document ({pageindex_doc_id[:12]}…)",
-            ))
+            actions.append(
+                (
+                    "PAGEINDEX",
+                    f"delete document ({pageindex_doc_id[:12]}…)",
+                )
+            )
         else:
-            actions.append((
-                "PAGEINDEX", f"delete document (lookup by doc_name; legacy entry)",
-            ))
+            actions.append(
+                (
+                    "PAGEINDEX",
+                    f"delete document (lookup by doc_name; legacy entry)",
+                )
+            )
 
     raw_path = None
     if not keep_raw:
@@ -960,15 +1139,23 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
         shutil.rmtree(images_dir, ignore_errors=True)
 
     concept_result = remove_doc_from_concept_pages(
-        wiki_dir, doc_name, keep_empty=keep_empty,
+        wiki_dir,
+        doc_name,
+        keep_empty=keep_empty,
     )
 
     entity_result = remove_doc_from_entity_pages(
-        wiki_dir, doc_name, keep_empty=keep_empty,
+        wiki_dir,
+        doc_name,
+        keep_empty=keep_empty,
     )
 
-    remove_doc_from_index(wiki_dir, doc_name, concept_result["deleted"],
-                          entity_slugs_deleted=entity_result["deleted"])
+    remove_doc_from_index(
+        wiki_dir,
+        doc_name,
+        concept_result["deleted"],
+        entity_slugs_deleted=entity_result["deleted"],
+    )
 
     # Strip dangling wikilinks now so a retry (after a PageIndex
     # failure below) finds a clean wiki — no point in re-running this
@@ -981,19 +1168,19 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     # (Bug 2). Users who want a wiki-wide sweep can still run
     # ``openkb lint --fix`` explicitly.
     lint_scope: list[Path] = [
-        wiki_dir / "concepts" / f"{slug}.md"
-        for slug in concept_result["modified"]
+        wiki_dir / "concepts" / f"{slug}.md" for slug in concept_result["modified"]
     ]
     lint_scope += [
-        wiki_dir / "entities" / f"{slug}.md"
-        for slug in entity_result["modified"]
+        wiki_dir / "entities" / f"{slug}.md" for slug in entity_result["modified"]
     ]
     index_md = wiki_dir / "index.md"
     if index_md.exists():
         lint_scope.append(index_md)
     files_changed, ghosts = fix_broken_links(wiki_dir, restrict_to=lint_scope)
     if files_changed:
-        click.echo(f"  lint --fix cleaned {ghosts} dangling wikilink(s) in {files_changed} file(s)")
+        click.echo(
+            f"  lint --fix cleaned {ghosts} dangling wikilink(s) in {files_changed} file(s)"
+        )
 
     # Free PageIndex's local managed state for long PDFs *before* the
     # registry write so the user can retry on failure — leaving the
@@ -1004,7 +1191,10 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
     if cleanup_pageindex:
         try:
             cleaned, msg = _cleanup_pageindex(
-                openkb_dir, kb_dir, doc_name, pageindex_doc_id,
+                openkb_dir,
+                kb_dir,
+                doc_name,
+                pageindex_doc_id,
             )
             click.echo(f"  PageIndex: {msg}")
         except Exception as exc:
@@ -1013,7 +1203,8 @@ def remove(ctx, identifier, keep_raw, keep_empty, dry_run, yes):
                 f"— registry entry kept; re-run `openkb remove {name}` to retry"
             )
             logging.getLogger(__name__).debug(
-                "PageIndex cleanup traceback:", exc_info=True,
+                "PageIndex cleanup traceback:",
+                exc_info=True,
             )
             return
 
@@ -1055,15 +1246,34 @@ def _refresh_schema(wiki_dir: Path) -> bool:
 
 @cli.command()
 @click.argument("doc_name", required=False)
-@click.option("--all", "all_docs", is_flag=True, default=False,
-              help="Recompile every indexed document.")
-@click.option("--dry-run", is_flag=True, default=False,
-              help="List the docs that would be recompiled; no LLM calls, no writes.")
-@click.option("--yes", "-y", is_flag=True, default=False,
-              help="Skip the --all confirmation prompt.")
-@click.option("--refresh-schema", "refresh_schema", is_flag=True, default=False,
-              help="Overwrite wiki/AGENTS.md with the bundled schema (backs up "
-                   "the old one to AGENTS.md.bak) if it differs.")
+@click.option(
+    "--all",
+    "all_docs",
+    is_flag=True,
+    default=False,
+    help="Recompile every indexed document.",
+)
+@click.option(
+    "--dry-run",
+    is_flag=True,
+    default=False,
+    help="List the docs that would be recompiled; no LLM calls, no writes.",
+)
+@click.option(
+    "--yes",
+    "-y",
+    is_flag=True,
+    default=False,
+    help="Skip the --all confirmation prompt.",
+)
+@click.option(
+    "--refresh-schema",
+    "refresh_schema",
+    is_flag=True,
+    default=False,
+    help="Overwrite wiki/AGENTS.md with the bundled schema (backs up "
+    "the old one to AGENTS.md.bak) if it differs.",
+)
 @click.pass_context
 def recompile(ctx, doc_name, all_docs, dry_run, yes, refresh_schema):
     """Re-run the current compile pipeline on already-indexed documents.
@@ -1115,7 +1325,9 @@ def recompile(ctx, doc_name, all_docs, dry_run, yes, refresh_schema):
         if len(matches) > 1:
             click.echo(f"'{doc_name}' matches multiple documents:")
             for _, m in matches:
-                click.echo(f"  - {m.get('name', '?')}  (doc_name: {m.get('doc_name', '?')})")
+                click.echo(
+                    f"  - {m.get('name', '?')}  (doc_name: {m.get('doc_name', '?')})"
+                )
             click.echo("Use a more specific name or the exact doc_name slug.")
             return
         targets = [matches[0][1]]
@@ -1188,7 +1400,9 @@ def recompile(ctx, doc_name, all_docs, dry_run, yes, refresh_schema):
             click.echo(f"[{i}/{total}] Recompiling long doc {name}...")
             start = time.time()
             try:
-                asyncio.run(compiler.compile_long_doc(name, summary_path, doc_id, kb_dir, model))
+                asyncio.run(
+                    compiler.compile_long_doc(name, summary_path, doc_id, kb_dir, model)
+                )
             except Exception as exc:
                 click.echo(f"  [ERROR] Compilation failed: {exc}")
                 logging.getLogger(__name__).debug("Recompile traceback:", exc_info=True)
@@ -1208,7 +1422,9 @@ def recompile(ctx, doc_name, all_docs, dry_run, yes, refresh_schema):
             click.echo(f"[{i}/{total}] Recompiling short doc {name}...")
             start = time.time()
             try:
-                asyncio.run(compiler.compile_short_doc(name, source_path, kb_dir, model))
+                asyncio.run(
+                    compiler.compile_short_doc(name, source_path, kb_dir, model)
+                )
             except Exception as exc:
                 click.echo(f"  [ERROR] Compilation failed: {exc}")
                 logging.getLogger(__name__).debug("Recompile traceback:", exc_info=True)
@@ -1223,28 +1439,41 @@ def recompile(ctx, doc_name, all_docs, dry_run, yes, refresh_schema):
 
 @cli.command()
 @click.option(
-    "--resume", "-r", "resume",
-    is_flag=False, flag_value="__latest__", default=None, metavar="[ID]",
+    "--resume",
+    "-r",
+    "resume",
+    is_flag=False,
+    flag_value="__latest__",
+    default=None,
+    metavar="[ID]",
     help="Resume the latest chat session, or a specific one by id or prefix.",
 )
 @click.option(
-    "--list", "list_sessions_flag",
-    is_flag=True, default=False,
+    "--list",
+    "list_sessions_flag",
+    is_flag=True,
+    default=False,
     help="List chat sessions.",
 )
 @click.option(
-    "--delete", "delete_id",
-    default=None, metavar="ID",
+    "--delete",
+    "delete_id",
+    default=None,
+    metavar="ID",
     help="Delete a chat session by id or prefix.",
 )
 @click.option(
-    "--no-color", "no_color",
-    is_flag=True, default=False,
+    "--no-color",
+    "no_color",
+    is_flag=True,
+    default=False,
     help="Disable colored output.",
 )
 @click.option(
-    "--raw", "raw",
-    is_flag=True, default=False,
+    "--raw",
+    "raw",
+    is_flag=True,
+    default=False,
     help="Show raw markdown source instead of rendered output (keeps prompt and tool-call colors).",
 )
 @click.pass_context
@@ -1274,12 +1503,8 @@ def chat(ctx, resume, list_sessions_flag, delete_id, no_color, raw):
         for s in sessions:
             rel = relative_time(s.get("updated_at", ""))
             title = s.get("title") or "(empty)"
-            click.echo(
-                f"  {s['id']:<22} {s['turn_count']:<6} {rel:<12} {title}"
-            )
-        click.echo(
-            f"\n{len(sessions)} session(s) in {kb_dir / '.openkb' / 'chats'}"
-        )
+            click.echo(f"  {s['id']:<22} {s['turn_count']:<6} {rel:<12} {title}")
+        click.echo(f"\n{len(sessions)} session(s) in {kb_dir / '.openkb' / 'chats'}")
         return
 
     if delete_id is not None:
@@ -1375,7 +1600,9 @@ async def run_lint(kb_dir: Path) -> Path | None:
     else:
         hashes = {}
     if not hashes:
-        click.echo("Nothing to lint — no documents indexed yet. Run `openkb add` first.")
+        click.echo(
+            "Nothing to lint — no documents indexed yet. Run `openkb add` first."
+        )
         return
 
     config = load_config(openkb_dir / "config.yaml")
@@ -1397,6 +1624,7 @@ async def run_lint(kb_dir: Path) -> Path | None:
     reports_dir = kb_dir / "wiki" / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     import datetime
+
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     report_path = reports_dir / f"lint_{timestamp}.md"
     report_content = f"# Lint Report — {timestamp}\n\n## Structural\n\n{structural_report}\n\n## Semantic\n\n{knowledge_report}\n"
@@ -1407,9 +1635,13 @@ async def run_lint(kb_dir: Path) -> Path | None:
 
 
 @cli.command()
-@click.option("--fix", is_flag=True, default=False,
-              help="Rewrite broken [[wikilinks]] in place (fuzzy match) or "
-                   "strip to plain text when no match. Runs before the report.")
+@click.option(
+    "--fix",
+    is_flag=True,
+    default=False,
+    help="Rewrite broken [[wikilinks]] in place (fuzzy match) or "
+    "strip to plain text when no match. Runs before the report.",
+)
 @click.pass_context
 def lint(ctx, fix):
     """Lint the knowledge base for structural and semantic inconsistencies."""
@@ -1419,11 +1651,10 @@ def lint(ctx, fix):
         return
     if fix:
         from openkb.lint import fix_broken_links
+
         files_changed, ghosts = fix_broken_links(kb_dir / "wiki")
         if files_changed:
-            click.echo(
-                f"Fixed {ghosts} wikilink(s) across {files_changed} file(s)."
-            )
+            click.echo(f"Fixed {ghosts} wikilink(s) across {files_changed} file(s).")
         else:
             click.echo("Nothing to fix — all wikilinks resolve.")
     asyncio.run(run_lint(kb_dir))
@@ -1548,6 +1779,7 @@ def print_status(kb_dir: Path) -> None:
     if compiled_pages:
         newest_page = max(compiled_pages, key=lambda p: p.stat().st_mtime)
         import datetime
+
         mtime = datetime.datetime.fromtimestamp(newest_page.stat().st_mtime)
         click.echo(f"  Last compile:  {mtime.strftime('%Y-%m-%d %H:%M:%S')}")
 
@@ -1558,6 +1790,7 @@ def print_status(kb_dir: Path) -> None:
         if reports:
             newest_report = max(reports, key=lambda p: p.stat().st_mtime)
             import datetime
+
             mtime = datetime.datetime.fromtimestamp(newest_report.stat().st_mtime)
             click.echo(f"  Last lint:     {mtime.strftime('%Y-%m-%d %H:%M:%S')}")
 
@@ -1600,6 +1833,7 @@ def _openkb_version() -> str:
     ``openkb.agent.chat._openkb_version``.
     """
     from openkb import __version__
+
     return __version__
 
 
@@ -1619,7 +1853,9 @@ def _collect_feedback_diagnostics(ctx) -> dict[str, str]:
 
 
 def _build_feedback_url(
-    message: str, feedback_type: str, diagnostics: dict[str, str],
+    message: str,
+    feedback_type: str,
+    diagnostics: dict[str, str],
 ) -> str:
     """Build a GitHub issue URL with title / body / labels prefilled."""
     from urllib.parse import urlencode
@@ -1627,7 +1863,11 @@ def _build_feedback_url(
     first_line = message.splitlines()[0] if message else ""
     truncated = first_line[:60] + ("…" if len(first_line) > 60 else "")
     title_prefix = f"[{feedback_type}] " if feedback_type != "other" else ""
-    title = f"{title_prefix}{truncated}" if truncated else f"{title_prefix}Feedback from CLI"
+    title = (
+        f"{title_prefix}{truncated}"
+        if truncated
+        else f"{title_prefix}Feedback from CLI"
+    )
 
     if diagnostics:
         diag_block = "\n".join(f"- **{k}**: {v}" for k, v in diagnostics.items())
@@ -1653,7 +1893,8 @@ def _build_feedback_url(
 @cli.command()
 @click.argument("message", required=False)
 @click.option(
-    "--type", "feedback_type",
+    "--type",
+    "feedback_type",
     type=click.Choice(_FEEDBACK_TYPES),
     default=None,
     help="Feedback type — sets the GitHub issue label.",
@@ -1708,6 +1949,7 @@ def feedback(ctx, message, feedback_type):
     click.echo(f"  {url}")
 
     import webbrowser
+
     try:
         opened = webbrowser.open(url)
     except Exception as exc:
@@ -1732,6 +1974,7 @@ def feedback(ctx, message, feedback_type):
 # `openkb skill ...` — skill factory (v0.1)
 # ---------------------------------------------------------------------------
 
+
 @cli.group()
 def skill():
     """Compile knowledge into a redistributable Anthropic Skill."""
@@ -1741,8 +1984,11 @@ def skill():
 @click.argument("name")
 @click.argument("intent")
 @click.option(
-    "-y", "--yes", "yes_flag",
-    is_flag=True, default=False,
+    "-y",
+    "--yes",
+    "yes_flag",
+    is_flag=True,
+    default=False,
     help="Overwrite existing output/skills/<name>/ without prompting.",
 )
 @click.pass_context
@@ -1813,6 +2059,7 @@ def skill_new(ctx, name, intent, yes_flag):
     # Run the generator. Generator.run handles compile -> validate ->
     # marketplace publish, so both CLI and chat get the same quality gate.
     from openkb.skill.generator import Generator
+
     click.echo(f"Compiling skill '{name}'...")
     gen = Generator(
         target_type="skill",
@@ -1854,7 +2101,9 @@ def skill_new(ctx, name, intent, yes_flag):
     click.echo(f"\nSaved: output/skills/{name}/")
     if saved_iteration is not None:
         rel = saved_iteration.relative_to(kb_dir)
-        click.echo(f"Previous version: {rel}/  (run `openkb skill rollback {name}` to restore)")
+        click.echo(
+            f"Previous version: {rel}/  (run `openkb skill rollback {name}` to restore)"
+        )
     click.echo(f"Manifest: .claude-plugin/marketplace.json updated")
     click.echo(f"\nInstall locally:")
     click.echo(f"  cp -r output/skills/{name} ~/.claude/skills/")
@@ -1900,6 +2149,7 @@ def skill_history(ctx, name):
         click.echo(f"  {n}  {rel}  {stamp}")
 
     from openkb.skill import skill_dir
+
     current = skill_dir(kb_dir, name)
     if current.is_dir():
         rel_curr = current.relative_to(kb_dir)
@@ -1910,21 +2160,24 @@ def skill_history(ctx, name):
     click.echo(
         f"  openkb skill rollback {name}          # restore latest (iteration-{latest_n})"
     )
-    click.echo(
-        f"  openkb skill rollback {name} --to 1   # restore iteration-1"
-    )
+    click.echo(f"  openkb skill rollback {name} --to 1   # restore iteration-1")
 
 
 @skill.command("rollback")
 @click.argument("name")
 @click.option(
-    "--to", "to_n",
-    default=None, type=int,
+    "--to",
+    "to_n",
+    default=None,
+    type=int,
     help="Iteration number to restore. Defaults to latest.",
 )
 @click.option(
-    "-y", "--yes", "yes_flag",
-    is_flag=True, default=False,
+    "-y",
+    "--yes",
+    "yes_flag",
+    is_flag=True,
+    default=False,
     help="Skip confirmation.",
 )
 @click.pass_context
@@ -1962,6 +2215,7 @@ def skill_rollback(ctx, name, to_n, yes_flag):
         ctx.exit(1)
 
     from openkb.skill import skill_dir
+
     current = skill_dir(kb_dir, name)
     if current.exists():
         prompt = (
@@ -1995,7 +2249,9 @@ def skill_rollback(ctx, name, to_n, yes_flag):
 @skill.command("validate")
 @click.argument("name", required=False)
 @click.option(
-    "--strict", is_flag=True, default=False,
+    "--strict",
+    is_flag=True,
+    default=False,
     help="Treat warnings as failures (exit non-zero).",
 )
 @click.pass_context
@@ -2022,7 +2278,8 @@ def skill_validate(ctx, name, strict):
         targets = [target]
     else:
         targets = sorted(
-            d for d in root.iterdir()
+            d
+            for d in root.iterdir()
             if d.is_dir() and not d.name.endswith("-workspace")
         )
 
@@ -2046,15 +2303,23 @@ def skill_validate(ctx, name, strict):
 @skill.command("eval")
 @click.argument("name")
 @click.option(
-    "--save", "save_flag", is_flag=True, default=False,
+    "--save",
+    "save_flag",
+    is_flag=True,
+    default=False,
     help="Persist the generated eval set to .openkb/eval-sets/<name>.json",
 )
 @click.option(
-    "--eval-set", "eval_set_path", default=None, type=click.Path(),
+    "--eval-set",
+    "eval_set_path",
+    default=None,
+    type=click.Path(),
     help="Use a saved eval set instead of generating fresh prompts.",
 )
 @click.option(
-    "--count", default=10, type=int,
+    "--count",
+    default=10,
+    type=int,
     help="Number of should-trigger + should-not prompts (each).",
 )
 @click.pass_context
@@ -2066,7 +2331,10 @@ def skill_eval(ctx, name, save_flag, eval_set_path, count):
     rate + miss list.
     """
     from openkb.skill.evaluator import (
-        run_eval, save_eval_set, load_eval_set, EvalPrompt,
+        run_eval,
+        save_eval_set,
+        load_eval_set,
+        EvalPrompt,
     )
 
     from openkb.skill import skill_dir as _skill_dir
@@ -2097,9 +2365,14 @@ def skill_eval(ctx, name, save_flag, eval_set_path, count):
         click.echo(f"Generating eval set for '{name}' (count={count} per side)...")
 
     try:
-        result = asyncio.run(run_eval(
-            skill_dir, model=model, eval_set=eval_set, count=count,
-        ))
+        result = asyncio.run(
+            run_eval(
+                skill_dir,
+                model=model,
+                eval_set=eval_set,
+                count=count,
+            )
+        )
     except RuntimeError as exc:
         click.echo(f"[ERROR] {exc}", err=True)
         ctx.exit(1)
@@ -2181,17 +2454,23 @@ def deck():
 @click.argument("name")
 @click.argument("intent")
 @click.option(
-    "-y", "--yes", "yes_flag",
-    is_flag=True, default=False,
+    "-y",
+    "--yes",
+    "yes_flag",
+    is_flag=True,
+    default=False,
     help="Overwrite existing output/decks/<name>/ without prompting.",
 )
 @click.option(
-    "--critique", "critique_flag",
-    is_flag=True, default=False,
+    "--critique",
+    "critique_flag",
+    is_flag=True,
+    default=False,
     help="Opt-in second-pass review via a critic agent (slower, higher quality).",
 )
 @click.option(
-    "--skill", "skill_name",
+    "--skill",
+    "skill_name",
     metavar="SKILL_NAME",
     default=None,
     help=(
@@ -2248,7 +2527,10 @@ def deck_new(ctx, name, intent, yes_flag, critique_flag, skill_name):
     # openkb.skill). Mirror its iteration-N copy-then-rmtree behavior here
     # using deck_workspace_dir so users keep rollback safety without coupling
     # deck CLI to skill internals.
-    from openkb.deck import deck_dir as _deck_dir, deck_workspace_dir as _deck_workspace_dir
+    from openkb.deck import (
+        deck_dir as _deck_dir,
+        deck_workspace_dir as _deck_workspace_dir,
+    )
 
     target = _deck_dir(kb_dir, name)
     if target.exists():
@@ -2274,6 +2556,7 @@ def deck_new(ctx, name, intent, yes_flag, critique_flag, skill_name):
 
     # Run the generator.
     from openkb.skill.generator import Generator
+
     skill_label = skill_name if skill_name else "openkb-deck-editorial (default)"
     click.echo(f"Generating deck '{name}' via skill {skill_label}...")
     gen = Generator(
@@ -2317,7 +2600,10 @@ def _save_deck_iteration(kb_dir: Path, deck_name: str) -> Path | None:
     no current deck to save.
     """
     import re
-    from openkb.deck import deck_dir as _deck_dir, deck_workspace_dir as _deck_workspace_dir
+    from openkb.deck import (
+        deck_dir as _deck_dir,
+        deck_workspace_dir as _deck_workspace_dir,
+    )
 
     src = _deck_dir(kb_dir, deck_name)
     if not src.is_dir():

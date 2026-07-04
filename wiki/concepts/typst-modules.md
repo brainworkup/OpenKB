@@ -1,5 +1,5 @@
 ---
-sources: [summaries/report-rendering-pipeline.md, summaries/report-template.md, summaries/0010-voice-quarto-typst-reporting.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md]
+sources: [summaries/ARCHITECTURE.md, summaries/report-rendering-pipeline.md, summaries/report-template.md, summaries/0010-voice-quarto-typst-reporting.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md]
 brief: Reusable Typst code modules that centralize shared layout logic across multiple document templates.
 ---
 
@@ -86,3 +86,5 @@ See also: [[summaries/0010-voice-quarto-typst-reporting]]
 See also: [[summaries/report-template]]
 
 See also: [[summaries/report-rendering-pipeline]]
+
+See also: [[summaries/ARCHITECTURE]]

@@ -606,3 +606,19 @@
 
 ## [2026-06-27 01:24:54] ingest | clinical-assessment.md
 
+## [2026-07-04 00:05:43] query | do i have a lot of notes about neuropsychology?
+
+## [2026-07-04 00:09:51] query | do i have neuropsych notes?
+
+## [2026-07-04 00:11:59] query | do i have neuropsych notes
+
+## [2026-07-04 00:18:31] ingest | ARCHITECTURE.md
+
+## [2026-07-04 01:08:45] ingest | CHANGES.md
+
+## [2026-07-04 08:50:06] ingest | MIGRATION_GUIDE.md
+
+## [2026-07-04 13:37:29] ingest | AGENTS.md
+
+## [2026-07-04 13:50:32] ingest | Introducing-Neuromancer-XR.md
+

@@ -1,7 +1,28 @@
 """Q&A agent for querying the OpenKB knowledge base."""
+
 from __future__ import annotations
 
 from pathlib import Path
+
+# Patch litellm to drop unsupported params for local providers
+import litellm
+
+litellm.drop_params = True
+
+# Monkey-patch ollama to silently accept parallel_tool_calls
+import sys
+
+_original_allowed_params = {}
+try:
+    from litellm.llms.ollama import chat
+
+    # Save original validation if it exists
+    if hasattr(chat, "OllamaChatConfig"):
+        OllamaChatConfig = chat.OllamaChatConfig
+        if hasattr(OllamaChatConfig, "validate_environment"):
+            _original_allowed_params["validate"] = OllamaChatConfig.validate_environment
+except Exception:
+    pass
 
 from agents import Agent, Runner, function_tool
 
@@ -89,12 +110,23 @@ def build_query_agent(wiki_root: str, model: str, language: str = "en") -> Agent
 
     from agents.model_settings import ModelSettings
 
+    # For local providers (ollama, etc.), use empty ModelSettings to avoid unsupported parameters
+    # Cloud providers can use parallel_tool_calls=False
+    if any(
+        model.lower().startswith(p) for p in ["ollama", "local", "localhost", "127.0"]
+    ):
+        # Use empty ModelSettings (all fields None) for local models
+        model_settings = ModelSettings()
+    else:
+        # For cloud providers, explicitly disable parallel tool calls
+        model_settings = ModelSettings(parallel_tool_calls=False)
+
     return Agent(
         name="wiki-query",
         instructions=instructions,
         tools=[read_file, get_page_content, get_image],
         model=f"litellm/{model}",
-        model_settings=ModelSettings(parallel_tool_calls=False),
+        model_settings=model_settings,
     )
 
 
@@ -191,6 +223,7 @@ def build_chat_agent(
                 return f"Could not read {md_path}: {exc}"
             # Strip frontmatter, return body only.
             from openkb.agent.skills import _parse_frontmatter
+
             _, body = _parse_frontmatter(text)
             return body
 
@@ -236,9 +269,7 @@ def _format_skill_list(skills: list[dict[str, str]]) -> str:
         # Indent description; keep it one paragraph so the agent reads it fast.
         desc = " ".join(s["description"].split())
         lines.append(f"    {desc}")
-    lines.append(
-        "\nTo use a skill, call read_skill(name) and follow its instructions."
-    )
+    lines.append("\nTo use a skill, call read_skill(name) and follow its instructions.")
     return "\n".join(lines)
 
 
@@ -281,6 +312,7 @@ async def run_query(
         return result.final_output or ""
 
     import os
+
     use_color = sys.stdout.isatty() and not os.environ.get("NO_COLOR", "")
 
     from openkb.agent.chat import (

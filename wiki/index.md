@@ -1,6 +1,11 @@
 # Knowledge Base Index
 
 ## Documents
+- [[summaries/Introducing-Neuromancer-XR]] (short) — Neuromancer XR: A reasoning model for memory-based social cognition
+- [[summaries/AGENTS]] (short) — This document provides a detailed overview of the AGENTS project, including its setup, architecture, and usage.
+- [[summaries/MIGRATION_GUIDE]] (short) — Migration guide from single-file neuro report agent to modular core package architecture.
+- [[summaries/CHANGES]] (short) — Fixes critical issues: test suite restored, code modularized, added FAISS vector index for scalability.
+- [[summaries/ARCHITECTURE]] (short) — Modular refactoring of the Soul project for efficient vector indexing and improved retrieval performance.
 - [[summaries/clinical-assessment]] (short) — Overview of clinical assessment with emphasis on multi-informant evaluation.
 - [[summaries/cli-regex-tools]] (short) — Stub note linking to the CLI summary document.
 - [[summaries/cli-httpie]] (short) — Stub document linking to the HTTPie CLI summary page.
@@ -237,6 +242,11 @@
 - [[summaries/The-Complete-Guide-to-AI-Architectures-From-Neural-Networks-to-Foundation-Models]] (short) — Comprehensive guide to AI architectures from perceptrons to 2025 foundation models and reasoning systems
 
 ## Concepts
+- [[concepts/concept-slug]] — Inductive and abductive reasoning are levels of logical certainty used in our memory framework to reason about user data.
+- [[concepts/agents-single-file-agent-pattern]] — A single-file architecture design where all logic lives in a single Python file.
+- [[concepts/agents-local-inference-reliability]] — A local neuropsychological report soul agent powered by a local LLM + lightweight RAG.
+- [[concepts/voice-profile-per-section]] — Training a dedicated voice profile per report section captures nuances better than one global style.
+- [[concepts/model-routing]] — Route tasks to specialized models by semantic role instead of a single all-purpose LLM.
 - [[concepts/cross-informant-correspondence]] — Agreement and discrepancy patterns across multiple clinical informants.
 - [[concepts/multi-informant-assessment]] — Using multiple informants to assess context-dependent clinical functioning.
 - [[concepts/repository-creation]] — Creating hosted code repositories from local or CLI-based workflows.
@@ -320,7 +330,7 @@
 - [[concepts/accelerate-library]] — Hugging Face Accelerate is a library enabling distributed and accelerated ML training via a unified CLI.
 - [[concepts/asio-audio]] — Steinberg's proprietary low-latency audio driver API enabling direct hardware access for professional audio.
 - [[concepts/portaudio]] — PortAudio is an open-source, cross-platform audio I/O library with pre-compiled binaries for Windows and macOS.
-- [[concepts/terminology-rebranding]] — The process of systematically updating feature names across codebases and documentation to maintain consistent branding.
+- [[concepts/terminology-rebranding]] — Systematic updating of feature names across codebases and documentation to maintain consistent branding
 - [[concepts/clinical-ai-copilot]] — An AI assistant embedded in clinical workflows that reasons over patient data and grounds every claim in source evidence.
 - [[concepts/neuropsychological-assessment-workflow]] — End-to-end process from intake to synthesis and neuropsychological reporting.
 - [[concepts/clinical-ai-reasoning]] — AI systems that perform structured, evidence-grounded clinical reasoning.
@@ -394,7 +404,7 @@
 - [[concepts/fear-of-abandonment-and-rejection]] — Fear of abandonment and rejection is a core interpersonal preoccupation seen in borderline and depressive clinical profiles.
 - [[concepts/persistent-depressive-disorder]] — Chronic depressive disorder (DSM-5 300.4/F34.1) marked by persistent low mood, negative self-concept, and high comorbidity.
 - [[concepts/identity-disturbance-clinical-features]] — Identity disturbance: unstable self-concept, shifting values, and chronic emptiness across psychiatric presentations and ages.
-- [[concepts/social-avoidance-and-withdrawal]] — Social avoidance and withdrawal patterns across PAI clinical profiles, from subclinical to severe presentations.
+- [[concepts/social-avoidance-and-withdrawal]] — Social avoidance and withdrawal patterns in PAI clinical profiles refer to individuals' tendency to avoid social interactions or retreat into their own world due to various reasons, such as anxiety, depression, or past traumatic experiences.
 - [[concepts/depression-clinical-features]] — Depression clinical features across PAI-assessed populations, including subtypes, comorbidities, and risk indicators.
 - [[concepts/random-responding]] — Random responding renders PAI self-report profiles invalid by producing noise rather than genuine clinical signal.
 - [[concepts/malingering-detection]] — Systematic use of PAI validity indices to detect feigned, exaggerated, or distorted symptom reporting in psychological assessment.
@@ -406,7 +416,7 @@
 - [[concepts/anxiety-clinical-features]] — Cross-domain synthesis of anxiety clinical features, subtypes, and comorbidities as captured by PAI assessment.
 - [[concepts/psychosis-clinical-features]] — Clinical features, assessment, and differential diagnosis of psychosis and psychotic symptoms across psychiatric contexts.
 - [[concepts/borderline-personality-disorder]] — BPD clinical features, PAI assessment patterns, and differential diagnosis across a large case series.
-- [[concepts/suicide-and-violence-risk-indices]] — Quantitative PAI indices estimating self-harm and violence risk across a large clinical case series.
+- [[concepts/suicide-and-violence-risk-indices]] — Risk indices in the Psychopathy Assessment Inventory (PAI) that carry forensic weight.
 - [[concepts/trauma-informed-clinical-assessment]] — PAI-based trauma assessment practices across 23 clinical cases, tracking ARD-T indicators and PTSD profile fit.
 - [[concepts/personality-assessment-inventory]] — The PAI is a 344-item self-report personality and psychopathology assessment with rich validity, clinical, and treatment indices.
 - [[concepts/knowledge-base-architecture]] — Tiered architecture separating curated reference wikis from shared auto-ingested clinical resources for clinical AI.
@@ -424,7 +434,7 @@
 - [[concepts/neuropsychological-synthesis]] — How neuropsychological reports integrate findings into clinical meaning.
 - [[concepts/clinical-narrative-generation]] — Automated generation of structured clinical narrative text from quantitative scores using LLM prompting.
 - [[concepts/neuropsychological-score-interpretation]] — Translating neuropsychological test scores into clinically meaningful cognitive statements via normative and pattern analysis.
-- [[concepts/staged-clinical-intake]] — Structured multi-phase intake that organizes history before formal assessment.
+- [[concepts/staged-clinical-intake]] — Structured Multi-Phase Intake for Formal Assessment is a comprehensive and structured approach to intake and assessment in psychology, encompassing multiple phases and covering various aspects of cognition and behavior.
 - [[concepts/neurobehavioral-status-exam]] — Structured pre-testing narrative summarizing referral context, history, and observations.
 - [[concepts/neuropsychological-prompt-configuration]] — LLM configuration parameters and persona settings for clinical neuropsychological report generation.
 - [[concepts/neuropsychological-prompt-engineering]] — Structuring LLM prompts for formal neuropsychological report generation across all evaluation phases.
@@ -468,7 +478,7 @@
 - [[concepts/long-format-clinical-data]] — Long-format schema storing one clinical measurement per row with a score_type discriminator column.
 - [[concepts/report-review-qa]] — Systematic, structured verification of clinical neuropsychological reports before human sign-off in automated pipelines.
 - [[concepts/validity-language]] — Calibrated phrasing standards for communicating validity, effort, and response style in clinical reports.
-- [[concepts/subagent-architecture]] — Architectural pattern distinguishing static agent specs from runtime-dispatchable subagents in Claude-based pipelines.
+- [[concepts/subagent-architecture]] — Distinguishing Static Agent Specs from Runtime-Dispatchable Subagents in Claude-Based Pipelines
 - [[concepts/cingulate-engine]] — R package that transforms neuropsychological CSV test data into publication-quality PDF reports via R6/LLM pipeline.
 - [[concepts/narrative-report-generation]] — Automated generation of clinician-ready neuropsychological narrative reports.
 - [[concepts/forensic-neuropsychological-evaluation]] — Specialized neuropsychological assessment for medicolegal purposes, integrating cognitive testing with forensic standards.

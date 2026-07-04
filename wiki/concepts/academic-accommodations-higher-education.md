@@ -1,5 +1,5 @@
 ---
-sources: [summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md]
+sources: [summaries/Introducing-Neuromancer-XR.md, summaries/bwu.neuro.reports.recs.dyslexia.young-adult.md]
 brief: Formal supports and modifications granted to college students with disabilities to ensure equitable access to learning.
 ---
 
@@ -62,3 +62,6 @@ Accommodations work best when paired with evidence-based learning strategies:
 - [[summaries/bwu.neuro.reports.recs.dyslexia.young-adult]] — Source recommendations for young adults with dyslexia returning to college.
 - [[summaries/bwu.neuro.reports.recs.adhd.young-adult]] — Parallel recommendations for young adults with ADHD.
 - [[summaries/bwu.neuro.reports.recs.adhd.adult]] — Accommodation guidance for adult ADHD presentations.
+
+
+See also: [[summaries/Introducing-Neuromancer-XR]]

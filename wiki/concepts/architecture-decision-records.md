@@ -1,5 +1,5 @@
 ---
-sources: [summaries/SKILL.md, summaries/0007-voice-modular-report-sections-via-quarto-includes.md, summaries/0010-voice-quarto-typst-reporting.md, summaries/0009-soul-local-llm-inference-with-omlx.md, summaries/0008-soul-single-file-style-agent-architecture.md, summaries/0007-style-modular-report-sections-via-quarto-includes.md, summaries/0006-brand-yml-for-cross-platform-theming.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md, summaries/0004-soul-style-profile-json.md, summaries/0002-soul-sqlite-vector-storage.md, summaries/0001-voice-record-architecture-decisions.md]
+sources: [summaries/MIGRATION_GUIDE.md, summaries/SKILL.md, summaries/0007-voice-modular-report-sections-via-quarto-includes.md, summaries/0010-voice-quarto-typst-reporting.md, summaries/0009-soul-local-llm-inference-with-omlx.md, summaries/0008-soul-single-file-style-agent-architecture.md, summaries/0007-style-modular-report-sections-via-quarto-includes.md, summaries/0006-brand-yml-for-cross-platform-theming.md, summaries/0005-style-quarto-custom-format-extensions-for-report-variants.md, summaries/0004-soul-style-profile-json.md, summaries/0002-soul-sqlite-vector-storage.md, summaries/0001-voice-record-architecture-decisions.md]
 brief: Structured documents capturing the why behind architectural choices, kept immutable alongside code.
 ---
 
@@ -110,3 +110,5 @@ See also: [[summaries/0010-voice-quarto-typst-reporting]]
 See also: [[summaries/0007-voice-modular-report-sections-via-quarto-includes]]
 
 See also: [[summaries/SKILL]]
+
+See also: [[summaries/MIGRATION_GUIDE]]

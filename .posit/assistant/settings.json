@@ -1,7 +1,13 @@
 {
   "permission": {
     "edit": {
-      "*.md": "allow"
+      "*.md": "allow",
+      "*.yaml": "allow",
+      "*/.env": "allow",
+      "*.py": "allow"
+    },
+    "external_directory": {
+      "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/litellm/llms/openai_like/*": "allow"
     }
   }
 }

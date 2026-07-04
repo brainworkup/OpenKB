@@ -1,5 +1,5 @@
 ---
-sources: [summaries/clinical-assessment.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.conversion.md]
+sources: [summaries/CHANGES.md, summaries/clinical-assessment.md, summaries/bwu.neuro.reports.recs.dyslexia.md, summaries/bwu.neuro.reports.recs.conversion.md]
 brief: CBT is a structured psychological therapy targeting dysfunctional thought-behavior patterns across many clinical conditions.
 ---
 
@@ -54,3 +54,5 @@ CBT recommendations often appear in [[concepts/clinical-guidelines]] sections of
 See also: [[summaries/bwu.neuro.reports.recs.dyslexia]]
 
 See also: [[summaries/clinical-assessment]]
+
+See also: [[summaries/CHANGES]]
